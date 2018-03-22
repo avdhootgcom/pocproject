@@ -1,0 +1,129 @@
+﻿
+@{
+    ViewBag.Title = "Profile";
+}
+
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Profile</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a>PCS</a>
+            </li>
+            <li class="active">
+                <strong>Profile</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+
+
+    <div class="row m-b-lg m-t-lg">
+        <div class="col-md-6">
+
+            <div class="profile-image">
+                <img src="~/Images/profile_small.jpg" class="img-circle circle-border m-b-md" alt="profile">
+            </div>
+            <div class="profile-info">
+                <div class="">
+                    <div>
+                        <h2 class="no-margins">
+                            David Williams
+                        </h2>
+                        <h4>Inspector</h4>
+                        <small>
+                            There are many variations of passages of Lorem Ipsum available, but the majority
+                            have suffered alteration in some form Ipsum available.
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <table class="table small m-b-xs">
+                <tbody>
+                    <tr>
+                        <td>
+                            <strong>142</strong> Projects
+                        </td>
+                        <td>
+                            <strong>22</strong> Followers
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>61</strong> Comments
+                        </td>
+                        <td>
+                            <strong>32</strong> Friends
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-3">
+            <small>Sales in last 24h</small>
+            <h2 class="no-margins">206 480</h2>
+            <div id="sparkline1"></div>
+        </div>
+
+
+    </div>
+    <div class="row" style="width: 412%">
+
+        <div class="col-lg-3">
+
+            <div class="ibox">
+                <div class="ibox-content">
+                    <h3>About David Williams</h3>
+
+                    <p class="small">
+                        There are many variations of passages of Lorem Ipsum available, but the majority have
+                        suffered alteration in some form, by injected humour, or randomised words which don't.
+                        <br />
+                        <br />
+                        If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
+                        anything embarrassing
+                    </p>
+
+                    <p class="small font-bold">
+                        <span><i class="fa fa-circle text-navy"></i> Online status</span>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/plugins/sparkLine")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#sparkline1").sparkline([34, 43, 43, 35, 44, 32, 44, 48], {
+                type: 'line',
+                width: '100%',
+                height: '50',
+                lineColor: '#1ab394',
+                fillColor: "transparent"
+            });
+
+        });
+    </script>
+}
+

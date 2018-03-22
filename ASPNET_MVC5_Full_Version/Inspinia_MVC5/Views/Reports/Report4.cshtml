@@ -1,0 +1,358 @@
+﻿
+@{
+    ViewBag.Title = "Report4";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Report 4</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("ExecutiveDashboard", "Dashboards")">Home</a>
+            </li>
+            <li>
+                <a>Reports</a>
+            </li>
+            <li class="active">
+                <strong>Report 4</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="wrapper wrapper-content">
+
+    <div class="ibox-content">
+        <div style="text-align-last: right">
+            <a href="#" onclick="$('#emailPopup').modal('show');" class="btn btn-primary" style="text-align-last: right"><i class="fa fa-mail-forward"></i> Email </a>
+            <a class="btn btn-primary" target="_blank" href="@Url.Action("GeneratePDF", "Miscellaneous")"><i class="fa fa-print"></i>Preview</a>
+            <a href="@Url.Action("ExportExcel", "Dashboards")" class="btn btn-primary" style="text-align-last: right"><i class="fa fa-print"></i> Export to Excel </a>
+        </div>
+        <div class="row" style="margin-top: 20px">
+            <label class="col-sm-1 control-label">Source: </label>
+            <div class="col-sm-2">
+                <select class="select2_demo_1 form-control">
+                    <option value="1">PCS</option>
+                    <option value="2">VECTOR</option>
+                    <option value="3">VPHS</option>
+                </select>
+            </div>
+            <label class="col-sm-1 control-label text-right">Job ID:</label>
+            <div class="col-sm-2">
+
+                <input class="form-control" placeholder="Job ID" />
+
+            </div>
+
+        </div>
+        <div class="row" style="margin-top:10px">
+            <div class="form-group">
+                <label class="col-sm-1 control-label">Date Range:</label>
+                <div class="col-md-5">
+                    <div id="reportrange" class="form-control">
+                        <i class="fa fa-calendar"></i>
+                        <span></span> <b class="caret"></b>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="row" style="margin-top:10px">
+            <label class="col-sm-1 control-label">Source: </label>
+            <div class="col-sm-5">
+                <form id="form" action="#" class="wizard-big">
+                    <select class="form-control single" multiple>
+                        <option value="5DayLetter">5 Day Letter</option>
+                        <option value="5DayCityLetter">5 Day City Letter</option>
+                        <option value="5DayDSNYLetter">5 Day DSNY Letter</option>
+                        <option value="5DayFSCSLetter">5 Day FSCS Letter</option>
+
+
+                    </select>
+                </form>
+            </div>
+
+
+        </div>
+        <div class="row" style="margin-top: 40px">
+            <div class="col-lg-5"></div>
+            <div class="col-lg-4">
+                <button type="button" class="btn btn-primary">Submit</button>
+
+            </div>
+        </div>
+    </div>
+    <div id="emailPopup" class="modal fade col-lg-12">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title text-primary">Email <span id="emailPopupCommon"></span></h4>
+                    </div>
+                    <div class="modal-body cf form-horizontal">
+                        <div class="form-group">
+                            <label class="col-xs-12" for="to">To:</label>
+                            <div class="col-xs-12"><input type="text" id="eTo" class="form-control" /></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-12" for="cc">CC:</label>
+                            <div class="col-xs-12"><input type="text" id="eCC" class="form-control" /></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-12" for="subject">Subject:</label>
+                            <div class="col-xs-12"><input type="text" id="emailPopupSubject" class="form-control" /></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-12" for="subject">Description:</label>
+                            <div class="col-xs-12">
+                                @Html.TextArea("MailBody", new { rows = 5, columns = 100, style = "width:100%" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-12" for="subject">Attachment:</label>
+                            <div class="col-xs-12">
+                                <label class="col-xs-12" for="subject">1. Sample1.csv</label>
+                                <label class="col-xs-12" for="subject">2. Sample2.pdf</label>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" id="btnSendEmail">Send</button>
+                            <button type="button" class="btn btn-default" id="btnCancelEmail">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+@section Styles {
+
+    @Styles.Render("~/plugins/dateRangeStyles")
+    @Styles.Render("~/plugins/summernoteStyles")
+    @Styles.Render("~/plugins/dataPickerStyles")
+
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/plugins/flot")
+    @Scripts.Render("~/plugins/vectorMap")
+    @Scripts.Render("~/plugins/sparkline")
+    @Scripts.Render("~/plugins/chartJs")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/dateRange")
+    @Scripts.Render("~/plugins/imagecropper")
+    @Scripts.Render("~/plugins/jqGrid")
+    @Scripts.Render("~/plugins/summernote")
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+
+
+            $('#data_1 .input-group.date').datepicker({
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true
+            });
+
+            $('#data_2 .input-group.date').datepicker({
+                startView: 1,
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            });
+
+            $('#data_3 .input-group.date').datepicker({
+                startView: 2,
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            });
+
+            $('#data_4 .input-group.date').datepicker({
+                minViewMode: 1,
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true,
+                todayHighlight: true
+            });
+
+            $('#data_5 .input-daterange').datepicker({
+                todayBtn: "linked",
+                keyboardNavigation: true,
+                forceParse: true,
+                autoclose: true,
+                todayHighlight: true,
+                calendarWeeks: true,
+                singleDatePicker: true
+            });
+
+
+
+
+            $('input[name="daterange"]').daterangepicker();
+            $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+
+            $('#reportrange').daterangepicker({
+                format: 'MM/DD/YYYY',
+                startDate: moment().subtract(29, 'days'),
+                endDate: moment(),
+                minDate: '01/01/1950',
+                maxDate: '12/31/3000',
+                dateLimit: { days: 60 },
+                showDropdowns: true,
+                showWeekNumbers: true,
+                timePicker: false,
+                timePickerIncrement: 1,
+                timePicker12Hour: true,
+
+                opens: 'right',
+                drops: 'down',
+                buttonClasses: ['btn', 'btn-sm'],
+                applyClass: 'btn-primary',
+                cancelClass: 'btn-default',
+                separator: ' to ',
+                locale: {
+                    applyLabel: 'Submit',
+                    cancelLabel: 'Cancel',
+                    fromLabel: 'From',
+                    toLabel: 'To',
+                    customRangeLabel: 'Custom',
+                    daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+                    monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                    firstDay: 1
+                }
+            }, function (start, end, label) {
+                console.log(start.toISOString(), end.toISOString(), label);
+                $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+            });
+            var mydata1 = [
+             { IntakeQueue: "Service Dogs Proof", Hours24: "0", Hours48: "0", Late: "9527", Accepted: "0", Rejected: "0" },
+                        { IntakeQueue: "Link Confirmations", Hours24: "0", Hours48: "0", Late: "103", Accepted: "11", Rejected: "2" },
+   { IntakeQueue: "Pet Shop Requests", Hours24: "0", Hours48: "0", Late: "2", Accepted: "0", Rejected: "0" },
+   { IntakeQueue: "Shelter/Rescue Group Request", Hours24: "0", Hours48: "0", Late: "2", Accepted: "0", Rejected: "0" },
+   { IntakeQueue: "Other Requests", Hours24: "0", Hours48: "0", Late: "2", Accepted: "0", Rejected: "0" },
+       { IntakeQueue: "Enforcer Requests", Hours24: "0", Hours48: "0", Late: "2", Accepted: "0", Rejected: "0" },
+   { IntakeQueue: "Total", Hours24: "0", Hours48: "0", Late: "9644", Accepted: "11", Rejected: "2" }];
+            var mydata = [
+                     { InspectionCategory: "Initial Inspection", Today: "8", Previous: "16", LastWeek: "18", Average: "21" },
+                     { InspectionCategory: "Compliance Inspection", Today: "89", Previous: "103", LastWeek: "194", Average: "120" },
+                     { InspectionCategory: "Indexing", Today: "846", Previous: "967", LastWeek: "941", Average: "689" },
+                     { InspectionCategory: "Special", Today: "3775", Previous: "3764", LastWeek: "3542", Average: "3446" },
+                     { InspectionCategory: "Street area", Today: "4718", Previous: "4850", LastWeek: "4695", Average: "1069" },
+                      { InspectionCategory: "FSCS", Today: "478", Previous: "480", LastWeek: "495", Average: "169" }
+
+
+
+            ];
+            // Configuration for jqGrid Example 1
+            $("#table_list_1").jqGrid({
+                data: mydata1,
+                datatype: "local",
+                height: 170,
+                autowidth: true,
+                shrinkToFit: true,
+                rowNum: 7,
+                rowList: [10, 20, 30],
+                colNames: ['Intake Queue', '24 Hours', '48 Hours', 'Late', 'Accepted','Rejected'],
+                colModel: [
+                    { name: 'IntakeQueue', index: 'IntakeQueue', editable: false, sortable: false, width: 100, sorttype: "string", search: true, formatter: 'showlink', formatoptions: { baseLinkUrl: 'javascript:', showAction: "Link('", addParam: "');" } },
+                    { name: 'Hours24', index: 'Hours24', editable: true, width: 90, sorttype: "int", align: "center" },
+                    { name: 'Hours48', index: 'Hours48', editable: true, width: 100, sorttype: "int", align: "center" },
+                    { name: 'Late', index: 'Late', editable: true, width: 80, align: "center", sorttype: "int", formatter: "number" },
+                    { name: 'Accepted', index: 'Accepted', editable: true, width: 80, align: "center", sorttype: "int" },
+                       { name: 'Rejected', index: 'Rejected', editable: true, width: 80, align: "center", sorttype: "int" },
+
+
+
+                ],
+                pager: "#pager_list_1",
+                viewrecords: true,
+
+                add: true,
+                edit: true,
+                addtext: 'Add',
+                edittext: 'Edit',
+                hidegrid: false
+            });
+
+            // Configuration for jqGrid Example 2
+            $("#table_list_2").jqGrid({
+                data: mydata,
+                datatype: "local",
+                height: 170,
+                autowidth: true,
+                shrinkToFit: true,
+                rowNum: 7,
+                rowList: [10, 20, 30],
+                colNames: ['Inspection Category', 'Today', 'Previous', 'Last Week', 'Average'],
+                colModel: [
+
+                    { name: 'InspectionCategory', index: 'InspectionCategory', editable: false, sortable: false, width: 100, sorttype: "string", search: true, formatter: 'showlink', formatoptions: { baseLinkUrl: 'javascript:', showAction: "Link('", addParam: "');" } },
+                    { name: 'Today', index: 'Today', editable: true, width: 90, sorttype: "int", align: "center" },
+                    { name: 'Previous', index: 'Previous', editable: true, width: 100, sorttype: "int", align: "center" },
+                    { name: 'LastWeek', index: 'LastWeek', editable: true, width: 80, align: "center", sorttype: "int" },
+                    { name: 'Average', index: 'Average', editable: true, width: 80, align: "center", sorttype: "int" }
+
+
+
+                ],
+                pager: "#pager_list_2",
+                viewrecords: true,
+
+                add: true,
+                edit: true,
+                addtext: 'Add',
+                edittext: 'Edit',
+                hidegrid: false
+            });
+
+            // Add selection
+            $("#table_list_2").setSelection(4, true);
+
+            $("#table_list_1").setSelection(4, true);
+            // Setup buttons
+            $("#table_list_2").jqGrid('navGrid', '#pager_list_2',
+                    { edit: true, add: true, del: true, search: true },
+                    { reloadAfterSubmit: true }
+            );
+            $("#table_list_1").jqGrid('navGrid', '#pager_list_1',
+                    { edit: true, add: true, del: true, search: true },
+                    { reloadAfterSubmit: true }
+            );
+
+            // Add responsive to jqGrid
+            $(window).bind('resize', function () {
+                var width = $('.jqGrid_wrapper').width();
+                $('#table_list_1').setGridWidth(width);
+                $('#table_list_2').setGridWidth(width);
+
+            });
+
+
+        });
+        //$('#btnExport').click(function () {
+        //    $("#hdnExport").val("Clicked");
+
+        //$('.summernote').summernote();
+        $("#btnCancelEmail").click(function () {
+            $('#emailPopup').modal('hide');
+        });
+        $("#btnSendEmail").click(function () {
+            $('#emailPopup').modal('hide');
+        });
+    </script>
+}
+

@@ -1,0 +1,113 @@
+﻿@{
+    ViewBag.Title = "Roles";
+}
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Roles</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("ExecutiveDashboard", "Dashboards")">Home</a>
+            </li>
+            <li>
+                <a>Super Admin Task</a>
+            </li>
+            <li class="active">
+                <strong>Roles</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+   
+   
+     <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox-title">
+                <h5> Search roles assigned for current user: </h5>
+            </div>
+            <div class="ibox-content">
+                
+                    <div class="form-group" id="data_5">
+                        
+
+                        
+
+                    </div>
+                </div>
+        </div>
+     </div>
+    <br />
+    <div class="row" style="margin-top:10px">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <a href="#" class="btn btn-white btn-xs pull-right">Edit Roles</a>
+                    <h5>List of roles assigned to current user</h5>
+
+                </div>
+                <div class="ibox-content">
+                    <form method="get" class="form-horizontal">
+
+                        <div class="form-group">
+                            <div class="col-sm-4">
+
+                                <div class="checkbox i-checks"><label> <input type="checkbox" value="" disabled="" checked=""> <i></i> Role 1 </label></div>
+                                <div class="checkbox i-checks"><label> <input type="checkbox" value="" disabled=""> <i></i> Role 2 </label></div>
+
+                            </div>
+                            <div class="col-sm-4">
+
+                                <div class="checkbox i-checks"><label> <input type="checkbox" value="" disabled="" checked=""> <i></i> Role 3 </label></div>
+                                <div class="checkbox i-checks"><label> <input type="checkbox" value="" disabled=""> <i></i> Role 4 </label></div>
+
+                            </div>
+
+                            <div class="col-sm-4">
+
+                                <div class="checkbox i-checks"><label> <input type="checkbox" value="" disabled="" checked=""> <i></i> Role 5 </label></div>
+                                <div class="checkbox i-checks"><label> <input type="checkbox" value="" disabled=""> <i></i> Role 6 </label></div>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+</div>
+@section Styles {
+@Styles.Render("~/Content/plugins/iCheck/iCheckStyles")
+@Styles.Render("~/plugins/toastrStyles")
+}
+
+@section Scripts {
+    @Scripts.Render("~/plugins/iCheck")
+    @Scripts.Render("~/plugins/toastr")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+
+            var i = -1;
+            var toastCount = 0;
+            var $toastlast;
+
+
+            $('#showsimple').click(function () {
+                // Display a success toast, with a title
+                toastr.success('Please Assign ', 'New Role Added!')
+            });
+
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+
+        });
+    </script>
+}
+
+

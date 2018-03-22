@@ -1,0 +1,752 @@
+﻿@{
+    ViewBag.Title = "Permission";
+}
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Permission</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("ExecutiveDashboard", "Dashboards")">Home</a>
+            </li>
+            <li>
+                <a>Super Admin Task</a>
+            </li>
+            <li class="active">
+                <strong>Permission</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="ibox-content">
+            <div class="form-group" id="data_5">
+                <h3>Add Permission</h3>
+                <div class="col-lg-2"><label for="FirstName">Role Name:</label></div>
+                <div class="col-lg-6"><input type="text" class="form-control" placeholder="" required="required"></div>
+                <button type="button" class="btn btn-primary" id="showsimple">Search</button>
+                <button type="button" class="btn btn-primary" id="showsimple" style="margin-left:10px">Cancel</button>
+            </div>
+          
+        </div>
+       
+    </div>   
+        <br />
+    <div class="ibox-content">
+        <h3>Role Access Matrix</h3>        
+            <div class="row" style="margin-top:20px">
+                <div class="ibox-content">
+                    <div class="col-lg-12">
+                        <div class="tabs-container">
+                            <ul class="nav nav-tabs">
+                                <li class=""><a data-toggle="tab" href="#tab-1">Add Super Admin</a></li>
+                                <li class=""><a data-toggle="tab" href="#tab-2">Supervisor</a></li>
+                                <li class=""><a data-toggle="tab" href="#tab-3">Regional Director</a></li>
+                                <li class=""><a data-toggle="tab" href="#tab-4">Inspector</a></li>
+                                <li class=""><a data-toggle="tab" href="#tab-5">PCS Admin</a></li>
+                                <li class=""><a data-toggle="tab" href="#tab-6">Exterminator</a></li>
+                                <li class=""><a data-toggle="tab" href="#tab-7">Clean Up Crew Chief</a></li>
+                                <li class=""><a data-toggle="tab" href="#tab-8">Print Shop</a></li>
+                                <li class=""><a data-toggle="tab" href="#tab-9">Property Research</a></li>
+                                <li class=""><a data-toggle="tab" href="#tab-10">Billing</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div id="tab-1" class="tab-pane active">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="ibox ">
+                                                    <div class="ibox-content">
+                                                        <div class="jqGrid_wrapper">
+                                                            <table id="table_list_1"></table>
+                                                            <div id="pager_list_1"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                                <div id="tab-2" class="tab-pane">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="ibox ">
+                                                <div class="ibox-content">
+                                                    <div class="jqGrid_wrapper">
+                                                        <table id="table_list_2"></table>
+                                                        <div id="pager_list_2"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="tab-3" class="tab-pane">
+
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="ibox ">
+                                                <div class="ibox-content">
+                                                    <div class="jqGrid_wrapper">
+                                                        <table id="table_list_3"></table>
+                                                        <div id="pager_list_3"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="tab-4" class="tab-pane">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="ibox ">
+                                                <div class="ibox-content">
+                                                    <div class="jqGrid_wrapper">
+                                                        <table id="table_list_4"></table>
+                                                        <div id="pager_list_4"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="tab-5" class="tab-pane">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="ibox ">
+                                                <div class="ibox-content">
+                                                    <div class="jqGrid_wrapper">
+                                                        <table id="table_list_5"></table>
+                                                        <div id="pager_list_5"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="tab-6" class="tab-pane">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="ibox ">
+                                                <div class="ibox-content">
+                                                    <div class="jqGrid_wrapper">
+                                                        <table id="table_list_6"></table>
+                                                        <div id="pager_list_6"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="tab-7" class="tab-pane">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="ibox ">
+                                                <div class="ibox-content">
+                                                    <div class="jqGrid_wrapper">
+                                                        <table id="table_list_7"></table>
+                                                        <div id="pager_list_7"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="tab-8" class="tab-pane">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="ibox ">
+                                                <div class="ibox-content">
+                                                    <div class="jqGrid_wrapper">
+                                                        <table id="table_list_8"></table>
+                                                        <div id="pager_list_8"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="tab-9" class="tab-pane">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="ibox ">
+                                                <div class="ibox-content">
+                                                    <div class="jqGrid_wrapper">
+                                                        <table id="table_list_9"></table>
+                                                        <div id="pager_list_9"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="tab-10" class="tab-pane">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="ibox ">
+                                                <div class="ibox-content">
+                                                    <div class="jqGrid_wrapper">
+                                                        <table id="table_list_10"></table>
+                                                        <div id="pager_list_10"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>             
+            </div>
+        </div>
+        <div class="row" style="margin-top:10px;margin-left:10px">
+            <button type="button" class="btn btn-primary" id="showsimple2" style="margin-left:10px">Enable </button>
+            <button type="button" class="btn btn-primary" id="showsimple1" style="margin-left:10px">Disable</button>
+        </div>
+    </div>
+    
+    </div>
+
+@section Styles {
+@Styles.Render("~/Content/plugins/jqGrid/jqGridStyles")
+@Styles.Render("~/plugins/toastrStyles")
+    }
+@section Scripts {
+@Scripts.Render("~/plugins/jqGrid")
+@Scripts.Render("~/plugins/toastr")
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#showsimple2').click(function () {
+            // Display a success toast, with a title
+            toastr.info('Role Enable', 'Role Enabled!')
+        });
+
+
+        $('#showsimple1').click(function () {
+            // Display a success toast, with a title
+            toastr.error('Disabled User', 'Disabled User!')
+        });
+        var mydata = [
+   { Select: "", Functionality: "Create Job Route", Path: "Account/AccountSetup", CreatedOn: "07/07/2014", CreatedBy: "Victoria Barton", ModifiedOn: "07/07/2014 15:54:17", ModifiedBy: "Xueteng Zhao" },
+   { Select: "", Functionality: "Approves Job", Path: "Account/ChangePassword", CreatedOn: "06/24/2014", CreatedBy: "F Ali Ahmad", ModifiedOn: "07/10/2014 09:24:07", ModifiedBy: "Tida Johnston" },
+ { Select: "", Functionality: "Rejects Job", Path: "Account/DeleteAccount", CreatedOn: "06/25/2014", CreatedBy: "Kiran Gudgar", ModifiedOn: "07/14/2014 19:14:17", ModifiedBy: "Kiran Gudgar" },
+ { Select: "", Functionality: "Returns job", Path: "Account/Discount", CreatedOn: "06/26/2014", CreatedBy: "Tida Johnston", ModifiedOn: "07/17/2014 20:24:27", ModifiedBy: "Ajay Bajwa" },
+ { Select: "", Functionality: "Upload Results", Path: "Account/OwnerDetails", CreatedOn: "06/27/2014", CreatedBy: "Vima Franco", ModifiedOn: "07/18/2014 16:04:09", ModifiedBy: "Xueteng Zhao" },
+ { Select: "", Functionality: "Download to Handheld", Path: "Account/PayByCheck", CreatedOn: "06/28/2014", CreatedBy: "Victoria Barton", ModifiedOn: "07/20/2014 19:14:07", ModifiedBy: "Tida Johnston" },
+ { Select: "", Functionality: "Close the job", Path: "Account/PayByCreditCard", CreatedOn: "06/29/2014", CreatedBy: "F Ali Ahmad", ModifiedOn: "09/12/2014 12:34:57", ModifiedBy: "Kiran Gudgar" },
+ { Select: "", Functionality: "Assign job", Path: "Account/ShoppingCart", CreatedOn: "06/30/2014", CreatedBy: "Kiran Gudgar", ModifiedOn: "09/13/2014 19:24:17", ModifiedBy: "Ajay Bajwa" },
+ { Select: "", Functionality: "Create Work order (Emergency Extermination/ Street Area )", Path: "Admin/Fees", CreatedOn: "07/24/2014", CreatedBy: "Vima Franco", ModifiedOn: "09/23/2014 17:24:17", ModifiedBy: "Xueteng Zhao" },
+ { Select: "", Functionality: "Send the job to routing", Path: "Admin/Notices", CreatedOn: "07/25/2014", CreatedBy: "Tida Johnston", ModifiedOn: "09/20/2014 18:25:17", ModifiedBy: "Tida Johnston" },
+ { Select: "", Functionality: "Finalize Route", Path: "Admin/Productivity", CreatedOn: "07/26/2014", CreatedBy: "Vima Franco", ModifiedOn: "09/29/2014 21:28:17", ModifiedBy: "Kiran Gudgar" },
+
+
+        ];
+         var mydata1 = [
+  { Select: "", Functionality: "Create Job Route", Path: "Account/AccountSetup", CreatedOn: "07/07/2014", CreatedBy: "Victoria Barton", ModifiedOn: "07/07/2014 15:54:17", ModifiedBy: "Xueteng Zhao" },
+  { Select: "", Functionality: "Approves Job", Path: "Account/ChangePassword", CreatedOn: "06/24/2014", CreatedBy: "F Ali Ahmad", ModifiedOn: "07/10/2014 09:24:07", ModifiedBy: "Tida Johnston" },
+{ Select: "", Functionality: "Rejects Job", Path: "Account/DeleteAccount", CreatedOn: "06/25/2014", CreatedBy: "Kiran Gudgar", ModifiedOn: "07/14/2014 19:14:17", ModifiedBy: "Kiran Gudgar" },
+{ Select: "", Functionality: "Returns job", Path: "Account/Discount", CreatedOn: "06/26/2014", CreatedBy: "Tida Johnston", ModifiedOn: "07/17/2014 20:24:27", ModifiedBy: "Ajay Bajwa" },
+{ Select: "", Functionality: "Upload Results", Path: "Account/OwnerDetails", CreatedOn: "06/27/2014", CreatedBy: "Vima Franco", ModifiedOn: "07/18/2014 16:04:09", ModifiedBy: "Xueteng Zhao" },
+{ Select: "", Functionality: "Download to Handheld", Path: "Account/PayByCheck", CreatedOn: "06/28/2014", CreatedBy: "Victoria Barton", ModifiedOn: "07/20/2014 19:14:07", ModifiedBy: "Tida Johnston" },
+{ Select: "", Functionality: "Close the job", Path: "Account/PayByCreditCard", CreatedOn: "06/29/2014", CreatedBy: "F Ali Ahmad", ModifiedOn: "09/12/2014 12:34:57", ModifiedBy: "Kiran Gudgar" },
+{ Select: "", Functionality: "Assign job", Path: "Account/ShoppingCart", CreatedOn: "06/30/2014", CreatedBy: "Kiran Gudgar", ModifiedOn: "09/13/2014 19:24:17", ModifiedBy: "Ajay Bajwa" },
+{ Select: "", Functionality: "Create Work order (Emergency Extermination/ Street Area )", Path: "Admin/Fees", CreatedOn: "07/24/2014", CreatedBy: "Vima Franco", ModifiedOn: "09/23/2014 17:24:17", ModifiedBy: "Xueteng Zhao" },
+{ Select: "", Functionality: "Send the job to routing", Path: "Admin/Notices", CreatedOn: "07/25/2014", CreatedBy: "Tida Johnston", ModifiedOn: "09/20/2014 18:25:17", ModifiedBy: "Tida Johnston" },
+{ Select: "", Functionality: "Finalize Route", Path: "Admin/Productivity", CreatedOn: "07/26/2014", CreatedBy: "Vima Franco", ModifiedOn: "09/29/2014 21:28:17", ModifiedBy: "Kiran Gudgar" },
+
+
+        ];
+         var mydata2 = [
+ { Select: "", Functionality: "Create Job Route", Path: "Account/AccountSetup", CreatedOn: "07/07/2014", CreatedBy: "Victoria Barton", ModifiedOn: "07/07/2014 15:54:17", ModifiedBy: "Xueteng Zhao" },
+ { Select: "", Functionality: "Approves Job", Path: "Account/ChangePassword", CreatedOn: "06/24/2014", CreatedBy: "F Ali Ahmad", ModifiedOn: "07/10/2014 09:24:07", ModifiedBy: "Tida Johnston" },
+{ Select: "", Functionality: "Rejects Job", Path: "Account/DeleteAccount", CreatedOn: "06/25/2014", CreatedBy: "Kiran Gudgar", ModifiedOn: "07/14/2014 19:14:17", ModifiedBy: "Kiran Gudgar" },
+{ Select: "", Functionality: "Returns job", Path: "Account/Discount", CreatedOn: "06/26/2014", CreatedBy: "Tida Johnston", ModifiedOn: "07/17/2014 20:24:27", ModifiedBy: "Ajay Bajwa" },
+{ Select: "", Functionality: "Upload Results", Path: "Account/OwnerDetails", CreatedOn: "06/27/2014", CreatedBy: "Vima Franco", ModifiedOn: "07/18/2014 16:04:09", ModifiedBy: "Xueteng Zhao" },
+{ Select: "", Functionality: "Download to Handheld", Path: "Account/PayByCheck", CreatedOn: "06/28/2014", CreatedBy: "Victoria Barton", ModifiedOn: "07/20/2014 19:14:07", ModifiedBy: "Tida Johnston" },
+{ Select: "", Functionality: "Close the job", Path: "Account/PayByCreditCard", CreatedOn: "06/29/2014", CreatedBy: "F Ali Ahmad", ModifiedOn: "09/12/2014 12:34:57", ModifiedBy: "Kiran Gudgar" },
+{ Select: "", Functionality: "Assign job", Path: "Account/ShoppingCart", CreatedOn: "06/30/2014", CreatedBy: "Kiran Gudgar", ModifiedOn: "09/13/2014 19:24:17", ModifiedBy: "Ajay Bajwa" },
+{ Select: "", Functionality: "Create Work order (Emergency Extermination/ Street Area )", Path: "Admin/Fees", CreatedOn: "07/24/2014", CreatedBy: "Vima Franco", ModifiedOn: "09/23/2014 17:24:17", ModifiedBy: "Xueteng Zhao" },
+{ Select: "", Functionality: "Send the job to routing", Path: "Admin/Notices", CreatedOn: "07/25/2014", CreatedBy: "Tida Johnston", ModifiedOn: "09/20/2014 18:25:17", ModifiedBy: "Tida Johnston" },
+{ Select: "", Functionality: "Finalize Route", Path: "Admin/Productivity", CreatedOn: "07/26/2014", CreatedBy: "Vima Franco", ModifiedOn: "09/29/2014 21:28:17", ModifiedBy: "Kiran Gudgar" },
+
+
+        ];
+         var mydata3 = [
+{ Select: "", Functionality: "Create Job Route", Path: "Account/AccountSetup", CreatedOn: "07/07/2014", CreatedBy: "Victoria Barton", ModifiedOn: "07/07/2014 15:54:17", ModifiedBy: "Xueteng Zhao" },
+{ Select: "", Functionality: "Approves Job", Path: "Account/ChangePassword", CreatedOn: "06/24/2014", CreatedBy: "F Ali Ahmad", ModifiedOn: "07/10/2014 09:24:07", ModifiedBy: "Tida Johnston" },
+{ Select: "", Functionality: "Rejects Job", Path: "Account/DeleteAccount", CreatedOn: "06/25/2014", CreatedBy: "Kiran Gudgar", ModifiedOn: "07/14/2014 19:14:17", ModifiedBy: "Kiran Gudgar" },
+{ Select: "", Functionality: "Returns job", Path: "Account/Discount", CreatedOn: "06/26/2014", CreatedBy: "Tida Johnston", ModifiedOn: "07/17/2014 20:24:27", ModifiedBy: "Ajay Bajwa" },
+{ Select: "", Functionality: "Upload Results", Path: "Account/OwnerDetails", CreatedOn: "06/27/2014", CreatedBy: "Vima Franco", ModifiedOn: "07/18/2014 16:04:09", ModifiedBy: "Xueteng Zhao" },
+{ Select: "", Functionality: "Download to Handheld", Path: "Account/PayByCheck", CreatedOn: "06/28/2014", CreatedBy: "Victoria Barton", ModifiedOn: "07/20/2014 19:14:07", ModifiedBy: "Tida Johnston" },
+{ Select: "", Functionality: "Close the job", Path: "Account/PayByCreditCard", CreatedOn: "06/29/2014", CreatedBy: "F Ali Ahmad", ModifiedOn: "09/12/2014 12:34:57", ModifiedBy: "Kiran Gudgar" },
+{ Select: "", Functionality: "Assign job", Path: "Account/ShoppingCart", CreatedOn: "06/30/2014", CreatedBy: "Kiran Gudgar", ModifiedOn: "09/13/2014 19:24:17", ModifiedBy: "Ajay Bajwa" },
+{ Select: "", Functionality: "Create Work order (Emergency Extermination/ Street Area )", Path: "Admin/Fees", CreatedOn: "07/24/2014", CreatedBy: "Vima Franco", ModifiedOn: "09/23/2014 17:24:17", ModifiedBy: "Xueteng Zhao" },
+{ Select: "", Functionality: "Send the job to routing", Path: "Admin/Notices", CreatedOn: "07/25/2014", CreatedBy: "Tida Johnston", ModifiedOn: "09/20/2014 18:25:17", ModifiedBy: "Tida Johnston" },
+{ Select: "", Functionality: "Finalize Route", Path: "Admin/Productivity", CreatedOn: "07/26/2014", CreatedBy: "Vima Franco", ModifiedOn: "09/29/2014 21:28:17", ModifiedBy: "Kiran Gudgar" },
+
+
+        ];
+         var mydata4 = [
+{ Select: "", Functionality: "Create Job Route", Path: "Account/AccountSetup", CreatedOn: "07/07/2014", CreatedBy: "Victoria Barton", ModifiedOn: "07/07/2014 15:54:17", ModifiedBy: "Xueteng Zhao" },
+{ Select: "", Functionality: "Approves Job", Path: "Account/ChangePassword", CreatedOn: "06/24/2014", CreatedBy: "F Ali Ahmad", ModifiedOn: "07/10/2014 09:24:07", ModifiedBy: "Tida Johnston" },
+{ Select: "", Functionality: "Rejects Job", Path: "Account/DeleteAccount", CreatedOn: "06/25/2014", CreatedBy: "Kiran Gudgar", ModifiedOn: "07/14/2014 19:14:17", ModifiedBy: "Kiran Gudgar" },
+{ Select: "", Functionality: "Returns job", Path: "Account/Discount", CreatedOn: "06/26/2014", CreatedBy: "Tida Johnston", ModifiedOn: "07/17/2014 20:24:27", ModifiedBy: "Ajay Bajwa" },
+{ Select: "", Functionality: "Upload Results", Path: "Account/OwnerDetails", CreatedOn: "06/27/2014", CreatedBy: "Vima Franco", ModifiedOn: "07/18/2014 16:04:09", ModifiedBy: "Xueteng Zhao" },
+{ Select: "", Functionality: "Download to Handheld", Path: "Account/PayByCheck", CreatedOn: "06/28/2014", CreatedBy: "Victoria Barton", ModifiedOn: "07/20/2014 19:14:07", ModifiedBy: "Tida Johnston" },
+{ Select: "", Functionality: "Close the job", Path: "Account/PayByCreditCard", CreatedOn: "06/29/2014", CreatedBy: "F Ali Ahmad", ModifiedOn: "09/12/2014 12:34:57", ModifiedBy: "Kiran Gudgar" },
+{ Select: "", Functionality: "Assign job", Path: "Account/ShoppingCart", CreatedOn: "06/30/2014", CreatedBy: "Kiran Gudgar", ModifiedOn: "09/13/2014 19:24:17", ModifiedBy: "Ajay Bajwa" },
+{ Select: "", Functionality: "Create Work order (Emergency Extermination/ Street Area )", Path: "Admin/Fees", CreatedOn: "07/24/2014", CreatedBy: "Vima Franco", ModifiedOn: "09/23/2014 17:24:17", ModifiedBy: "Xueteng Zhao" },
+{ Select: "", Functionality: "Send the job to routing", Path: "Admin/Notices", CreatedOn: "07/25/2014", CreatedBy: "Tida Johnston", ModifiedOn: "09/20/2014 18:25:17", ModifiedBy: "Tida Johnston" },
+{ Select: "", Functionality: "Finalize Route", Path: "Admin/Productivity", CreatedOn: "07/26/2014", CreatedBy: "Vima Franco", ModifiedOn: "09/29/2014 21:28:17", ModifiedBy: "Kiran Gudgar" },
+
+
+        ];
+         var mydata5 = [
+{ Select: "", Functionality: "Create Job Route", Path: "Account/AccountSetup", CreatedOn: "07/07/2014", CreatedBy: "Victoria Barton", ModifiedOn: "07/07/2014 15:54:17", ModifiedBy: "Xueteng Zhao" },
+{ Select: "", Functionality: "Approves Job", Path: "Account/ChangePassword", CreatedOn: "06/24/2014", CreatedBy: "F Ali Ahmad", ModifiedOn: "07/10/2014 09:24:07", ModifiedBy: "Tida Johnston" },
+{ Select: "", Functionality: "Rejects Job", Path: "Account/DeleteAccount", CreatedOn: "06/25/2014", CreatedBy: "Kiran Gudgar", ModifiedOn: "07/14/2014 19:14:17", ModifiedBy: "Kiran Gudgar" },
+{ Select: "", Functionality: "Returns job", Path: "Account/Discount", CreatedOn: "06/26/2014", CreatedBy: "Tida Johnston", ModifiedOn: "07/17/2014 20:24:27", ModifiedBy: "Ajay Bajwa" },
+{ Select: "", Functionality: "Upload Results", Path: "Account/OwnerDetails", CreatedOn: "06/27/2014", CreatedBy: "Vima Franco", ModifiedOn: "07/18/2014 16:04:09", ModifiedBy: "Xueteng Zhao" },
+{ Select: "", Functionality: "Download to Handheld", Path: "Account/PayByCheck", CreatedOn: "06/28/2014", CreatedBy: "Victoria Barton", ModifiedOn: "07/20/2014 19:14:07", ModifiedBy: "Tida Johnston" },
+{ Select: "", Functionality: "Close the job", Path: "Account/PayByCreditCard", CreatedOn: "06/29/2014", CreatedBy: "F Ali Ahmad", ModifiedOn: "09/12/2014 12:34:57", ModifiedBy: "Kiran Gudgar" },
+{ Select: "", Functionality: "Assign job", Path: "Account/ShoppingCart", CreatedOn: "06/30/2014", CreatedBy: "Kiran Gudgar", ModifiedOn: "09/13/2014 19:24:17", ModifiedBy: "Ajay Bajwa" },
+{ Select: "", Functionality: "Create Work order (Emergency Extermination/ Street Area )", Path: "Admin/Fees", CreatedOn: "07/24/2014", CreatedBy: "Vima Franco", ModifiedOn: "09/23/2014 17:24:17", ModifiedBy: "Xueteng Zhao" },
+{ Select: "", Functionality: "Send the job to routing", Path: "Admin/Notices", CreatedOn: "07/25/2014", CreatedBy: "Tida Johnston", ModifiedOn: "09/20/2014 18:25:17", ModifiedBy: "Tida Johnston" },
+{ Select: "", Functionality: "Finalize Route", Path: "Admin/Productivity", CreatedOn: "07/26/2014", CreatedBy: "Vima Franco", ModifiedOn: "09/29/2014 21:28:17", ModifiedBy: "Kiran Gudgar" },
+
+
+        ];
+         var mydata6 = [
+{ Select: "", Functionality: "Create Job Route", Path: "Account/AccountSetup", CreatedOn: "07/07/2014", CreatedBy: "Victoria Barton", ModifiedOn: "07/07/2014 15:54:17", ModifiedBy: "Xueteng Zhao" },
+{ Select: "", Functionality: "Approves Job", Path: "Account/ChangePassword", CreatedOn: "06/24/2014", CreatedBy: "F Ali Ahmad", ModifiedOn: "07/10/2014 09:24:07", ModifiedBy: "Tida Johnston" },
+{ Select: "", Functionality: "Rejects Job", Path: "Account/DeleteAccount", CreatedOn: "06/25/2014", CreatedBy: "Kiran Gudgar", ModifiedOn: "07/14/2014 19:14:17", ModifiedBy: "Kiran Gudgar" },
+{ Select: "", Functionality: "Returns job", Path: "Account/Discount", CreatedOn: "06/26/2014", CreatedBy: "Tida Johnston", ModifiedOn: "07/17/2014 20:24:27", ModifiedBy: "Ajay Bajwa" },
+{ Select: "", Functionality: "Upload Results", Path: "Account/OwnerDetails", CreatedOn: "06/27/2014", CreatedBy: "Vima Franco", ModifiedOn: "07/18/2014 16:04:09", ModifiedBy: "Xueteng Zhao" },
+{ Select: "", Functionality: "Download to Handheld", Path: "Account/PayByCheck", CreatedOn: "06/28/2014", CreatedBy: "Victoria Barton", ModifiedOn: "07/20/2014 19:14:07", ModifiedBy: "Tida Johnston" },
+{ Select: "", Functionality: "Close the job", Path: "Account/PayByCreditCard", CreatedOn: "06/29/2014", CreatedBy: "F Ali Ahmad", ModifiedOn: "09/12/2014 12:34:57", ModifiedBy: "Kiran Gudgar" },
+{ Select: "", Functionality: "Assign job", Path: "Account/ShoppingCart", CreatedOn: "06/30/2014", CreatedBy: "Kiran Gudgar", ModifiedOn: "09/13/2014 19:24:17", ModifiedBy: "Ajay Bajwa" },
+{ Select: "", Functionality: "Create Work order (Emergency Extermination/ Street Area )", Path: "Admin/Fees", CreatedOn: "07/24/2014", CreatedBy: "Vima Franco", ModifiedOn: "09/23/2014 17:24:17", ModifiedBy: "Xueteng Zhao" },
+{ Select: "", Functionality: "Send the job to routing", Path: "Admin/Notices", CreatedOn: "07/25/2014", CreatedBy: "Tida Johnston", ModifiedOn: "09/20/2014 18:25:17", ModifiedBy: "Tida Johnston" },
+{ Select: "", Functionality: "Finalize Route", Path: "Admin/Productivity", CreatedOn: "07/26/2014", CreatedBy: "Vima Franco", ModifiedOn: "09/29/2014 21:28:17", ModifiedBy: "Kiran Gudgar" },
+
+
+        ];
+         var mydata7 = [
+{ Select: "", Functionality: "Create Job Route", Path: "Account/AccountSetup", CreatedOn: "07/07/2014", CreatedBy: "Victoria Barton", ModifiedOn: "07/07/2014 15:54:17", ModifiedBy: "Xueteng Zhao" },
+{ Select: "", Functionality: "Approves Job", Path: "Account/ChangePassword", CreatedOn: "06/24/2014", CreatedBy: "F Ali Ahmad", ModifiedOn: "07/10/2014 09:24:07", ModifiedBy: "Tida Johnston" },
+{ Select: "", Functionality: "Rejects Job", Path: "Account/DeleteAccount", CreatedOn: "06/25/2014", CreatedBy: "Kiran Gudgar", ModifiedOn: "07/14/2014 19:14:17", ModifiedBy: "Kiran Gudgar" },
+{ Select: "", Functionality: "Returns job", Path: "Account/Discount", CreatedOn: "06/26/2014", CreatedBy: "Tida Johnston", ModifiedOn: "07/17/2014 20:24:27", ModifiedBy: "Ajay Bajwa" },
+{ Select: "", Functionality: "Upload Results", Path: "Account/OwnerDetails", CreatedOn: "06/27/2014", CreatedBy: "Vima Franco", ModifiedOn: "07/18/2014 16:04:09", ModifiedBy: "Xueteng Zhao" },
+{ Select: "", Functionality: "Download to Handheld", Path: "Account/PayByCheck", CreatedOn: "06/28/2014", CreatedBy: "Victoria Barton", ModifiedOn: "07/20/2014 19:14:07", ModifiedBy: "Tida Johnston" },
+{ Select: "", Functionality: "Close the job", Path: "Account/PayByCreditCard", CreatedOn: "06/29/2014", CreatedBy: "F Ali Ahmad", ModifiedOn: "09/12/2014 12:34:57", ModifiedBy: "Kiran Gudgar" },
+{ Select: "", Functionality: "Assign job", Path: "Account/ShoppingCart", CreatedOn: "06/30/2014", CreatedBy: "Kiran Gudgar", ModifiedOn: "09/13/2014 19:24:17", ModifiedBy: "Ajay Bajwa" },
+{ Select: "", Functionality: "Create Work order (Emergency Extermination/ Street Area )", Path: "Admin/Fees", CreatedOn: "07/24/2014", CreatedBy: "Vima Franco", ModifiedOn: "09/23/2014 17:24:17", ModifiedBy: "Xueteng Zhao" },
+{ Select: "", Functionality: "Send the job to routing", Path: "Admin/Notices", CreatedOn: "07/25/2014", CreatedBy: "Tida Johnston", ModifiedOn: "09/20/2014 18:25:17", ModifiedBy: "Tida Johnston" },
+{ Select: "", Functionality: "Finalize Route", Path: "Admin/Productivity", CreatedOn: "07/26/2014", CreatedBy: "Vima Franco", ModifiedOn: "09/29/2014 21:28:17", ModifiedBy: "Kiran Gudgar" },
+
+
+        ];
+         var mydata8= [
+{ Select: "", Functionality: "Create Job Route", Path: "Account/AccountSetup", CreatedOn: "07/07/2014", CreatedBy: "Victoria Barton", ModifiedOn: "07/07/2014 15:54:17", ModifiedBy: "Xueteng Zhao" },
+{ Select: "", Functionality: "Approves Job", Path: "Account/ChangePassword", CreatedOn: "06/24/2014", CreatedBy: "F Ali Ahmad", ModifiedOn: "07/10/2014 09:24:07", ModifiedBy: "Tida Johnston" },
+{ Select: "", Functionality: "Rejects Job", Path: "Account/DeleteAccount", CreatedOn: "06/25/2014", CreatedBy: "Kiran Gudgar", ModifiedOn: "07/14/2014 19:14:17", ModifiedBy: "Kiran Gudgar" },
+{ Select: "", Functionality: "Returns job", Path: "Account/Discount", CreatedOn: "06/26/2014", CreatedBy: "Tida Johnston", ModifiedOn: "07/17/2014 20:24:27", ModifiedBy: "Ajay Bajwa" },
+{ Select: "", Functionality: "Upload Results", Path: "Account/OwnerDetails", CreatedOn: "06/27/2014", CreatedBy: "Vima Franco", ModifiedOn: "07/18/2014 16:04:09", ModifiedBy: "Xueteng Zhao" },
+{ Select: "", Functionality: "Download to Handheld", Path: "Account/PayByCheck", CreatedOn: "06/28/2014", CreatedBy: "Victoria Barton", ModifiedOn: "07/20/2014 19:14:07", ModifiedBy: "Tida Johnston" },
+{ Select: "", Functionality: "Close the job", Path: "Account/PayByCreditCard", CreatedOn: "06/29/2014", CreatedBy: "F Ali Ahmad", ModifiedOn: "09/12/2014 12:34:57", ModifiedBy: "Kiran Gudgar" },
+{ Select: "", Functionality: "Assign job", Path: "Account/ShoppingCart", CreatedOn: "06/30/2014", CreatedBy: "Kiran Gudgar", ModifiedOn: "09/13/2014 19:24:17", ModifiedBy: "Ajay Bajwa" },
+{ Select: "", Functionality: "Create Work order (Emergency Extermination/ Street Area )", Path: "Admin/Fees", CreatedOn: "07/24/2014", CreatedBy: "Vima Franco", ModifiedOn: "09/23/2014 17:24:17", ModifiedBy: "Xueteng Zhao" },
+{ Select: "", Functionality: "Send the job to routing", Path: "Admin/Notices", CreatedOn: "07/25/2014", CreatedBy: "Tida Johnston", ModifiedOn: "09/20/2014 18:25:17", ModifiedBy: "Tida Johnston" },
+{ Select: "", Functionality: "Finalize Route", Path: "Admin/Productivity", CreatedOn: "07/26/2014", CreatedBy: "Vima Franco", ModifiedOn: "09/29/2014 21:28:17", ModifiedBy: "Kiran Gudgar" },
+
+
+        ];
+         var mydata9 = [
+{ Select: "", Functionality: "Create Job Route", Path: "Account/AccountSetup", CreatedOn: "07/07/2014", CreatedBy: "Victoria Barton", ModifiedOn: "07/07/2014 15:54:17", ModifiedBy: "Xueteng Zhao" },
+{ Select: "", Functionality: "Approves Job", Path: "Account/ChangePassword", CreatedOn: "06/24/2014", CreatedBy: "F Ali Ahmad", ModifiedOn: "07/10/2014 09:24:07", ModifiedBy: "Tida Johnston" },
+{ Select: "", Functionality: "Rejects Job", Path: "Account/DeleteAccount", CreatedOn: "06/25/2014", CreatedBy: "Kiran Gudgar", ModifiedOn: "07/14/2014 19:14:17", ModifiedBy: "Kiran Gudgar" },
+{ Select: "", Functionality: "Returns job", Path: "Account/Discount", CreatedOn: "06/26/2014", CreatedBy: "Tida Johnston", ModifiedOn: "07/17/2014 20:24:27", ModifiedBy: "Ajay Bajwa" },
+{ Select: "", Functionality: "Upload Results", Path: "Account/OwnerDetails", CreatedOn: "06/27/2014", CreatedBy: "Vima Franco", ModifiedOn: "07/18/2014 16:04:09", ModifiedBy: "Xueteng Zhao" },
+{ Select: "", Functionality: "Download to Handheld", Path: "Account/PayByCheck", CreatedOn: "06/28/2014", CreatedBy: "Victoria Barton", ModifiedOn: "07/20/2014 19:14:07", ModifiedBy: "Tida Johnston" },
+{ Select: "", Functionality: "Close the job", Path: "Account/PayByCreditCard", CreatedOn: "06/29/2014", CreatedBy: "F Ali Ahmad", ModifiedOn: "09/12/2014 12:34:57", ModifiedBy: "Kiran Gudgar" },
+{ Select: "", Functionality: "Assign job", Path: "Account/ShoppingCart", CreatedOn: "06/30/2014", CreatedBy: "Kiran Gudgar", ModifiedOn: "09/13/2014 19:24:17", ModifiedBy: "Ajay Bajwa" },
+{ Select: "", Functionality: "Create Work order (Emergency Extermination/ Street Area )", Path: "Admin/Fees", CreatedOn: "07/24/2014", CreatedBy: "Vima Franco", ModifiedOn: "09/23/2014 17:24:17", ModifiedBy: "Xueteng Zhao" },
+{ Select: "", Functionality: "Send the job to routing", Path: "Admin/Notices", CreatedOn: "07/25/2014", CreatedBy: "Tida Johnston", ModifiedOn: "09/20/2014 18:25:17", ModifiedBy: "Tida Johnston" },
+{ Select: "", Functionality: "Finalize Route", Path: "Admin/Productivity", CreatedOn: "07/26/2014", CreatedBy: "Vima Franco", ModifiedOn: "09/29/2014 21:28:17", ModifiedBy: "Kiran Gudgar" },
+
+
+        ];
+        // Configuration for jqGrid Example 1
+        $("#table_list_1").jqGrid({
+            data: mydata,
+            datatype: "local",
+            url: '',
+            height: 250,
+            autowidth: true,
+            shrinkToFit: true,
+            rowNum: 20,
+            rowList: [10, 20, 30],
+            colNames: ['', 'Functionality', 'Path', 'Created On', 'Created By', 'Modified On', 'Modified By'],
+            colModel: [
+                {
+                    name: 'Select', index: 'Select', editable: true, del: true, width: 5, sorttype: "int", edittype: "checkbox"
+                },
+                { name: 'Functionality', index: 'Functionality', editable: true, width: 250, sorttype: "int", align: "center" },
+                    { name: 'Path', index: 'Path', editable: true, width: 150, sorttype: "int", align: "center" },
+                { name: 'CreatedOn', index: 'CreatedOn', editable: true, width: 80, sorttype: "int", align: "center" },
+                { name: 'CreatedBy', index: 'CreatedBy', editable: true, width: 100, align: "center", sorttype: "string" },
+                { name: 'ModifiedOn', index: 'ModifiedOn', editable: true, width: 140, align: "center", sorttype: "int" },
+              { name: 'ModifiedBy', index: 'ModifiedBy', editable: true, width: 110, align: "center", sorttype: "int" },
+    
+            ],
+            pager: "#pager_list_1",
+            viewrecords: true,
+            add: true,
+            edit: true,
+         multiselect:true,
+            addtext: 'Add',
+            edittext: 'Edit',
+
+            hidegrid: false,
+            cellSubmit: 'clientArray'
+        });
+       //  Configuration for jqGrid Example 2
+         $("#table_list_2").jqGrid({
+            data: mydata1,
+            datatype: "local",
+            url: '',
+            height: 250,
+            autowidth: true,
+            shrinkToFit: true,
+            rowNum: 20,
+            rowList: [10, 20, 30],
+            colNames: ['', 'Functionality', 'Path', 'Created On', 'Created By', 'Modified On', 'Modified By'],
+            colModel: [
+               { name: 'Select', index: 'Select', editable: true, del: true, width: 5, sorttype: "int", edittype: "checkbox"},
+                 { name: 'Functionality', index: 'Functionality', editable: true, width: 250, sorttype: "int", align: "center" },
+                    { name: 'Path', index: 'Path', editable: true, width: 150, sorttype: "int", align: "center" },
+                { name: 'CreatedOn', index: 'CreatedOn', editable: true, width: 80, sorttype: "int", align: "center" },
+                { name: 'CreatedBy', index: 'CreatedBy', editable: true, width: 100, align: "center", sorttype: "string" },
+                { name: 'ModifiedOn', index: 'ModifiedOn', editable: true, width: 140, align: "center", sorttype: "int" },
+              { name: 'ModifiedBy', index: 'ModifiedBy', editable: true, width: 110, align: "center", sorttype: "int" },
+
+            ],
+            pager: "#pager_list_2",
+            viewrecords: true,
+            add: true,
+            edit: true,
+            multiselect: true,
+            addtext: 'Add',
+            edittext: 'Edit',
+            hidegrid: false,
+            cellSubmit: 'clientArray'
+        });
+        //  Configuration for jqGrid Example 3
+        $("#table_list_3").jqGrid({
+            data: mydata2,
+            datatype: "local",
+            url: '',
+            height: 250,
+            autowidth: true,
+            shrinkToFit: true,
+            rowNum: 20,
+            rowList: [10, 20, 30],
+            colNames: ['', 'Functionality', 'Path', 'Created On', 'Created By', 'Modified On', 'Modified By'],
+            colModel: [
+             { name: 'Select', index: 'Select', editable: true, del: true, width: 5, sorttype: "int", edittype: "checkbox"},
+                   { name: 'Functionality', index: 'Functionality', editable: true, width: 250, sorttype: "int", align: "center" },
+                    { name: 'Path', index: 'Path', editable: true, width: 150, sorttype: "int", align: "center" },
+                { name: 'CreatedOn', index: 'CreatedOn', editable: true, width: 80, sorttype: "int", align: "center" },
+                { name: 'CreatedBy', index: 'CreatedBy', editable: true, width: 100, align: "center", sorttype: "string" },
+                { name: 'ModifiedOn', index: 'ModifiedOn', editable: true, width: 140, align: "center", sorttype: "int" },
+              { name: 'ModifiedBy', index: 'ModifiedBy', editable: true, width: 110, align: "center", sorttype: "int" },
+
+            ],
+            pager: "#pager_list_3",
+            viewrecords: true,
+            add: true,
+            edit: true,
+            multiselect: true,
+            addtext: 'Add',
+            edittext: 'Edit',
+            hidegrid: false,
+            cellSubmit: 'clientArray'
+        });
+        //  Configuration for jqGrid Example 4
+        $("#table_list_4").jqGrid({
+            data: mydata3,
+            datatype: "local",
+            url: '',
+            height: 250,
+            autowidth: true,
+            shrinkToFit: true,
+            rowNum: 20,
+            rowList: [10, 20, 30],
+            colNames: ['', 'Functionality', 'Path', 'Created On', 'Created By', 'Modified On', 'Modified By'],
+            colModel: [
+         { name: 'Select', index: 'Select', editable: true, del: true, width: 5, sorttype: "int", edittype: "checkbox", editoptions: { value: "True:False" }, formatter: "checkbox", formatoptions: { disabled: false }, align: "center" },
+                       { name: 'Functionality', index: 'Functionality', editable: true, width: 250, sorttype: "int", align: "center" },
+                    { name: 'Path', index: 'Path', editable: true, width: 150, sorttype: "int", align: "center" },
+                { name: 'CreatedOn', index: 'CreatedOn', editable: true, width: 80, sorttype: "int", align: "center" },
+                { name: 'CreatedBy', index: 'CreatedBy', editable: true, width: 100, align: "center", sorttype: "string" },
+                { name: 'ModifiedOn', index: 'ModifiedOn', editable: true, width: 140, align: "center", sorttype: "int" },
+              { name: 'ModifiedBy', index: 'ModifiedBy', editable: true, width: 110, align: "center", sorttype: "int" },
+
+            ],
+            pager: "#pager_list_4",
+            viewrecords: true,
+            add: true,
+            edit: true,
+            addtext: 'Add',
+            multiselect: true,
+            edittext: 'Edit',
+            hidegrid: false,
+            cellSubmit: 'clientArray'
+        });
+        //  Configuration for jqGrid Example 5
+        $("#table_list_5").jqGrid({
+            data: mydata4,
+            datatype: "local",
+            url: '',
+            height: 250,
+            autowidth: true,
+            shrinkToFit: true,
+            rowNum: 20,
+            rowList: [10, 20, 30],
+            colNames: ['', 'Functionality', 'Path', 'Created On', 'Created By', 'Modified On', 'Modified By'],
+            colModel: [
+             { name: 'Select', index: 'Select', editable: true, del: true, width: 5, sorttype: "int", edittype: "checkbox" },
+                   { name: 'Functionality', index: 'Functionality', editable: true, width: 250, sorttype: "int", align: "center" },
+                    { name: 'Path', index: 'Path', editable: true, width: 150, sorttype: "int", align: "center" },
+                { name: 'CreatedOn', index: 'CreatedOn', editable: true, width: 80, sorttype: "int", align: "center" },
+                { name: 'CreatedBy', index: 'CreatedBy', editable: true, width: 100, align: "center", sorttype: "string" },
+                { name: 'ModifiedOn', index: 'ModifiedOn', editable: true, width: 140, align: "center", sorttype: "int" },
+              { name: 'ModifiedBy', index: 'ModifiedBy', editable: true, width: 110, align: "center", sorttype: "int" },
+
+            ],
+            pager: "#pager_list_5",
+            viewrecords: true,
+            add: true,
+            edit: true,
+            multiselect:true,
+            addtext: 'Add',
+            edittext: 'Edit',
+            hidegrid: false,
+            cellSubmit: 'clientArray'
+        });
+        //  Configuration for jqGrid Example 6
+        $("#table_list_6").jqGrid({
+            data: mydata5,
+            datatype: "local",
+            url: '',
+            height: 250,
+            autowidth: true,
+            shrinkToFit: true,
+            rowNum: 20,
+            rowList: [10, 20, 30],
+            colNames: ['', 'Functionality', 'Path', 'Created On', 'Created By', 'Modified On', 'Modified By'],
+            colModel: [
+              { name: 'Select', index: 'Select', editable: true, del: true, width: 5, sorttype: "int", edittype: "checkbox", editoptions: { value: "True:False" }, formatter: "checkbox", formatoptions: { disabled: false }, align: "center" },
+                  { name: 'Functionality', index: 'Functionality', editable: true, width: 250, sorttype: "int", align: "center" },
+                    { name: 'Path', index: 'Path', editable: true, width: 150, sorttype: "int", align: "center" },
+                { name: 'CreatedOn', index: 'CreatedOn', editable: true, width: 80, sorttype: "int", align: "center" },
+                { name: 'CreatedBy', index: 'CreatedBy', editable: true, width: 100, align: "center", sorttype: "string" },
+                { name: 'ModifiedOn', index: 'ModifiedOn', editable: true, width: 140, align: "center", sorttype: "int" },
+              { name: 'ModifiedBy', index: 'ModifiedBy', editable: true, width: 110, align: "center", sorttype: "int" },
+
+            ],
+            pager: "#pager_list_6",
+            viewrecords: true,
+            add: true,
+            edit: true,
+            multiselect: true,
+            addtext: 'Add',
+            edittext: 'Edit',
+            hidegrid: false,
+            cellSubmit: 'clientArray'
+        });
+        //  Configuration for jqGrid Example 7
+        $("#table_list_7").jqGrid({
+            data: mydata6,
+            datatype: "local",
+            url: '',
+            height: 250,
+            autowidth: true,
+            shrinkToFit: true,
+            rowNum: 20,
+            rowList: [10, 20, 30],
+            colNames: ['', 'Functionality', 'Path', 'Created On', 'Created By', 'Modified On', 'Modified By'],
+            colModel: [
+          { name: 'Select', index: 'Select', editable: true, del: true, width: 5, sorttype: "int", edittype: "checkbox", editoptions: { value: "True:False" }, formatter: "checkbox", formatoptions: { disabled: false }, align: "center" },
+                      { name: 'Functionality', index: 'Functionality', editable: true, width: 250, sorttype: "int", align: "center" },
+                    { name: 'Path', index: 'Path', editable: true, width: 150, sorttype: "int", align: "center" },
+                { name: 'CreatedOn', index: 'CreatedOn', editable: true, width: 80, sorttype: "int", align: "center" },
+                { name: 'CreatedBy', index: 'CreatedBy', editable: true, width: 100, align: "center", sorttype: "string" },
+                { name: 'ModifiedOn', index: 'ModifiedOn', editable: true, width: 140, align: "center", sorttype: "int" },
+              { name: 'ModifiedBy', index: 'ModifiedBy', editable: true, width: 110, align: "center", sorttype: "int" },
+
+            ],
+            pager: "#pager_list_7",
+            viewrecords: true,
+            add: true,
+            edit: true,
+            multiselect: true,
+            addtext: 'Add',
+            edittext: 'Edit',
+            hidegrid: false,
+            cellSubmit: 'clientArray'
+        });
+        //  Configuration for jqGrid Example 8
+        $("#table_list_8").jqGrid({
+            data: mydata7,
+            datatype: "local",
+            url: '',
+            height: 250,
+            autowidth: true,
+            shrinkToFit: true,
+            rowNum: 20,
+            rowList: [10, 20, 30],
+            colNames: ['', 'Functionality', 'Path', 'Created On', 'Created By', 'Modified On', 'Modified By'],
+            colModel: [
+             { name: 'Select', index: 'Select', editable: true, del: true, width: 5, sorttype: "int", edittype: "checkbox", editoptions: { value: "True:False" }, formatter: "checkbox", formatoptions: { disabled: false }, align: "center" },
+                   { name: 'Functionality', index: 'Functionality', editable: true, width: 250, sorttype: "int", align: "center" },
+                    { name: 'Path', index: 'Path', editable: true, width: 150, sorttype: "int", align: "center" },
+                { name: 'CreatedOn', index: 'CreatedOn', editable: true, width: 80, sorttype: "int", align: "center" },
+                { name: 'CreatedBy', index: 'CreatedBy', editable: true, width: 100, align: "center", sorttype: "string" },
+                { name: 'ModifiedOn', index: 'ModifiedOn', editable: true, width: 140, align: "center", sorttype: "int" },
+              { name: 'ModifiedBy', index: 'ModifiedBy', editable: true, width: 110, align: "center", sorttype: "int" },
+
+            ],
+            pager: "#pager_list_8",
+            viewrecords: true,
+            add: true,
+            edit: true,
+            multiselect: true,
+            addtext: 'Add',
+            edittext: 'Edit',
+            hidegrid: false,
+            cellSubmit: 'clientArray'
+        });
+        //  Configuration for jqGrid Example 9
+        $("#table_list_9").jqGrid({
+            data: mydata8,
+            datatype: "local",
+            url: '',
+            height: 250,
+            autowidth: true,
+            shrinkToFit: true,
+            rowNum: 20,
+            rowList: [10, 20, 30],
+            colNames: ['', 'Functionality', 'Path', 'Created On', 'Created By', 'Modified On', 'Modified By'],
+            colModel: [
+       { name: 'Select', index: 'Select', editable: true, del: true, width: 5, sorttype: "int", edittype: "checkbox", editoptions: { value: "True:False" }, formatter: "checkbox", formatoptions: { disabled: false }, align: "center" },
+                        { name: 'Functionality', index: 'Functionality', editable: true, width: 250, sorttype: "int", align: "center" },
+                    { name: 'Path', index: 'Path', editable: true, width: 150, sorttype: "int", align: "center" },
+                { name: 'CreatedOn', index: 'CreatedOn', editable: true, width: 80, sorttype: "int", align: "center" },
+                { name: 'CreatedBy', index: 'CreatedBy', editable: true, width: 100, align: "center", sorttype: "string" },
+                { name: 'ModifiedOn', index: 'ModifiedOn', editable: true, width: 140, align: "center", sorttype: "int" },
+              { name: 'ModifiedBy', index: 'ModifiedBy', editable: true, width: 110, align: "center", sorttype: "int" },
+
+            ],
+            pager: "#pager_list_9",
+            viewrecords: true,
+            add: true,
+            edit: true,
+            addtext: 'Add',
+            multiselect: true,
+            edittext: 'Edit',
+            hidegrid: false,
+            cellSubmit: 'clientArray'
+        });
+        //  Configuration for jqGrid Example 10
+        $("#table_list_10").jqGrid({
+            data: mydata9,
+            datatype: "local",
+            url: '',
+            height: 250,
+            autowidth: true,
+            shrinkToFit: true,
+            rowNum: 20,
+            rowList: [10, 20, 30],
+            colNames: ['', 'Functionality', 'Path', 'Created On', 'Created By', 'Modified On', 'Modified By'],
+            colModel: [
+              { name: 'Select', index: 'Select', editable: true, del: true, width: 5, sorttype: "int", edittype: "checkbox", editoptions: { value: "True:False" }, formatter: "checkbox", formatoptions: { disabled: false }, align: "center" },
+                  { name: 'Functionality', index: 'Functionality', editable: true, width: 250, sorttype: "int", align: "center" },
+                    { name: 'Path', index: 'Path', editable: true, width: 150, sorttype: "int", align: "center" },
+                { name: 'CreatedOn', index: 'CreatedOn', editable: true, width: 80, sorttype: "int", align: "center" },
+                { name: 'CreatedBy', index: 'CreatedBy', editable: true, width: 100, align: "center", sorttype: "string" },
+                { name: 'ModifiedOn', index: 'ModifiedOn', editable: true, width: 140, align: "center", sorttype: "int" },
+              { name: 'ModifiedBy', index: 'ModifiedBy', editable: true, width: 110, align: "center", sorttype: "int" },
+
+            ],
+            pager: "#pager_list_10",
+            viewrecords: true,
+            add: true,
+            edit: true,
+            addtext: 'Add',
+            edittext: 'Edit',
+            multiselect: true, 
+            hidegrid: false,
+            cellSubmit: 'clientArray'
+        });
+        // Add selection
+        $("#table_list_1").setSelection(4, true);
+        $("#table_list_2").setSelection(4, true);
+        $("#table_list_3").setSelection(4, true);
+        $("#table_list_4").setSelection(4, true);
+        $("#table_list_5").setSelection(4, true);
+        $("#table_list_6").setSelection(4, true);
+        $("#table_list_7").setSelection(4, true);
+        $("#table_list_8").setSelection(4, true);
+        $("#table_list_9").setSelection(4, true);
+        $("#table_list_10").setSelection(4, true);
+        // Setup buttons
+        $("#table_list_1").jqGrid('navGrid', '#pager_list_1',
+      { edit: true, add: true, del: true, search: true },
+      { reloadAfterSubmit: true });
+        $("#table_list_2").jqGrid('navGrid', '#pager_list_2',
+     { edit: true, add: true, del: true, search: true },
+     { reloadAfterSubmit: true });
+        $("#table_list_3").jqGrid('navGrid', '#pager_list_3',
+    { edit: true, add: true, del: true, search: true },
+    { reloadAfterSubmit: true });
+        $("#table_list_4").jqGrid('navGrid', '#pager_list_4',
+    { edit: true, add: true, del: true, search: true },
+    { reloadAfterSubmit: true });
+        $("#table_list_5").jqGrid('navGrid', '#pager_list_5',
+    { edit: true, add: true, del: true, search: true },
+    { reloadAfterSubmit: true });
+        $("#table_list_6").jqGrid('navGrid', '#pager_list_6',
+    { edit: true, add: true, del: true, search: true },
+    { reloadAfterSubmit: true });
+        $("#table_list_7").jqGrid('navGrid', '#pager_list_7',
+    { edit: true, add: true, del: true, search: true },
+    { reloadAfterSubmit: true });
+        $("#table_list_8").jqGrid('navGrid', '#pager_list_8',
+    { edit: true, add: true, del: true, search: true },
+    { reloadAfterSubmit: true });
+        $("#table_list_9").jqGrid('navGrid', '#pager_list_9',
+    { edit: true, add: true, del: true, search: true },
+    { reloadAfterSubmit: true });
+        $("#table_list_10").jqGrid('navGrid', '#pager_list_10',
+    { edit: true, add: true, del: true, search: true },
+    { reloadAfterSubmit: true });
+       
+        // Add responsive to jqGrid
+        $(window).bind('resize', function () {
+            var width = $('.jqGrid_wrapper').width();
+            $('#table_list_1').setGridWidth(width);
+            $('#table_list_2').setGridWidth(width);
+            $('#table_list_3').setGridWidth(width);
+            $('#table_list_4').setGridWidth(width);
+            $('#table_list_5').setGridWidth(width);
+            $('#table_list_6').setGridWidth(width);
+            $('#table_list_7').setGridWidth(width);
+            $('#table_list_8').setGridWidth(width);
+            $('#table_list_9').setGridWidth(width);
+            $('#table_list_10').setGridWidth(width);
+        });
+    });
+    </script>
+}

@@ -1,0 +1,432 @@
+﻿
+@{
+    ViewBag.Title = "MyResearchQueue";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>My Research Queue</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("ExecutiveDashboard", "Dashboards")">Home</a>
+            </li>
+            <li>Property Research</li>
+            <li class="active">
+                <strong>My Research Queue</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="ibox float-e-margins">
+
+    <div class="ibox-content">
+
+        <div class="ibox float-e-margins animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox ">
+                        <div class="ibox-content">
+                            <div class="jqGrid_wrapper">
+                                <table id="table_list_2"></table>
+                                <div id="pager_list_2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="shape-margin: 10px">
+            <div class="col-md-12">
+                <button type="button" class="btn btn-primary ">Get update from PTS</button>
+                <button type="button" class="btn btn-primary ">Get Update for SOA </button>
+                <button type="button" class="btn btn-primary ">Get update from ACRIS</button>
+                <button class="btn btn-primary demo2" style="text-align-last: right"><i></i>Save Current Owner(s)</button>
+                <button onclick="$('#AddOwnerPopup').modal('show');" class="btn btn-primary">Change Owner Information</button>
+                <button type="button" class="btn btn-primary " onclick="setPage('DOF')" id="btnSendDOF">Get update from DOF</button>
+                <button type="button" class="btn btn-primary">Print COTA Letters</button>
+                <button type="button" class="btn btn-primary demo4">Unassign Jobs</button>
+                <button type="button" class="btn btn-primary" onclick="setPage('Google')" id="btnSendGoogle">Put on Hold</button>
+                <button class="btn btn-primary " style="text-align-last: right"><i></i>Link to ACRIS</button>
+                <button class="btn btn-primary " style="text-align-last: right"><i></i>Return Supervisor</button>
+            </div>
+        </div>
+        <div id="AddOwnerPopup" class="modal fade">
+            <div class="modal-dialog" style="width: 920px">
+                <div class="modal-content ">
+                    <div class="modal-body">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">Update Owner</h4>
+                        </div>
+                        <div class="modal-body form-horizontal">
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <label class="col-lg-3" for="to">Inspection Start Date:</label>
+                                    <label class="col-lg-3" for="to">2/10/2018 11:35:42 AM</label>
+                                    <label class="col-lg-3" for="to">Inspection End Date:</label>
+                                    <label class="col-lg-3" for="to">2/12/2018 11:35:42 AM</label>
+                                </div>
+                                <div class="row" style="margin-top:10px">
+                                    <label class="col-lg-3" for="to"><font color="red">*</font>Letter Type:</label>
+                                    <div class="col-lg-3">
+                                        <select class="select2_demo_1 form-control">
+                                            <option value="1">DSNY</option>
+                                            <option value="2">Private Owned</option>
+                                            <option value="3">City Owned</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top:10px">
+                                    <label class="col-lg-3" for="to"><font color="red">*</font>Address Source:</label>
+                                    <div class="col-lg-3">
+                                        <select class="select2_demo_1 form-control">
+                                            <option value="">Select</option>
+                                            <option value="1">ACRIS</option>
+                                            <option value="2">DCAS</option>
+                                            <option value="3">DOB</option>
+                                            <option value="4">DOF</option>
+                                            <option value="5">HPD</option>
+                                            <option value="5">IPIS</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top:10px">
+                                    <label class="col-lg-3" for="cc" style="margin-top:5px">Business Name:</label>
+                                    <div class="col-lg-9"><input type="text" id="bName" class="form-control" /></div>
+                                </div>
+                                <div class="row" style="margin-top:10px">
+                                    <label class="col-lg-3" for="cc">First Name:</label>
+                                    <div class="col-lg-3"><input type="text" id="bFirst" class="form-control" /></div>
+                                    <label class="col-lg-2" for="cc">Last Name:</label>
+                                    <div class="col-lg-3"><input type="text" id="bFirst" class="form-control" /></div>
+                                </div>
+                                <div class="row" style="margin-top:10px">
+                                    <label class="col-lg-3" for="to">Establishment Type:</label>
+                                    <div class="col-lg-3">
+                                        <select class="select2_demo_1 form-control">
+                                            <option value="">Select</option>
+                                            <option value="1">Stables</option>
+                                            <option value="2">Riding Horse</option>
+                                            <option value="3">Petshop</option>
+                                            <option value="4">SpayNeuter Contractor</option>
+                                            <option value="5">Private Horse</option>
+                                            <option value="6">Carriage Horse</option>
+                                            <option value="7">Boarding</option>
+                                            <option value="8">Grooming</option>
+                                            <option value="9">Other</option>
+                                            <option value="10">Tire Shops</option>
+                                            <option value="11">Cemetry</option>
+                                            <option value="12">Tree Pits</option>
+                                            <option value="13">Green Street</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top:10px">
+                                    <label class="col-lg-3" for="to"><font color="red">*</font>Country</label>
+                                    <div class="col-lg-3">
+                                        <select class="select2_demo_1 form-control" id="lstGrid" onclick="showGrid();">
+                                            <option value="">Select</option>
+                                            <option value="1">United States</option>
+                                            <option value="2">Canada</option>
+                                            <option value="3">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top:10px">
+                                    <label class="col-lg-3" for="cc">House Number:</label>
+                                    <div class="col-lg-3"><input type="text" id="bFirst" class="form-control" /></div>
+                                    <label class="col-lg-2" for="cc">Street Name:</label>
+                                    <div class="col-lg-3"><input type="text" id="bFirst" class="form-control" /></div>
+                                </div>
+                                <div class="row" style="margin-top:10px">
+                                    <label class="col-lg-3" for="cc">Apartment Number:</label>
+                                    <div class="col-lg-3"><input type="text" id="bFirst" class="form-control" /></div>
+                                    <label class="col-lg-2" for="cc">Block:</label>
+                                    <div class="col-lg-3"><input type="text" id="bFirst" class="form-control" /></div>
+                                </div>
+                                <div class="row" style="margin-top:10px">
+                                    <label class="col-lg-3" for="to"><font color="red">*</font>State</label>
+                                    <div class="col-lg-3">
+                                        <select class="select2_demo_1 form-control">
+                                            <option value="">Select</option>
+                                            <option value="1">Florida</option>
+                                            <option value="2">New Jersey</option>
+                                            <option value="3">New Mexico</option>
+                                            <option value="4">New York</option>
+                                            <option value="5">Washington</option>
+                                            <option value="6">Ohio</option>
+                                            <option value="7">North Dakota</option>
+                                        </select>
+                                    </div>
+                                    <div id="Grid2">
+                                        <label class="col-lg-2" for="cc">Zip Code:</label>
+                                        <div class="col-lg-3"><input type="text" value="M4C-4X5" id="bFirst" class="form-control" /></div>
+                                    </div>
+                                    <div id="Grid1">
+                                        <label class="col-lg-2" for="cc">Zip Code:</label>
+                                        <div class="col-lg-3"><input type="text" value="432002" id="bFirst" class="form-control" /></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="col-xs-12" for="to"><font color="red">*</font> Required:</label>
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <button type="button" class="btn btn-primary" id="btnSendEmail1" style="margin-left:260px">Save</button>
+                            <button type="button" class="btn btn-primary" id="btnCancelEmail1" style="margin-left:10px">Cancel</button>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <p><a href="#">[1]</a> = Enter Business Name or First Name and Last Name</p>
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>   
+            <div class="wrapper wrapper-content" style="shape-margin: 10px">
+
+                <div id="divgetupdatefromDOF" style="display: none;">
+                    <div class="ibox-content">
+
+                        <div class="row">
+                            <div class="form-group" style="margin-top: 20px">
+                                <label id="lblDOF" class="col-lg-6 control-label"> Get Update From DOF- Work in Progress</label>
+                                <iframe id="ifrm" class="col-lg-12" src="https://www.google.com"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="divgetupdatefromState" style="display: none">
+                    <div class="ibox-content">
+
+                        <div class="row">
+                            <div class="form-group" style="margin-top: 20px">
+                                <label id="lblState" class="col-lg-6 control-label">  Get Update From State of Accounts- Work in Progress</label>
+                                <iframe id="ifrm" class="col-lg-12" src="http://google.com"></iframe>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="divgetupdatefromGoogle" style="display: none">
+                    <div class="ibox-content">
+
+                        <div class="row">
+                            <div class="form-group" style="margin-top: 20px">
+                                <label id="lblGoogle" class="col-lg-6 control-label"> Get Update for Google- Work in Progress:</label>
+                                <iframe id="ifrm" class="col-lg-12" src="http://google.com"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+</div>
+@section Styles {
+    @Styles.Render("~/Content/plugins/jqGrid/jqGridStyles")
+    @Styles.Render("~/plugins/sweetAlertStyles")
+@Styles.Render("~/plugins/dateRangeStyles")
+@Styles.Render("~/Content/plugins/iCheck/iCheckStyles")
+}
+@section Scripts {
+    @Scripts.Render("~/plugins/jqGrid")
+    @Scripts.Render("~/plugins/sweetAlert")
+@Scripts.Render("~/plugins/dateRange")
+@Scripts.Render("~/plugins/iCheck")
+    <script type="text/javascript">
+        $('#Grid1').hide();
+        $('#Grid2').hide();
+
+        function showGrid() {
+            var selectedID = parseInt($("#lstGrid").val());
+
+            $('#Grid1').hide();
+            $('#Grid2').hide();
+
+            if (selectedID == 2) {
+                $('#Grid2').show();
+            }
+            else if (selectedID == 1) {
+                $('#Grid1').show();
+            }
+
+        }
+        function setPage(pageType) {
+            $('#divgetupdatefromDOF').hide();
+            $('#divgetupdatefromState').hide();
+            $('#divgetupdatefromGoogle').hide();
+
+            if (pageType == 'DOF') {
+
+                $('#divgetupdatefromDOF').show();
+                $('#lblDOF').focus();
+            }
+            else if (pageType == 'State') {
+                $('#divgetupdatefromState').show();
+                $('#lblDOFState').setfocus();
+            }
+            else if (pageType == 'Google') {
+                $('#divgetupdatefromGoogle').show();
+                $('#lblGoogle').setfocus();
+            }
+
+        }
+    $(document).ready(function () {
+        $('.demo4').click(function () {
+            swal({
+                title: "Are you sure?",
+
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "OK",
+                cancelButtonText: "Cancel",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+                    function (isConfirm) {
+                        if (isConfirm) {
+                            swal("Confirmed!", "Unassigned Jobs Sucessfully", "success");
+                        } else {
+                            swal("Cancelled!", "Jobs Assigned", "error");
+                        }
+                    });
+        });
+            var mydata = [
+                         { Select: "", JobID: "PO1598300", JobType: "311", Category: "PCS", AssignedBy: "Duane Williams", AssignedOn: "01/10/2018", Block: "05738", Lot: "0353", House: "3015", StreetName: "RIVERDALE AVENUE", Borough: "BRONX", ZipCode: "10463", Priority: "Normal", FieldOffice: "BRONX", PropertyOwner: "320 EAST 204 LLC" },
+                         { Select: "", JobID: "PO1598881", JobType: "311", Category: "PCS", AssignedBy: "Duane Williams", AssignedOn: "01/10/2018", Block: "03258", Lot: "0073", House: "3400", StreetName: "FT INDEPENDENCE STREET", Borough: "BRONX", ZipCode: "10463", Priority: "Normal", FieldOffice: "BRONX", PropertyOwner: "PEDRO A DIAZ" },
+                            { Select: "", JobID: "PO1608199", JobType: "Indexing", Category: "PCS", AssignedBy: "Duane Williams", AssignedOn: "01/10/2018", Block: "03157", Lot: "0039", House: "212", StreetName: "EAST 182 STREETE", Borough: "BRONX", ZipCode: "10457", Priority: "Normal", FieldOffice: "BRONX", PropertyOwner: "MOHAMMED ALI RAJA" },
+                      { Select: "", JobID: "PO1608220", JobType: "Indexing", Category: "PCS", AssignedBy: "Duane Williams", AssignedOn: "01/10/2018", Block: "03025", Lot: "0009", House: "360", StreetName: "EAST 188 STREET", Borough: "BRONX", ZipCode: "10458", Priority: "Normal", FieldOffice: "BRONX", PropertyOwner: "3063 ESTATES LLC" },
+                              { Select: "", JobID: "PO1608221", JobType: "Indexing", Category: "PCS", AssignedBy: "Duane Williams", AssignedOn: "01/10/2018", Block: "03025", Lot: "0013", House: "2421", StreetName: "WEBSTER AVENUE", Borough: "BRONX", ZipCode: "10458", Priority: "Normal", FieldOffice: "BRONX", PropertyOwner: "RAMONA J PARRA" },
+                      { Select: "", JobID: "PO1608234", JobType: "Indexing", Category: "PCS", AssignedBy: "Duane Williams", AssignedOn: "01/10/2018", Block: "03144", Lot: "0004", House: "2086", StreetName: "VALENTINE AVENUE", Borough: "BRONX", ZipCode: "10457", Priority: "Normal", FieldOffice: "BRONX", PropertyOwner: "BRONKS LLC" },
+                         { Select: "", JobID: "PO1608235", JobType: "Indexing", Category: "PCS", AssignedBy: "Duane Williams", AssignedOn: "01/10/2018", Block: "03144", Lot: "0005", House: "2088", StreetName: "VALENTINE AVENUE", Borough: "BRONX", ZipCode: "10457", Priority: "Normal", FieldOffice: "BRONX", PropertyOwner: "C/O MANAGEMENT" },
+                            { Select: "", JobID: "PO1608238", JobType: "Indexing", Category: "PCS", AssignedBy: "Duane Williams", AssignedOn: "01/10/2018", Block: "03144", Lot: "0008", House: "2098", StreetName: "VALENTINE AVENUE", Borough: "BRONX", ZipCode: "10457", Priority: "Normal", FieldOffice: "BRONX", PropertyOwner: "333 EAST MOSHOLU LLC" },
+                      { Select: "", JobID: "PO1608249", JobType: "Indexing", Category: "PCS", AssignedBy: "Duane Williams", AssignedOn: "01/10/2018", Block: "03144", Lot: "0020", House: "2126", StreetName: "VALENTINE AVENUE", Borough: "BRONX", ZipCode: "10457", Priority: "Normal", FieldOffice: "BRONX", PropertyOwner: "3060 REALITY LLC" },
+                              { JobID: "PO1608253", JobType: "Indexing", Category: "PCS", AssignedBy: "Duane Williams", AssignedOn: "01/10/2018", Block: "", Lot: "", House: "2119", StreetName: "TIEBOUT AVENUE", Borough: "BRONX", ZipCode: "10457", Priority: "Normal", FieldOffice: "BRONX", PropertyOwner: "" },
+                                              { Select: "", JobID: "PO1608221", JobType: "Indexing", Category: "PCS", AssignedBy: "Duane Williams", AssignedOn: "01/10/2018", Block: "03025", Lot: "0013", House: "2421", StreetName: "WEBSTER AVENUE", Borough: "BRONX", ZipCode: "10458", Priority: "Normal", FieldOffice: "BRONX", PropertyOwner: "RAMONA J PARRA" },
+                      { Select: "", JobID: "PO1608234", JobType: "Indexing", Category: "PCS", AssignedBy: "Duane Williams", AssignedOn: "01/10/2018", Block: "03144", Lot: "0004", House: "2086", StreetName: "VALENTINE AVENUE", Borough: "BRONX", ZipCode: "10457", Priority: "Normal", FieldOffice: "BRONX", PropertyOwner: "BRONKS LLC" },
+                         { Select: "", JobID: "PO1608235", JobType: "Indexing", Category: "PCS", AssignedBy: "Duane Williams", AssignedOn: "01/10/2018", Block: "03144", Lot: "0005", House: "2088", StreetName: "VALENTINE AVENUE", Borough: "BRONX", ZipCode: "10457", Priority: "Normal", FieldOffice: "BRONX", PropertyOwner: "C/O MANAGEMENT" },
+                            { Select: "", JobID: "PO1608238", JobType: "Indexing", Category: "PCS", AssignedBy: "Duane Williams", AssignedOn: "01/10/2018", Block: "03144", Lot: "0008", House: "2098", StreetName: "VALENTINE AVENUE", Borough: "BRONX", ZipCode: "10457", Priority: "Normal", FieldOffice: "BRONX", PropertyOwner: "333 EAST MOSHOLU LLC" },
+                      { Select: "", JobID: "PO1608249", JobType: "Indexing", Category: "PCS", AssignedBy: "Duane Williams", AssignedOn: "01/10/2018", Block: "03144", Lot: "0020", House: "2126", StreetName: "VALENTINE AVENUE", Borough: "BRONX", ZipCode: "10457", Priority: "Normal", FieldOffice: "BRONX", PropertyOwner: "3060 REALITY LLC" },
+
+
+            ];
+
+
+
+            // Configuration for jqGrid Example 2
+            $("#table_list_2").jqGrid({
+                data: mydata,
+                datatype: "local",
+                height: 220,
+                autowidth: true,
+                shrinkToFit: true,
+                rowNum: 20,
+                rowList: [10, 20, 30],
+                colNames: ['Select', 'Job ID', 'Job Type', 'Category', 'Assigned By', 'Assigned On', 'Block', 'Lot', 'House #', 'Street Name', 'Borough', 'Zip Code', 'Priority', 'Field Office', 'Property Owner'],
+                colModel: [
+                    {
+                        name: 'Select', index: 'Select', editable: true, width: 60, edittype: "checkbox", editoptions: { value: "True:False" }, formatter: "checkbox", formatoptions: { disabled: false }, align: "center", name: "chkGkGrid",
+                        dataIndx: "state",
+                        align: "center",
+                        multiselect: true,
+                        cb: { header: true, select: true, all: true },
+                        type: 'checkbox',
+                        cls: 'ui-state-default',
+                        dataType: 'bool',
+                        editor: false
+
+                    },
+                    { name: 'JobID', index: 'JobID', editable: true, width: 90, sorttype: "int", align: "center" },
+                    { name: 'JobType', index: 'JobType', editable: true, width: 100, sorttype: "int", align: "center" },
+                      { name: 'AssignedBy', index: 'AssignedBy', editable: true, width: 100, sorttype: "int", align: "center" },
+                 { name: 'AssignedOn', index: 'AssignedOn', editable: true, width: 100, sorttype: "int", align: "center" },
+                    { name: 'Category', index: 'Category', editable: true, width: 80, align: "center", sorttype: "string", },
+                    { name: 'Block', index: 'Block', editable: true, width: 80, align: "center", sorttype: "int" },
+                      { name: 'Lot', index: 'Lot', editable: true, width: 80, align: "center", sorttype: "int" },
+                       { name: 'House', index: 'House', editable: true, width: 80, align: "center", sorttype: "int" },
+     { name: 'StreetName', index: 'StreetName', editable: true, width: 80, align: "center", sorttype: "int" },
+     { name: 'Borough', index: 'Borough', editable: true, width: 80, align: "center", sorttype: "int" },
+     { name: 'ZipCode', index: 'ZipCode', editable: true, width: 80, align: "center", sorttype: "int" },
+     { name: 'Priority', index: 'Priority', editable: true, width: 80, align: "center", sorttype: "int" },
+     { name: 'FieldOffice', index: 'FieldOffice', editable: true, width: 80, align: "center", sorttype: "int" },
+         { name: 'PropertyOwner', index: 'PropertyOwner', editable: true, width: 80, align: "center", sorttype: "int" },
+
+                ],
+                pager: "#pager_list_2",
+                viewrecords: true,
+
+                add: true,
+                edit: true,
+                addtext: 'Add',
+                edittext: 'Edit',
+                hidegrid: false
+            });
+
+            //$('#checkAll').click({
+            //    //$('input[name=foo]').is(':checked')
+            //   alert($('#checkAll').is(':checked'));
+            //   });
+
+            //$("#headerCheckAll").click(function () {
+            //    var value = $("#headerCheckAll").is(':checked');
+            //    alert(value);
+            //    $('.CheckAll').attr('checked', true);
+            //    //checkboxClass: 'icheckbox_square-green',
+            //    //radioClass: 'iradio_square-green',
+            //});
+
+            $('#headerCheckAll').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+                //$('.CheckAll').attr('checked', true);
+                //    $('.CheckAll').attr('checked', true);
+            });
+
+            // Add selection
+            $("#table_list_2").setSelection(4, true);
+            $("#table_list_2").pqGrid(obj);
+
+            // Setup buttons
+            $("#table_list_2").jqGrid('navGrid', '#pager_list_2',
+                    { edit: true, add: true, del: true, search: true },
+                    { reloadAfterSubmit: true }
+            );
+
+            // Add responsive to jqGrid
+            $(window).bind('resize', function () {
+                var width = $('.jqGrid_wrapper').width();
+                $('#table_list_1').setGridWidth(width);
+                $('#table_list_2').setGridWidth(width);
+
+            });
+            //Add Sweet Alert on Button
+            $('.demo2').click(function () {
+                swal({
+                    title: "Saved Successfully!",
+                    type: "success"
+                });
+            });
+            function showGrid() {
+                $('#divOwnergrd').show();
+
+            }
+          
+     
+    });
+    $("#btnCancelEmail1").click(function () {
+        $('#AddOwnerPopup').modal('hide');
+    });
+    $("#btnSendEmail1").click(function () {
+        $('#AddOwnerPopup').modal('hide');
+    });
+    </script>
+}
+

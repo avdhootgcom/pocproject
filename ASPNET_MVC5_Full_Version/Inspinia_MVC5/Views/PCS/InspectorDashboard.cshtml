@@ -1,0 +1,604 @@
+﻿@{
+    ViewBag.Title = "InspectorDashoard";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Inspector Dashboard</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a>PCS</a>
+            </li>
+            <li class="active">
+                <strong>Inspector Dashboard</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<div class="wrapper wrapper-content">
+
+
+    <div class="row" style="width: 205%;">
+        <div class="col-md-6">
+
+
+            <div class="ibox-content">
+                <p>
+                    <a href="https://developers.google.com/maps/documentation/javascript/reference#MapOptions"></a>
+                </p>
+                <div class="google-map" id="map1"></div>
+            </div>
+
+
+        </div>
+    </div><br />
+
+    <div class="row">
+        <div class="col-lg-12">
+
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>Filter Options </h5>
+                </div>
+                <div class="ibox-content">
+
+                    <div class="row">
+                        <label class="col-sm-2 control-label">Program:</label>
+                        <div class="col-md-3">
+                            <input value="PCS" class="form-control" disabled="disabled">
+                        </div>
+                        <label class="col-sm-1 control-label"></label>
+                        <label class="col-sm-2 control-label">Borough:</label>
+                        <div class="col-md-3">
+                            <select class="select2_demo_1 form-control">
+                                <option value="1">Manhattan</option>
+                                <option value="2">Brooklyn</option>
+                                <option value="3">Queens</option>
+                                <option value="4">Bronx</option>
+                                <option value="5">Staten Island</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 10px">
+                        <label class="col-sm-2 control-label">Field Office:</label>
+                        <div class="col-md-3">
+                            <select class="select2_demo_1 form-control">
+                                <option value="1">Office 1</option>
+                                <option value="2">Office 2</option>
+                                <option value="3">Office 3</option>
+                            </select>
+                        </div>
+                        <label class="col-sm-1 control-label"></label>
+                        <label class="col-sm-2 control-label">Inspector:</label>
+                        <div class="col-md-3">
+                            <select class="select2_demo_1 form-control">
+                                <option value="1">Inspector 1</option>
+                                <option value="2">Inspector 2</option>
+                                <option value="3">Inspector 3</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group" id="data_5" style="margin-top: 20px">
+                            <label class="col-sm-2 control-label">Range select:</label>
+                            <div class="col-md-4">
+                                <div class="input-daterange input-group" id="datepicker">
+
+                                    <input type="text" class="input-sm form-control" name="start" value="05/14/2014" />
+                                    <span class="input-group-addon">To</span>
+                                    <input type="text" class="input-sm form-control" name="end" value="05/22/2014" />
+                                </div>
+                            </div>
+                        </div>
+                        <label class="col-sm-2 control-label">Show Completed Jobs: </label>
+                        <div class="col-md-3">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" checked="" value="option1" id="optionsRadios1" name="optionsRadios"> Yes
+                                </label>
+                                <label>
+                                    <input type="radio" checked="" value="option1" id="optionsRadios1" name="optionsRadios"> No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 10px">
+                        <div class="col-sm-4 ">
+                            <button class="btn btn-white" type="submit">Clear</button>
+                            <button class="btn btn-primary" type="submit">Filter</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="ibox float-e-margins">
+        <div class="ibox-title">
+            <h5>311 Complaint list</h5>
+
+        </div>
+        <div class="ibox-content">
+
+            <div class="m-b-lg">
+                <strong>Centralized Job Pool</strong><br /><br />
+                <table class="table table-hover issue-tracker">
+                    <tr>
+                        <td>
+                            <span class="label label-primary">Route: 12345</span>
+                        </td>
+                        <td>
+                            <span class="label label-primary">Route: 12349</span>
+                        </td>
+                        <td>
+                            <span class="label label-primary">Route: 12353</span>
+                        </td>
+                        <td>
+                            <span class="label label-primary">Route: 12357</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="label label-primary">Route: 12345</span>
+                        </td>
+                        <td>
+                            <span class="label label-primary">Route: 12349</span>
+                        </td>
+                        <td>
+                            <span class="label label-primary">Route: 12353</span>
+                        </td>
+                        <td>
+                            <span class="label label-primary">Route: 12357</span>
+                        </td>
+                    </tr>
+                </table>
+                <div class="m-t-md">
+
+                    <strong>List of Jobs</strong>
+                    <br /><br />
+
+                    <a>Note: Completed jobs will automatically be removed from Centralized Job Pool after 36 hours of submission.</a>
+                </div>
+
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-hover issue-tracker">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" id="select_all" value="" /></th>
+
+                            <th>Job ID</th>
+                            <th>BBL</th>
+                            <th>Added On</th>
+                            <th>House #</th>
+                            <th>Street Name</th>
+                            <th>Apt #</th>
+                            <th>Borough</th>
+                            <th>Duplicate</th>
+                            <th>Route Id</th>
+                            <th>RMZ</th>
+                            <th>Shelter</th>
+                            <th>Job Type</th>
+                            <th>Job Category</th>
+                            <th>Status</th>
+                            <th>Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox" id="checbox1" value="" /></td>
+
+                            <td class="issue-info">
+                                <a href="@Url.Action("JobDetails", "Billing")">PO12345</a>
+                            </td>
+                            <td>
+                                3015720006
+                            </td>
+                            <td>
+                                07/19/2017
+                            </td>
+                            <td>1372</td>
+                            <td>7 Avenue</td>
+                            <td>N/A</td>
+                            <td> Staten Island</td>
+                            <td>Yes</td>
+                            <td>1</td>
+                            <td>RMZ 1</td>
+                            <td>Shelter 1</td>
+                            <td>311</td>
+                            <td>Initial</td>
+                            <td>Open-Primary</td>
+                            <td><span class="label label-danger">High</span></td>
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" id="checbox2" value="" /></td>
+
+                            <td class="issue-info">
+                                <a href="@Url.Action("JobDetails", "Billing")">PO12345</a>
+                            </td>
+                            <td>
+                                3015720025
+                            </td>
+                            <td>
+                                07/19/2017
+                            </td>
+                            <td>1372</td>
+                            <td>7 Avenue</td>
+                            <td>N/A</td>
+                            <td> Staten Island</td>
+                            <td>No</td>
+                            <td>2</td>
+                            <td>RMZ 2</td>
+                            <td>Shelter 2</td>
+                            <td>311</td>
+                            <td>Initial</td>
+                            <td>Ready for Approval</td>
+
+                            <td><span class="label label-danger">High</span></td>
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" id="checbox3" value="" /></td>
+
+                            <td class="issue-info">
+                                <a href="@Url.Action("JobDetails", "Billing")">PO12345</a>
+                            </td>
+                            <td>
+                                3015720042
+                            </td>
+                            <td>
+                                07/19/2017
+                            </td>
+                            <td>1372</td>
+                            <td>7 Avenue</td>
+                            <td>N/A</td>
+                            <td> Staten Island</td>
+                            <td>Yes</td>
+                            <td>3</td>
+                            <td>RMZ 3</td>
+                            <td>Shelter 3</td>
+                            <td>311</td>
+                            <td>Initial</td>
+                            <td>Initial Insp Done</td>
+                            <td><span class="label label-warning">Medium</span></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" id="checbox4" value="" /></td>
+                            <td class="issue-info">
+                                <a href="@Url.Action("JobDetails", "Billing")">PO12345</a>
+                            </td>
+                            <td>
+                                3015720012
+                            </td>
+                            <td>
+                                07/19/2017
+                            </td>
+                            <td>1372</td>
+                            <td>7 Avenue</td>
+                            <td>N/A</td>
+                            <td> Staten Island</td>
+                            <td>No</td>
+                            <td>4</td>
+                            <td>RMZ 4</td>
+                            <td>Shelter 4</td>
+                            <td>311</td>
+                            <td>Initial</td>
+                            <td>Extermination Done</td>
+                            <td><span class="label label-success">Low</span></td>
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" id="checbox5" value="" /></td>
+
+                            <td class="issue-info">
+                                <a href="@Url.Action("JobDetails", "Billing")">PO12345</a>
+                            </td>
+                            <td>
+                                3015720024
+                            </td>
+                            <td>
+                                07/19/2017
+                            </td>
+                            <td>1372</td>
+                            <td>7 Avenue</td>
+                            <td>N/A</td>
+                            <td> Staten Island</td>
+                            <td>Yes</td>
+                            <td>5</td>
+                            <td>RMZ 5</td>
+                            <td>Shelter 5</td>
+                            <td>311</td>
+                            <td>Initial</td>
+                            <td>Comp Insp Done</td>
+                            <td><span class="label label-success">Low</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row" style="margin-top: 15px">
+                <label class="col-lg-4 control-label"></label>
+                <button type="button" class="btn btn-primary demo3" id="demo3">Add to Route</button> &nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn btn-primary demo4" id="demo4">Reroute </button> &nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn btn-primary demo5" id="demo5">Retract </button> &nbsp;&nbsp;&nbsp;
+            </div>
+            <div class="row" style="margin-top: 15px">
+                <label class="col-lg-2"></label>
+                <button type="button" class="btn btn-primary demo6" id="demo6">Approve </button> &nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn btn-primary demo7" id="demo7">Reject </button> &nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn btn-primary demo8" id="demo8">Return</button> &nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn btn-primary demo10" id="demo8">Sup Check</button> &nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn btn-primary demo9" id="demo9">QA Check</button> &nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn btn-primary " onclick="$('#AddOwnerPopup').modal('show');">Dup/De-Dup</button> &nbsp;&nbsp;&nbsp;
+            </div>
+        </div>
+        <div id="AddOwnerPopup" class="modal fade">
+            <div class="modal-dialog" style="width: 920px">
+                <div class="modal-content ">
+                    <div class="modal-body">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">Job Details</h4>
+                        </div>
+                        <div class="modal-body form-horizontal">
+                            <div class="row">
+                                <label class="col-lg-3 control-label" style="margin-top: 15px">Dup/De-Dup:</label>
+                                <div class="col-lg-6" style="margin-top: 15px">
+
+                                    <select class="select2_demo_1 form-control">
+                                        <option value="">Select</option>
+                                        <option value="1">Not Duplicate-Make it as primary</option>
+                                        <option value="2">Duplicate-Close the Ticket</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-lg-3 control-label" style="margin-top: 15px">Duplicate Job Ticket:</label>
+                                <div class="col-lg-6" style="margin-top: 15px">
+                                    <input value="" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-lg-3 control-label">Comments:</label>
+                                <div class="col-lg-6">
+                                    <textarea class="form-control border-left m-t" style="height: 200px" placeholder="Enter Comments"></textarea>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: 15px">
+                                <label class="col-lg-3 control-label"></label>
+                                <div class="col-lg-6">
+                                    <button type="button" class="btn btn-primary " id="btnSendEmail">Save</button>
+                                    <button type="button" class="btn btn-primary " style="margin-left: 10px" id="btnCancelEmail">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>  
+
+    </div>
+    
+</div>
+
+
+
+@section Styles {
+
+    @Styles.Render("~/plugins/dateRangeStyles")
+    @Styles.Render("~/Content/plugins/iCheck/iCheckStyles")
+    @Styles.Render("~/plugins/dataPickerStyles")
+@Styles.Render("~/plugins/sweetAlertStyles")
+}
+
+@section Scripts {
+    @Scripts.Render("~/plugins/peity")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/imagecropper")
+    @Scripts.Render("~/plugins/iCheck")
+@Scripts.Render("~/plugins/sweetAlert")
+    @Scripts.Render("https://maps.googleapis.com/maps/api/js?key=AIzaSyDQTpXj82d8UpCi97wzo_nKXL7nYrd4G70")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.demo3').click(function () {
+                swal({
+                    title: "Added to Route!",
+                    text: "Route Id 1",
+                    type: "success"
+                });
+            });
+            $('.demo4').click(function () {
+                swal({
+                    title: "Rerouted Successfully!",
+                    type: "success"
+                });
+            });
+            $('.demo5').click(function () {
+                swal({
+                    title: "Retracted Successfully!",
+                    type: "success"
+                });
+            });
+            $("#btnCancelEmail").click(function () {
+                $('#AddOwnerPopup').modal('hide');
+            });
+
+            $("#btnSendEmail").click(function () {
+                $('#AddOwnerPopup').modal('hide');
+            });
+            $('.demo6').click(function () {
+                swal({
+                    title: "Approved Successfully!",
+                    type: "success"
+                });
+            });
+            $('.demo7').click(function () {
+                swal({
+                    title: "Rejected Successfully!",
+                    type: "success"
+                });
+            });
+            $('.demo8').click(function () {
+                swal({
+                    title: "Returned Successfully!",
+                    type: "success"
+                });
+            });
+            $('.demo9').click(function () {
+                swal({
+                    title: "QA check Successfully!",
+                    type: "success"
+                });
+            });
+            $('.demo10').click(function () {
+                swal({
+                    title: "Sup check Successfully!",
+                    type: "success"
+                });
+            });
+
+                    $("span.pie").peity("pie", {
+                        fill: ['#1ab394', '#d7d7d7', '#ffffff']
+                    })
+
+                });
+                google.maps.event.addDomListener(window, 'load', init);
+
+                function init() {
+                    // Options for Google map
+                    // More info see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+                    var mapOptions1 = {
+                        zoom: 11,
+                        center: new google.maps.LatLng(40.6700, -73.9400),
+                        // Style for Google Maps
+                        styles: [{ "featureType": "water", "stylers": [{ "saturation": 43 }, { "lightness": -11 }, { "hue": "#0088ff" }] }, { "featureType": "road", "elementType": "geometry.fill", "stylers": [{ "hue": "#ff0000" }, { "saturation": -100 }, { "lightness": 99 }] }, { "featureType": "road", "elementType": "geometry.stroke", "stylers": [{ "color": "#808080" }, { "lightness": 54 }] }, { "featureType": "landscape.man_made", "elementType": "geometry.fill", "stylers": [{ "color": "#ece2d9" }] }, { "featureType": "poi.park", "elementType": "geometry.fill", "stylers": [{ "color": "#ccdca1" }] }, { "featureType": "road", "elementType": "labels.text.fill", "stylers": [{ "color": "#767676" }] }, { "featureType": "road", "elementType": "labels.text.stroke", "stylers": [{ "color": "#ffffff" }] }, { "featureType": "poi", "stylers": [{ "visibility": "off" }] }, { "featureType": "landscape.natural", "elementType": "geometry.fill", "stylers": [{ "visibility": "on" }, { "color": "#b8cb93" }] }, { "featureType": "poi.park", "stylers": [{ "visibility": "on" }] }, { "featureType": "poi.sports_complex", "stylers": [{ "visibility": "on" }] }, { "featureType": "poi.medical", "stylers": [{ "visibility": "on" }] }, { "featureType": "poi.business", "stylers": [{ "visibility": "simplified" }] }]
+                    };
+
+                    var mapOptions2 = {
+                        zoom: 11,
+                        center: new google.maps.LatLng(40.6700, -73.9400),
+                        // Style for Google Maps
+                        styles: [{ "featureType": "all", "elementType": "all", "stylers": [{ "invert_lightness": true }, { "saturation": 10 }, { "lightness": 30 }, { "gamma": 0.5 }, { "hue": "#435158" }] }]
+                    };
+
+                    var mapOptions3 = {
+                        center: new google.maps.LatLng(36.964645, -122.01523),
+                        zoom: 18,
+                        mapTypeId: google.maps.MapTypeId.SATELLITE,
+                        // Style for Google Maps
+                        styles: [{ "featureType": "road", "elementType": "geometry", "stylers": [{ "visibility": "off" }] }, { "featureType": "poi", "elementType": "geometry", "stylers": [{ "visibility": "off" }] }, { "featureType": "landscape", "elementType": "geometry", "stylers": [{ "color": "#fffffa" }] }, { "featureType": "water", "stylers": [{ "lightness": 50 }] }, { "featureType": "road", "elementType": "labels", "stylers": [{ "visibility": "off" }] }, { "featureType": "transit", "stylers": [{ "visibility": "off" }] }, { "featureType": "administrative", "elementType": "geometry", "stylers": [{ "lightness": 40 }] }]
+                    };
+
+                    var mapOptions4 = {
+                        zoom: 11,
+                        center: new google.maps.LatLng(40.6700, -73.9400),
+                        // Style for Google Maps
+                        styles: [{ "stylers": [{ "hue": "#18a689" }, { "visibility": "on" }, { "invert_lightness": true }, { "saturation": 40 }, { "lightness": 10 }] }]
+                    };
+
+                    var fenway = new google.maps.LatLng(42.345573, -71.098326);
+                    var mapOptions5 = {
+                        zoom: 14,
+                        center: fenway,
+                        // Style for Google Maps
+                        styles: [{ featureType: "landscape", stylers: [{ saturation: -100 }, { lightness: 65 }, { visibility: "on" }] }, { featureType: "poi", stylers: [{ saturation: -100 }, { lightness: 51 }, { visibility: "simplified" }] }, { featureType: "road.highway", stylers: [{ saturation: -100 }, { visibility: "simplified" }] }, { featureType: "road.arterial", stylers: [{ saturation: -100 }, { lightness: 30 }, { visibility: "on" }] }, { featureType: "road.local", stylers: [{ saturation: -100 }, { lightness: 40 }, { visibility: "on" }] }, { featureType: "transit", stylers: [{ saturation: -100 }, { visibility: "simplified" }] }, { featureType: "administrative.province", stylers: [{ visibility: "off" }]/**/ }, { featureType: "administrative.locality", stylers: [{ visibility: "off" }] }, { featureType: "administrative.neighborhood", stylers: [{ visibility: "on" }]/**/ }, { featureType: "water", elementType: "labels", stylers: [{ visibility: "on" }, { lightness: -25 }, { saturation: -100 }] }, { featureType: "water", elementType: "geometry", stylers: [{ hue: "#ffff00" }, { lightness: -25 }, { saturation: -97 }] }]
+                    };
+
+                    var panoramaOptions = {
+                        position: fenway,
+                        pov: {
+                            heading: 10,
+                            pitch: 10
+                        }
+                    };
+                    //var panorama = new google.maps.StreetViewPanorama(document.getElementById('pano'), panoramaOptions);
+
+                    // Get all html elements for map
+                    var mapElement1 = document.getElementById('map1');
+                    var mapElement2 = document.getElementById('map2');
+                    var mapElement3 = document.getElementById('map3');
+                    var mapElement4 = document.getElementById('map4');
+
+                    // Create the Google Map using elements
+                    var map1 = new google.maps.Map(mapElement1, mapOptions1);
+                    var map2 = new google.maps.Map(mapElement2, mapOptions2);
+                    var map3 = new google.maps.Map(mapElement3, mapOptions3);
+                    var map4 = new google.maps.Map(mapElement4, mapOptions4);
+                }
+                $(document).ready(function () {
+
+                    $('.i-checks').iCheck({
+                        checkboxClass: 'icheckbox_square-green',
+                        radioClass: 'iradio_square-green',
+                    });
+
+                });
+                $(document).ready(function () {
+
+
+
+                    $('#data_1 .input-group.date').datepicker({
+                        todayBtn: "linked",
+                        keyboardNavigation: false,
+                        forceParse: false,
+                        calendarWeeks: true,
+                        autoclose: true
+                    });
+
+                    $('#data_2 .input-group.date').datepicker({
+                        startView: 1,
+                        todayBtn: "linked",
+                        keyboardNavigation: false,
+                        forceParse: false,
+                        autoclose: true
+                    });
+
+                    $('#data_3 .input-group.date').datepicker({
+                        startView: 2,
+                        todayBtn: "linked",
+                        keyboardNavigation: false,
+                        forceParse: false,
+                        autoclose: true
+                    });
+
+                    $('#data_4 .input-group.date').datepicker({
+                        minViewMode: 1,
+                        keyboardNavigation: false,
+                        forceParse: false,
+                        autoclose: true,
+                        todayHighlight: true
+                    });
+
+                    $('#data_5 .input-daterange').datepicker({
+                        keyboardNavigation: false,
+                        forceParse: false,
+                        autoclose: true
+                    });
+
+
+
+
+                    $('input[name="daterange"]').daterangepicker();
+
+
+
+
+                });
+    </script>
+}
+        }
+
+
+

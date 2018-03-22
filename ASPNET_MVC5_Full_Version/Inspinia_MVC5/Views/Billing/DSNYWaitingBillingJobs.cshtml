@@ -1,0 +1,214 @@
+﻿
+@{
+    ViewBag.Title = "DSNYWaitingBillingJobs";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>DSNY-Waiting Billing Jobs</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("ExecutiveDashboard", "Dashboards")">Home</a>
+            </li>
+            <li>Billing</li>
+            <li class="active">
+                <strong>DSNY-Waiting Billing Jobs</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="wrapper wrapper-content">
+
+    <div class="ibox-content">
+        <h3>DSNY-Waiting Billing Jobs</h3>
+
+        <div class="ibox float-e-margins animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox ">
+
+                        <div class="ibox-content">
+                            <div class="jqGrid_wrapper">
+                                <table id="Billing_Jobs"></table>
+                                <div id="Pager_Billing_Jobs"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary demo3" >Create Billing Batch </button>
+            <button type="button" class="btn btn-primary demo4" >Remove from Batch</button>
+            <button type="button" class="btn btn-primary demo5" >Submit Batch to DOF</button>
+        </div>
+
+    </div>
+
+
+</div>
+@section Styles {
+
+    @Styles.Render("~/Content/plugins/jqGrid/jqGridStyles")
+    @Styles.Render("~/plugins/sweetAlertStyles")
+    @Styles.Render("~/Content/plugins/iCheck/iCheckStyles")
+
+   
+}
+
+
+@section Scripts {
+@Scripts.Render("~/plugins/sweetAlert")
+@Scripts.Render("~/plugins/iCheck")
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+
+        //Add Sweet Alert on Button
+
+        $('.demo3').click(function () {
+            swal({
+                title: "Batch Created!",
+                type: "success"
+            });
+        });
+        $('.demo4').click(function () {
+            swal({
+                title: "Batch Removed!",
+                type: "success"
+            });
+        });
+    
+    });
+
+</script>
+@Scripts.Render("~/plugins/jqGrid")
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var mydata = [
+                     { Select: '', JobID: "PO1598300",BatchName:'', InspectionDate: "07/01/2015", House: "176-24", StreetName: "126 Avenue", Apt: "Opposite Of", Borough: "Opposite Of", Block: "12525", Lot: "0012", ServiceDate: "07/01/2015", JobType: "DSNY", JobCategory: "DSNY-Waiting for Billing", MinutesBilled: "", Billingamount: "1000", Taxamount: "200", urlID: "JobDetails" },
+                     { Select: '', JobID: "PO1598881",BatchName:'', InspectionDate: "07/01/2015", House: "35-34 & 35-28", StreetName: "101 Street", Apt: "Between", Borough: "Between", Block: "01741", Lot: "0016", ServiceDate: "07/01/2015", JobType: "DSNY", JobCategory: "Billing-DOF Accepted Jobs", MinutesBilled: "", Billingamount: "2000", Taxamount: "400", urlID: "JobDetails" },
+                     { Select: '', JobID: "PO1608199", BatchName: '', InspectionDate: "07/01/2015", House: "152", StreetName: "BAY 53 Street", Apt: "Adjacent To", Borough: "Adjacent To", Block: "06949", Lot: "0083", ServiceDate: "07/01/2015", JobType: "DSNY", JobCategory: "DSNY-Waiting for Billing", MinutesBilled: "", Billingamount: "3000", Taxamount: "600", urlID: "JobDetails" },
+                     { Select: '', JobID: "PO1608220", BatchName: '', InspectionDate: "07/01/2015", House: "152", StreetName: "BAY 53 Street", Apt: "Adjacent To", Borough: "Adjacent To", Block: "06949", Lot: "0081", ServiceDate: "07/01/2015", JobType: "DSNY", JobCategory: "DSNY-Waiting for Billing", MinutesBilled: "", Billingamount: "4000", Taxamount: "800", urlID: "JobDetails" },
+                     { Select: '', JobID: "PO1608221", BatchName: '', InspectionDate: "07/01/2015", House: "152", StreetName: "BAY 53 Street", Apt: "Adjacent To", Borough: "Adjacent To", Block: "06949", Lot: "0079", ServiceDate: "07/01/2015", JobType: "DSNY", JobCategory: "Billing-DOF Suspended Jobs", MinutesBilled: "", Billingamount: "1000", Taxamount: "200", urlID: "JobDetails" },
+                     { Select: '', JobID: "PO1608234", BatchName: '', InspectionDate: "07/01/2015", House: "152", StreetName: "BAY 53 Street", Apt: "Adjacent To", Borough: "Adjacent To", Block: "06949", Lot: "0078", ServiceDate: "07/01/2015", JobType: "DSNY", JobCategory: "Billing open batches", MinutesBilled: "", Billingamount: "2000", Taxamount: "400", urlID: "JobDetails" },
+                     { Select: '', JobID: "PO1608235", BatchName: '', InspectionDate: "07/01/2015", House: "152", StreetName: "BAY 53 Street", Apt: "Adjacent To", Borough: "Adjacent To", Block: "06949", Lot: "0077", ServiceDate: "07/01/2015", JobType: "DSNY", JobCategory: "DSNY-Waiting for Billing", MinutesBilled: "", Billingamount: "3000", Taxamount: "600", urlID: "JobDetails" },
+                     { Select: '', JobID: "PO1608238", BatchName: '', InspectionDate: "07/01/2015", House: "152", StreetName: "BAY 53 Street", Apt: "Adjacent To", Borough: "Adjacent To", Block: "06949", Lot: "0076", ServiceDate: "07/01/2015", JobType: "DSNY", JobCategory: "DSNY-Waiting for Billing", MinutesBilled: "", Billingamount: "4000", Taxamount: "800", urlID: "JobDetails" },
+                     { Select: '', JobID: "PO1608249", BatchName: '', InspectionDate: "07/01/2015", House: "177", StreetName: "Buffalo Ave", Apt: "Adjacent To", Apt: "Adjacent To", Block: "01363", Lot: "0006", ServiceDate: "07/01/2015", JobType: "DSNY", JobCategory: "Billing-DOF Accepted Jobs", MinutesBilled: "", Billingamount: "1000", Taxamount: "200", urlID: "JobDetails" },
+                     { Select: '', JobID: "PO1608253", BatchName: '', InspectionDate: "07/01/2015", House: "867", StreetName: "New Jersy Ave", Apt: "Adjacent To", Apt: "Adjacent To", Block: "04348", Lot: "0055", ServiceDate: "07/01/2015", JobType: "DSNY", JobCategory: "Billing-DOF Suspended Jobs", MinutesBilled: "", Billingamount: "2000", Taxamount: "400", urlID: "JobDetails" },
+                     { Select: '', JobID: "PO1598881", BatchName: '', InspectionDate: "07/01/2015", House: "542", StreetName: "Schenck Ave", Apt: "Adjacent To", Apt: "Adjacent To", Block: "04075", Lot: "0118", ServiceDate: "07/01/2015", JobType: "DSNY", JobCategory: "DSNY-Waiting for Billing", MinutesBilled: "", Billingamount: "3000", Taxamount: "600", urlID: "JobDetails" },
+                     { Select: '', JobID: "PO1608199", BatchName: '', InspectionDate: "07/01/2015", House: "675", StreetName: "Linwood ST", Apt: "Adjacent To", Apt: "Adjacent To", Block: "04067", Lot: "0008", ServiceDate: "07/01/2015", JobType: "DSNY", JobCategory: "DSNY-Waiting for Billing", MinutesBilled: "", Billingamount: "4000", Taxamount: "800", urlID: "JobDetails" },
+                     { Select: '', JobID: "PO1608220", BatchName:'',InspectionDate: "07/01/2015", House: "657", StreetName: "Hinsdale Street", Apt: "Adjacent To", Apt: "Adjacent To", Block: "03867", Lot: "0009", ServiceDate: "07/01/2015", JobType: "DSNY", JobCategory: "DSNY-Waiting for Billing", MinutesBilled: "", Billingamount: "1000", Taxamount: "200", urlID: "JobDetails" },
+                     { Select: '', JobID: "PO1608221", InspectionDate: "07/01/2015", House: "657", StreetName: "Hinsdale Street", Apt: "Adjacent To", Apt: "Adjacent To", Block: "03867", Lot: "0008", ServiceDate: "07/01/2015", JobType: "DSNY", JobCategory: "DSNY-Waiting for Billing", MinutesBilled: "", Billingamount: "2000", Taxamount: "400", urlID: "JobDetails" },
+                     { Select: '', JobID: "PO1608234", InspectionDate: "07/01/2015", House: "657", StreetName: "S 4th Street", Apt: "Between", Apt: "Between", Block: "02430", Lot: "0038", ServiceDate: "07/01/2015", JobType: "DSNY", JobCategory: "Billing-DOF Suspended Jobs", MinutesBilled: "", Billingamount: "3000", Taxamount: "600", urlID: "JobDetails" },
+
+
+        ];
+
+
+        // Configuration for jqGrid Example 2
+        $("#Billing_Jobs").jqGrid({
+            data: mydata,
+            datatype: "local",
+            height: 220,
+            autowidth: true,
+            shrinkToFit: true,
+            sorttype: false,
+            rowNum: 20,
+            rowList: [10, 20, 30],
+            colNames: ['', 'Job ID', 'Inspection Date', 'Batch Name', 'House #', 'Street Name', 'Apt #', 'Borough', 'Block', 'Lot', 'Service Date', 'Job Type', 'Job Category', 'Minutes Billed', 'Billing amount', 'Tax amount'],
+            colModel: [
+                 {
+                     name: 'Select', index: 'Select', width: 3, editable: true, edittype: "checkbox",
+                  
+                 } ,
+                { name: 'JobID', index: 'JobID', editable: true, width: 110, sorttype: "int", align: "center", formatter: function (cellvalue, options, rowObject) {
+                    return "<a href='" + window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/')) + "/" + rowObject.urlID + "'>" + cellvalue + '</a>';}},
+                { name: 'InspectionDate', index: 'JobType', editable: true, width: 150, sorttype: "int", align: "center" },
+                 { name: 'BatchName', index: 'BatchName', editable: true, width: 120, sorttype: "int", align: "center" },
+
+                { name: 'House', index: 'House', editable: true, width: 80, align: "center", sorttype: "string", },
+                { name: 'StreetName', index: 'StreetName', editable: true, width: 80, align: "center", sorttype: "int" },
+                { name: 'Apt', index: 'Apt', editable: true, width: 80, align: "center", sorttype: "int" },
+                { name: 'Borough', index: 'Borough', editable: true, width: 80, align: "center", sorttype: "int" },
+                { name: 'Block', index: 'Block', editable: true, width: 100, align: "center", sorttype: "int" },
+                { name: 'Lot', index: 'Lot', editable: true, width: 80, align: "center", sorttype: "int" },
+                { name: 'ServiceDate', index: 'ServiceDate', editable: true, width: 80, align: "center", sorttype: "int" },
+                { name: 'JobType', index: 'JobType', editable: true, width: 80, align: "center", sorttype: "int" },
+                { name: 'JobCategory', index: 'JobCategory', editable: true, width: 80, align: "center", sorttype: "int" },
+                 { name: 'MinutesBilled', index: 'MinutesBilled', editable: true, width: 80, align: "center", sorttype: "int" },
+                  { name: 'Billingamount', index: 'Billingamount', editable: true, width: 80, align: "center", sorttype: "int" },
+                    { name: 'Taxamount', index: 'Taxamount', editable: true, width: 80, align: "center", sorttype: "int" },
+            ],
+            pager: "#Pager_Billing_Jobs",
+            viewrecords: true,
+
+            add: true,
+            edit: true,
+            multiselect:true,
+            addtext: 'Add',
+            edittext: 'Edit',
+            hidegrid: false
+        });
+
+        // Add selection
+        $("#Billing_Jobs").setSelection(4, true);
+
+
+        // Setup buttons
+        $("#Billing_Jobs").jqGrid('navGrid', '#Pager_Billing_Jobs',
+                { edit: true, add: true, del: true, search: true },
+                { reloadAfterSubmit: true }
+        );
+
+        $('#select_all').click(function (event) {
+            if (this.checked) {
+                // Iterate each checkbox
+                $(':checkbox').each(function () {
+                    this.checked = true;
+                });
+            }
+            else {
+                $(':checkbox').each(function () {
+                    this.checked = false;
+                });
+            }
+        });
+
+
+        // Add responsive to jqGrid
+        $(window).bind('resize', function () {
+            var width = $('.jqGrid_wrapper').width();
+            $('#table_list_1').setGridWidth(width);
+            $('#Billing_Jobs').setGridWidth(width);
+
+        });
+        $('.demo5').click(function () {
+            swal({
+                title: "Please confirm if you would like to Submit Batch to DOF?",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Submit",
+                cancelButtonText: "Cancel",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+                    function (isConfirm) {
+                        if (isConfirm) {
+                            swal("Submitted!", "success");
+                        } else {
+                            swal("Cancelled", "error");
+                        }
+                    });
+        });
+        //function disableSorting() {
+            jQuery('#table_list_2').setColProp('Select', { sortable: false });
+        //}
+           
+    });
+</script>
+}
+
+

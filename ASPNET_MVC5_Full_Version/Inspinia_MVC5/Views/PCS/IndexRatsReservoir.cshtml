@@ -1,0 +1,761 @@
+﻿@{
+    ViewBag.Title = "IndexRatsReservoir";
+}
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Index/Rats Reservoir</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("ExecutiveDashboard", "Dashboards")">Home</a>
+            </li>
+            <li>PCS</li>
+            <li class="active">
+                <strong>Index/Rats Reservoir</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="col-lg-12">
+
+            <div class="ibox">
+
+                <div class="ibox-content">
+
+                    <div class="row">
+                        <label class="col-sm-2 control-label">Create:</label>
+                        <div class="col-md-3">
+                            <label> <input type="radio" class="i-checks" name="lst" id="lstGrid" onclick="showGrid();" >Initiative</label> 
+                            <label style="margin-left:100px"> <input type="radio" name="lst" class="i-checks" id="lstGrid1">Index</label>   
+                        </div>
+                       
+                        
+                    </div>
+                
+                </div>
+
+            </div>
+        </div>
+        <div class="wrapper wrapper-content" id="Grid1">
+            <div class="ibox-content">
+                <h3>Create Initiative Screen</h3>
+                <div class="row" style="margin-top: 15px">
+                    <label class="col-sm-2 control-label">Initiative Name:</label>
+                    <div class="col-md-3">
+                        <input class="form-control">
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 15px">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Period/Duration:</label>
+                        <div class="col-md-4">
+                            <div id="reportrange" class="form-control">
+                                <i class="fa fa-calendar"></i>
+                                <span></span> <b class="caret"></b>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="row" style="margin-top: 15px">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Frequency:</label>
+                        <div class="col-md-4">
+                            <input class="form-control">
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="row" style="margin-top: 15px">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Schedule Date:</label>
+                        <div class="col-md-4">
+                            <div id="reportrangesch" class="form-control">
+                                <i class="fa fa-calendar"></i>
+                                <span></span> <b class="caret"></b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 15px">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Routine Jobs:</label>
+                        <div class="col-md-4">
+                            <select class="select2_demo_1 form-control">
+                                <option value="">Select</option>
+                                <option value="1">Rat Mitigation</option>
+                                <option value="2">Rat Reservoir</option>
+                                <option value="3">Shelters</option>
+                                <option value="4">Regular Indexing</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 15px">
+                    <h3>Select Zones</h3>
+                    <form id="form" action="#" class="wizard-big">
+                        <select class="form-control dual_select" multiple>
+                            <option value="United States">Zone A</option>
+                            <option value="United Kingdom">Zone B</option>
+                            <option value="Australia">Zone C</option>
+                            <option selected value="Austria">Zone D</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="row" style="margin-top: 15px">
+                    <label class="col-sm-2 control-label">Status:</label>
+                    <div class="col-md-3">
+                        <label> <input type="radio" class="i-checks">Active</label>
+                        <label style="margin-left:100px"> <input type="radio" class="i-checks">Inactive</label>
+                    </div>
+                    <label class="col-sm-1 control-label"></label>
+                </div>
+                <div class="row" style="margin-top: 10px">
+                    <div class="col-sm-6 ">
+                        <label class="col-sm-4 control-label"></label>
+                        <button class="btn btn-primary" type="submit" style="margin-left:10px">Save</button>
+                        <button class="btn btn-primary" type="submit" style="margin-left:10px" >Search</button>
+                        <button class="btn btn-primary" type="submit" style="margin-left:10px">Cancel</button>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:15px">
+                <h3>Search Details</h3>
+                <div class="table-responsive">
+                    <table class="table table-hover issue-tracker">
+                        <thead>
+                            <tr>
+                                <th>Name of Initiative</th>
+                                <th>Period</th>
+                                <th>Active/Inactive</th>
+                                <th>Zones</th>
+                                <th>Schedule</th>
+                                <th>Last Inspected</th>
+                                <th>Last Inspected By</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><a onclick="$('#AddOwnerPopup').modal('show');" href="#modal-form">Mario</a>
+                                    <div id="AddOwnerPopup" class="modal fade">
+                                        <div class="modal-dialog" style="width: 920px">
+                                            <div class="modal-content ">
+                                                <div class="modal-body">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                        <h4 class="modal-title">Search Details</h4>
+                                                    </div>
+                                                    <div class="modal-body form-horizontal">
+                                                        <div class="row">                
+                                                                <div class="table-responsive">
+                                                                    <table class="table table-hover issue-tracker">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th>Address</th>
+                                                                                <th>BBL</th>            
+                                                                                <th>Borough</th>
+                                                                                <th>RMZ</th>
+                                                                                <th>Rat Reservoir</th>
+                                                                                <th>Shelter</th>
+                                                                                <th>Block</th>
+                                                                                <th>Lot</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td>
+                                                                                    269 EAST 162 STREET
+                                                                                </td>
+                                                                                <td>
+                                                                                   2024220001
+                                                                                </td>
+                                                                                <td>
+                                                                                   BRONX
+                                                                                </td>
+                                                                                <td>
+                                                                                   BRONX Grand Concourse Zone
+                                                                                </td>
+
+                                                                                <td>
+                                                                                  Concourse Village 
+                                                                                </td>
+                                                                                <td>
+                                                                                   NO
+                                                                                </td>
+                                                                                <td>
+                                                                                    02422
+                                                                                </td>
+                                                                                <td>
+                                                                                    0001
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                    918 MORRIS AVENUE
+                                                                                </td>
+                                                                                <td>
+                                                                                    2024220005
+                                                                                </td>
+                                                                                <td>
+                                                                                    BRONX
+                                                                                </td>
+                                                                                <td>
+                                                                                    BRONX Grand Concourse Zone
+                                                                                </td>
+
+                                                                                <td>
+                                                                                    Concourse Village
+                                                                                </td>
+                                                                                <td>
+                                                                                    NO
+                                                                                </td>
+                                                                                <td>
+                                                                                    02423
+                                                                                </td>
+                                                                                <td>
+                                                                                    0002
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                    272 EAST 163 STREET
+                                                                                </td>
+                                                                                <td>
+                                                                                    2024220005
+                                                                                </td>
+                                                                                <td>
+                                                                                    BRONX
+                                                                                </td>
+                                                                                <td>
+                                                                                    BRONX Grand Concourse Zone
+                                                                                </td>
+
+                                                                                <td>
+                                                                                    Concourse Village
+                                                                                </td>
+                                                                                <td>
+                                                                                    NO
+                                                                                </td>
+                                                                                <td>
+                                                                                    02424
+                                                                                </td>
+                                                                                <td>
+                                                                                    0003
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                    278 EAST 163 STREET
+                                                                                </td>
+                                                                                <td>
+                                                                                    2024220007
+                                                                                </td>
+                                                                                <td>
+                                                                                    BRONX
+                                                                                </td>
+                                                                                <td>
+                                                                                    BRONX Grand Concourse Zone
+                                                                                </td>
+
+                                                                                <td>
+                                                                                    Concourse Village
+                                                                                </td>
+                                                                                <td>
+                                                                                    NO
+                                                                                </td>
+                                                                                <td>
+                                                                                    02425
+                                                                                </td>
+                                                                                <td>
+                                                                                    0004
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            <button type="button" class="btn btn-primary" id="btnAddEmail">ADD</button>
+                                                            <button type="button" class="btn btn-primary" style="margin-left:10px" id="btnEditEmail">Edit</button>
+                                                            <button type="button" class="btn btn-primary " style="margin-left:10px" id="btnDeleteEmail">Delete</button>
+                                                            <button type="button" class="btn btn-primary " style="margin-left:10px" id="btnSaveEmail">Save</button>
+                                                            <button type="button" class="btn btn-primary " style="margin-left:10px" id="btnCloneEmail">Clone</button>
+                                                            <button type="button" class="btn btn-primary " style="margin-left:10px" id="btnCancelEmail">Cancel</button>
+                                                            </div>
+
+                                                        </div>
+                                                   </div>   
+                                                </div>
+                                            </div>
+                                        </div>
+                                    
+                                <td>01/01/2018-01/08/2018</td>
+                                <td>
+                                   Active
+                                </td>
+                                <td>
+                                    <a onclick="$('#AddOwnerPopup').modal('show');" href="#modal-form">Zone A</a>
+                                    <a onclick="$('#AddOwnerPopup').modal('show');" href="#modal-form">Zone B</a>
+                                    <a onclick="$('#AddOwnerPopup').modal('show');" href="#modal-form">Zone C</a>     
+                                </td>
+                                <td>Every 6 months(This is should come up from Lookup table)</td>
+                               
+                                
+
+                            </tr>
+                           
+                        </tbody>
+                    </table>
+                </div>
+                    </div>
+            </div>
+        </div>
+        <div class="wrapper wrapper-content" id="Grid2">
+            <div class="ibox-content">
+                <h3>Create Index Screen</h3>
+                <div class="row" >
+                    <label class="col-sm-2 control-label">Zone Name:</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" />
+                    </div>
+                    <label class="col-sm-2 control-label">Zone Number:</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" />
+                    </div>
+                </div> 
+                <div class="row" style="margin-top:15px">
+                    <label class="col-sm-2 control-label">Zone Created By:</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" />
+                    </div>
+                    <label class="col-sm-2 control-label">Zone Created Date:</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" />
+                    </div>
+                </div> 
+                <div class="row" style="margin-top:15px">
+                    <label class="col-sm-2 control-label">Zone Target Date:</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" />
+                    </div>
+                    <label class="col-sm-2 control-label">Field Office:</label>
+                    <div class="col-md-4">
+                        <select class="select2_demo_1 form-control">
+                            <option valye="">Select</option>
+                            <option value="1">Office 1</option>
+                            <option value="2">Office 2</option>
+                            <option value="3">Office 3</option>
+
+                        </select>
+                    </div>
+                </div> 
+                <div class="row" style="margin-top:15px">
+                    <label class="col-sm-2 control-label">Rat Reservoir Name:</label>
+                    <div class="col-md-4">
+                        <select class="select2_demo_1 form-control">
+                            <option valye="">Select</option>
+                            <option value="1">Rat Reservoir 1</option>
+                            <option value="2">Rat Reservoir 2</option>
+                            <option value="3">Rat Reservoir 3</option>
+
+                        </select>
+                    </div>
+                    <label class="col-sm-2 control-label">Shelter Name:</label>
+                    <div class="col-md-4">
+                        <select class="select2_demo_1 form-control">
+                            <option valye="">Select</option>
+                            <option value="1">Shelter 1</option>
+                            <option value="2">Shelter 2</option>
+                            <option value="3">Shelter 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:15px">
+                    <label class="col-sm-2 control-label">Period:</label>
+                    <div class="col-md-4">
+                        <div id="reportrange1" class="form-control">
+                            <i class="fa fa-calendar"></i>
+                            <span></span> <b class="caret"></b>
+                        </div>
+                    </div>
+                    <label class="col-sm-2 control-label">Frequency of Inspection:</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="row" style="margin-top:15px">
+                    <label class="col-sm-2 control-label">Block:</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" />
+                    </div>
+                    <label class="col-sm-2 control-label">Lot:</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 15px">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Routine Jobs:</label>
+                        <div class="col-md-4">
+                            <select class="select2_demo_1 form-control">
+                                <option value="">Select</option>
+                                <option value="1">Rat Mitigation</option>
+                                <option value="2">Rat Reservoir</option>
+                                <option value="3">Shelters</option>
+                                <option value="4">Regular Indexing</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 15px">
+                    <div class="col-sm-6 ">
+                        <label class="col-sm-4 control-label"></label>
+                        <button class="btn btn-primary" type="submit" style="margin-left:10px">Filter</button>
+                        <button class="btn btn-primary" type="submit" style="margin-left:10px">Cancel</button>
+                    </div>
+                </div>
+                <div class="row" style="width: 205%;margin-top:15px">
+                    <div class="col-md-6">            
+                            <p>
+                                <a href="https://developers.google.com/maps/documentation/javascript/reference#MapOptions"></a>
+                            </p>
+                            <div class="google-map" id="map1"></div>
+                        
+                    </div>
+                </div>
+                <div class="row" style="margin-top:15px">
+                    <h3>Selected Values for Zones</h3>
+                    <div class="table-responsive">
+                        <table class="table table-hover issue-tracker">
+                            <thead>
+                                <tr>
+                                    <th><input type="checkbox" id="select_all" value="" /></th>
+                                    <th>BBL</th>
+                                    <th>Address</th>
+                                    <th>Borough</th>
+                                    <th>Community Board</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="checkbox" id="checbox-1" value="" /></td>
+
+                                    <td>
+                                        2024220001
+                                    </td>
+                                    <td>
+                                        269 EAST 162 STREET
+                                    </td>
+                                    <td>
+                                        BRONX
+                                    </td>
+                                    <td>Board 1</td>
+                                   
+                                    
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="checbox-1" value="" /></td>
+
+                                    <td>
+                                        2024220002
+                                    </td>
+                                    <td>
+                                        918 MORRIS AVENUE
+                                    </td>
+                                    <td>
+                                        BRONX
+                                    </td>
+                                    <td>Board 2</td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="checbox-1" value="" /></td>
+
+                                    <td>
+                                        2024220003
+                                    </td>
+                                    <td>
+                                        272 EAST 163 STREET
+                                    </td>
+                                    <td>
+                                        BRONX
+                                    </td>
+                                    <td>Board 3</td>
+                                   
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="checbox-1" value="" /></td>
+                                    <td >
+                                        2024220004
+                                    </td>
+                                    <td>
+                                      278 EAST 163 STREET
+                                    </td>
+                                    <td>
+                                        BRONX
+                                    </td>
+                                    <td>Board 4</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" id="checbox-1" value="" /></td>
+                                    <td class="issue-info">
+                                        2024220005
+                                    </td>
+                                    <td>
+                                        280 EAST 163 STREET
+                                    </td>
+                                    <td>
+                                        BRONX
+                                    </td>
+                                    <td>Board 5</td>                                   
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <button class="btn btn-primary" type="submit" style="margin-left:10px">Save</button>
+                <button class="btn btn-primary" type="submit" style="margin-left:10px">Cancel</button>
+            </div>
+        </div>
+    </div>
+    </div>
+@section Styles {
+    @Styles.Render("~/plugins/dateRangeStyles")
+@Styles.Render("~/plugins/duallistStyles")
+}
+@section Scripts {
+    @Scripts.Render("~/plugins/dateRange")
+    @Scripts.Render("~/plugins/duallist")
+    @Scripts.Render("https://maps.googleapis.com/maps/api/js?key=AIzaSyDQTpXj82d8UpCi97wzo_nKXL7nYrd4G70")   
+     <script type="text/javascript">     
+         $(function () {
+             $("#lstGrid").click(function () {
+                 $('#Grid1').hide();
+                 $('#Grid2').hide();
+                 if ($(this).is(":checked")) {
+                     $("#Grid1").show();
+                 } else {
+                     $("#Grid1").hide();
+                 }
+             });
+         });
+         $(function () {
+             $("#lstGrid1").click(function () {
+                 $('#Grid1').hide();
+                 $('#Grid2').hide();
+                 if ($(this).is(":checked")) {
+                     $("#Grid2").show();
+                 } else {
+                     $("#Grid2").hide();
+                 }
+             });
+         });         
+         $('#Grid1').hide();
+         $('#Grid2').hide();
+         $(document).ready(function () {
+             $('#Grid1').hide();
+             $('#Grid2').hide();
+             $('#select_all').click(function (event) {
+                 if (this.checked) {
+                     // Iterate each checkbox
+                     $(':checkbox').each(function () {
+                         this.checked = true;
+                     });
+                 }
+                 else {
+                     $(':checkbox').each(function () {
+                         this.checked = false;
+                     });
+                 }
+             });
+             $('.dual_select').bootstrapDualListbox({
+                 selectorMinimalHeight: 160
+             });
+            $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+
+            $('#reportrange').daterangepicker({
+                format: 'MM/DD/YYYY',
+                startDate: moment().subtract(29, 'days'),
+                endDate: moment(),
+                minDate: '01/01/1950',
+                maxDate: '12/31/3000',
+                dateLimit: { days: 60 },
+                showDropdowns: true,
+                showWeekNumbers: true,
+                timePicker: false,
+                timePickerIncrement: 1,
+                timePicker12Hour: true,
+
+                opens: 'right',
+                drops: 'down',
+                buttonClasses: ['btn', 'btn-sm'],
+                applyClass: 'btn-primary',
+                cancelClass: 'btn-default',
+                separator: ' to ',
+                locale: {
+                    applyLabel: 'Submit',
+                    cancelLabel: 'Cancel',
+                    fromLabel: 'From',
+                    toLabel: 'To',
+                    customRangeLabel: 'Custom',
+                    daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+                    monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                    firstDay: 1
+                }
+            }, function (start, end, label) {
+                console.log(start.toISOString(), end.toISOString(), label);
+                $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+            });
+            $('#reportrangesch span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+
+            $('#reportrangesch').daterangepicker({
+                format: 'MM/DD/YYYY',
+                startDate: moment().subtract(29, 'days'),
+                endDate: moment(),
+                minDate: '01/01/1950',
+                maxDate: '12/31/3000',
+                dateLimit: { days: 60 },
+                showDropdowns: true,
+                showWeekNumbers: true,
+                timePicker: false,
+                timePickerIncrement: 1,
+                timePicker12Hour: true,
+
+                opens: 'right',
+                drops: 'down',
+                buttonClasses: ['btn', 'btn-sm'],
+                applyClass: 'btn-primary',
+                cancelClass: 'btn-default',
+                separator: ' to ',
+                locale: {
+                    applyLabel: 'Submit',
+                    cancelLabel: 'Cancel',
+                    fromLabel: 'From',
+                    toLabel: 'To',
+                    customRangeLabel: 'Custom',
+                    daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+                    monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                    firstDay: 1
+                }
+            }, function (start, end, label) {
+                console.log(start.toISOString(), end.toISOString(), label);
+                $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+            });
+            $('#reportrange1 span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+            $('#reportrange1').daterangepicker({
+                format: 'MM/DD/YYYY',
+                startDate: moment().subtract(29, 'days'),
+                endDate: moment(),
+                minDate: '01/01/1950',
+                maxDate: '12/31/3000',
+                dateLimit: { days: 60 },
+                showDropdowns: true,
+                showWeekNumbers: true,
+                timePicker: false,
+                timePickerIncrement: 1,
+                timePicker12Hour: true,
+
+                opens: 'right',
+                drops: 'down',
+                buttonClasses: ['btn', 'btn-sm'],
+                applyClass: 'btn-primary',
+                cancelClass: 'btn-default',
+                separator: ' to ',
+                locale: {
+                    applyLabel: 'Submit',
+                    cancelLabel: 'Cancel',
+                    fromLabel: 'From',
+                    toLabel: 'To',
+                    customRangeLabel: 'Custom',
+                    daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+                    monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                    firstDay: 1
+                }
+            }, function (start, end, label) {
+                console.log(start.toISOString(), end.toISOString(), label);
+                $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+            });
+            $("#btnSaveEmail").click(function () {
+                $('#AddOwnerPopup').modal('hide');
+            });
+            $("#btnCancelEmail").click(function () {
+                $('#AddOwnerPopup').modal('hide');
+            });
+            $("#btnSendEmail").click(function () {
+                $('#AddOwnerPopup').modal('hide');
+            });
+            $("#btnDeleteEmail").click(function () {
+                $('#AddOwnerPopup').modal('hide');
+            });
+            $("#btnCloneEmail").click(function () {
+                $('#AddOwnerPopup').modal('hide');
+            });
+            $("#btnEditEmail").click(function () {
+                $('#AddOwnerPopup').modal('hide');
+            });
+         google.maps.event.addDomListener(window, 'load', init);
+
+            function init() {
+                // Options for Google map
+                // More info see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+                var mapOptions1 = {
+                    zoom: 11,
+                    center: new google.maps.LatLng(40.6700, -73.9400),
+                    // Style for Google Maps
+                    styles: [{ "featureType": "water", "stylers": [{ "saturation": 43 }, { "lightness": -11 }, { "hue": "#0088ff" }] }, { "featureType": "road", "elementType": "geometry.fill", "stylers": [{ "hue": "#ff0000" }, { "saturation": -100 }, { "lightness": 99 }] }, { "featureType": "road", "elementType": "geometry.stroke", "stylers": [{ "color": "#808080" }, { "lightness": 54 }] }, { "featureType": "landscape.man_made", "elementType": "geometry.fill", "stylers": [{ "color": "#ece2d9" }] }, { "featureType": "poi.park", "elementType": "geometry.fill", "stylers": [{ "color": "#ccdca1" }] }, { "featureType": "road", "elementType": "labels.text.fill", "stylers": [{ "color": "#767676" }] }, { "featureType": "road", "elementType": "labels.text.stroke", "stylers": [{ "color": "#ffffff" }] }, { "featureType": "poi", "stylers": [{ "visibility": "off" }] }, { "featureType": "landscape.natural", "elementType": "geometry.fill", "stylers": [{ "visibility": "on" }, { "color": "#b8cb93" }] }, { "featureType": "poi.park", "stylers": [{ "visibility": "on" }] }, { "featureType": "poi.sports_complex", "stylers": [{ "visibility": "on" }] }, { "featureType": "poi.medical", "stylers": [{ "visibility": "on" }] }, { "featureType": "poi.business", "stylers": [{ "visibility": "simplified" }] }]
+                };
+
+                var mapOptions2 = {
+                    zoom: 11,
+                    center: new google.maps.LatLng(40.6700, -73.9400),
+                    // Style for Google Maps
+                    styles: [{ "featureType": "all", "elementType": "all", "stylers": [{ "invert_lightness": true }, { "saturation": 10 }, { "lightness": 30 }, { "gamma": 0.5 }, { "hue": "#435158" }] }]
+                };
+
+                var mapOptions3 = {
+                    center: new google.maps.LatLng(36.964645, -122.01523),
+                    zoom: 18,
+                    mapTypeId: google.maps.MapTypeId.SATELLITE,
+                    // Style for Google Maps
+                    styles: [{ "featureType": "road", "elementType": "geometry", "stylers": [{ "visibility": "off" }] }, { "featureType": "poi", "elementType": "geometry", "stylers": [{ "visibility": "off" }] }, { "featureType": "landscape", "elementType": "geometry", "stylers": [{ "color": "#fffffa" }] }, { "featureType": "water", "stylers": [{ "lightness": 50 }] }, { "featureType": "road", "elementType": "labels", "stylers": [{ "visibility": "off" }] }, { "featureType": "transit", "stylers": [{ "visibility": "off" }] }, { "featureType": "administrative", "elementType": "geometry", "stylers": [{ "lightness": 40 }] }]
+                };
+                var mapOptions4 = {
+                    zoom: 11,
+                    center: new google.maps.LatLng(40.6700, -73.9400),
+                    // Style for Google Maps
+                    styles: [{ "stylers": [{ "hue": "#18a689" }, { "visibility": "on" }, { "invert_lightness": true }, { "saturation": 40 }, { "lightness": 10 }] }]
+                };
+
+                var fenway = new google.maps.LatLng(42.345573, -71.098326);
+                var mapOptions5 = {
+                    zoom: 14,
+                    center: fenway,
+                    // Style for Google Maps
+                    styles: [{ featureType: "landscape", stylers: [{ saturation: -100 }, { lightness: 65 }, { visibility: "on" }] }, { featureType: "poi", stylers: [{ saturation: -100 }, { lightness: 51 }, { visibility: "simplified" }] }, { featureType: "road.highway", stylers: [{ saturation: -100 }, { visibility: "simplified" }] }, { featureType: "road.arterial", stylers: [{ saturation: -100 }, { lightness: 30 }, { visibility: "on" }] }, { featureType: "road.local", stylers: [{ saturation: -100 }, { lightness: 40 }, { visibility: "on" }] }, { featureType: "transit", stylers: [{ saturation: -100 }, { visibility: "simplified" }] }, { featureType: "administrative.province", stylers: [{ visibility: "off" }]/**/ }, { featureType: "administrative.locality", stylers: [{ visibility: "off" }] }, { featureType: "administrative.neighborhood", stylers: [{ visibility: "on" }]/**/ }, { featureType: "water", elementType: "labels", stylers: [{ visibility: "on" }, { lightness: -25 }, { saturation: -100 }] }, { featureType: "water", elementType: "geometry", stylers: [{ hue: "#ffff00" }, { lightness: -25 }, { saturation: -97 }] }]
+                };
+
+                var panoramaOptions = {
+                    position: fenway,
+                    pov: {
+                        heading: 10,
+                        pitch: 10
+                    }
+                };
+                //var panorama = new google.maps.StreetViewPanorama(document.getElementById('pano'), panoramaOptions);
+
+                // Get all html elements for map
+                var mapElement1 = document.getElementById('map1');
+                var mapElement2 = document.getElementById('map2');
+                var mapElement3 = document.getElementById('map3');
+                var mapElement4 = document.getElementById('map4');
+
+                // Create the Google Map using elements
+                var map1 = new google.maps.Map(mapElement1, mapOptions1);
+                var map2 = new google.maps.Map(mapElement2, mapOptions2);
+                var map3 = new google.maps.Map(mapElement3, mapOptions3);
+                var map4 = new google.maps.Map(mapElement4, mapOptions4);
+            }
+        });
+</script>
+}

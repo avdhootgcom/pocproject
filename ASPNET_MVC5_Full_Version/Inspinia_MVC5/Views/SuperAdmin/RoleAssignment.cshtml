@@ -1,0 +1,178 @@
+﻿
+@{
+    ViewBag.Title = "RoleAssignment";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Role Assignment</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("ExecutiveDashboard", "Dashboards")">Home</a>
+            </li>
+            <li>
+                <a>Super Admin Task</a>
+            </li>
+            <li class="active">
+                <strong>Role Assignment</strong>
+            </li> 
+        </ol>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox-title"><h3>Search User</h3></div>
+            <div class="ibox-content">
+                <div class="row">
+
+                    <div class="col-lg-1"><label for="FirstName">First Name:</label></div>
+                    <div class="col-lg-4"><input type="text" class="form-control" placeholder="" required="required"></div>
+
+                    <div class="col-lg-1"><label for="FirstName">Last Name:</label></div>
+                    <div class="col-lg-4"><input type="text" class="form-control" placeholder="" required="required"></div>
+
+
+                    <button type="submit" class="btn btn-primary block ">Search</button>
+                </div>
+                <div class="row" style="margin-top:10px">
+
+                    <div class="col-lg-1"><label for="FirstName">Field Office:</label></div>
+                    <div class="col-lg-4">
+                        <select class="select2_demo_1 form-control">
+                            <option value="1">NewYork Office 1</option>
+                            <option value="2">NewYork Office 2</option>
+                            <option value="3">NewYork Office 3</option>
+                        </select>
+                    </div>
+
+
+                   
+                </div>
+                <div class="row" style="margin-top:10px">
+                    <div class="col-lg-12">
+                       
+                            <div class="ibox-title">
+                               
+                                <h5>List of roles assigned to current user</h5>
+
+                            </div>
+                            <div class="ibox-content">
+                                <form method="get" class="form-horizontal">
+
+                                    <div class="form-group">
+                                        <div class="col-sm-4">
+
+                                            <div class="checkbox i-checks"><label> <input type="checkbox" value="" disabled="" checked=""> <i></i> Role 1 </label></div>
+                                            <div class="checkbox i-checks"><label> <input type="checkbox" value="" disabled=""> <i></i> Role 2 </label></div>
+
+                                        </div>
+                                        <div class="col-sm-4">
+
+                                            <div class="checkbox i-checks"><label> <input type="checkbox" value="" disabled="" checked=""> <i></i> Role 3 </label></div>
+                                            <div class="checkbox i-checks"><label> <input type="checkbox" value="" disabled=""> <i></i> Role 4 </label></div>
+
+                                        </div>
+
+                                        <div class="col-sm-4">
+
+                                            <div class="checkbox i-checks"><label> <input type="checkbox" value="" disabled="" checked=""> <i></i> Role 5 </label></div>
+                                            <div class="checkbox i-checks"><label> <input type="checkbox" value="" disabled=""> <i></i> Role 6 </label></div>
+
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        
+                    </div>
+                </div>    
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top:10px">
+        <div class="col-lg-12">
+            <div class="ibox-title"> Roles</div>
+            <div class="ibox-content">
+               
+                <form id="form" action="#" class="wizard-big">
+                    <select class="form-control dual_select" multiple>
+                        <option value="United States">Supervisor</option>
+                        <option value="United Kingdom">Clerk</option>
+                        <option value="Australia">Role4</option>
+                        <option value="Australia">Role5</option>
+                        <option selected value="Austria">Inspector</option>
+                      
+                    </select>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top:10px">
+        <div class="col-lg-12">
+            <div class="ibox-title"><h3>Category</h3></div>
+            <div class="ibox-content">
+               
+                <form id="form" action="#" class="wizard-big">
+                    <select class="form-control dual_select" multiple>
+                        <option value="United States">Create Job Route</option>
+                        <option value="United Kingdom">Approves Job</option>
+                        <option value="Australia">Rejects Job</option>
+                        <option value="Australia">Returns Job</option>
+                        <option selected value="Austria">Inspector</option>
+
+                    </select>
+                </form>
+                <div class="row" style="margin-top:20px">
+                    <div class="col-lg-14"></div>
+                    <div class="col-lg-2">
+                        <button type="button" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-white " style="margin-left:10px">Cancel</button>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+
+</div>
+
+@section Styles {
+@Styles.Render("~/Content/plugins/iCheck/iCheckStyles")
+@Styles.Render("~/plugins/toastrStyles")
+  @Styles.Render("~/plugins/sweetAlertStyles")
+@Styles.Render("~/plugins/duallistStyles")
+
+}
+
+@section Scripts {
+@Scripts.Render("~/plugins/iCheck")
+@Scripts.Render("~/plugins/toastr")
+  @Scripts.Render("~/plugins/sweetAlert")
+@Scripts.Render("~/plugins/duallist")
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('.i-checks').iCheck({
+            checkboxClass: 'icheckbox_square-green',
+            radioClass: 'iradio_square-green',
+        });
+
+        //Add Sweet Alert on Button
+        $('.demo2').click(function () {
+            swal({
+                title: "Saved Successfully!",
+                type: "success"
+            });
+        });
+        $('.dual_select').bootstrapDualListbox({
+            selectorMinimalHeight: 160
+        });
+
+       
+    });
+    </script>
+    }
+

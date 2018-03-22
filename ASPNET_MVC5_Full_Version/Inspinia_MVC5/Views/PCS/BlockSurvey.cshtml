@@ -1,0 +1,392 @@
+﻿
+@{
+    ViewBag.Title = "BlockSurvey";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Block Survey</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("ExecutiveDashboard", "Dashboards")">Home</a>
+            </li>
+            <li>PCS</li>
+            <li class="active">
+                <strong>Block Survey</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="row">
+            <div class="col-sm-8 ">
+            </div>
+            <div class="col-sm-4">
+
+                <div class="input-group">
+                    <div class="col-lg-3"><label for="FirstName"> Search:</label></div>
+                    <div class="col-lg-6">
+                        <input type="text" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
+                        </span>
+                    </div>
+                    <div class="col-lg-1 no-padding">
+                        <button type="button" class="btn btn-sm btn-primary"> <i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-sm-4">
+                <div class="text-center p-md">
+                    <strong>Block Survey</strong>
+
+                    <div class="m-t-md no-padding">
+                        <div>
+                            <a href="~/Images/road.png" title="Image from Unsplash" data-gallery=""><img src="~/Images/road.png"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="text-center p-md">
+                    <strong>Parks & Green Streets Survey</strong>
+
+                    <div class="m-t-md no-padding">
+                        <div>
+                            <a href="~/Images/nature.png" title="Image from Unsplash" data-gallery=""><img src="~/Images/nature.png"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="text-center p-md">
+                    <strong>Subway Station Survey</strong>
+
+                    <div class="m-t-md no-padding">
+                        <div>
+                            <a href="~/Images/station.png" title="Image from Unsplash" data-gallery=""><img src="~/Images/station.png"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="text-center p-md">
+                    <strong>Block Survey</strong>
+                </div>
+            </div>
+        </div>
+        <div class="row" >
+            <div class="col-md-6">
+                    <p>
+                        <a href="https://developers.google.com/maps/documentation/javascript/reference#MapOptions"></a>
+                    </p>
+                    <div class="google-map" id="map1"></div>
+            </div>
+            <div class="col-md-6">
+                <div class="col-md-12">
+                    <label class="col-md-3 control-label"> Survey Id:</label>
+                    <div class="col-md-6">
+                        <input class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <label class="col-sm-3 control-label" style="margin-top: 15px">Borough:</label>
+                    <div class="col-md-6" style="margin-top: 15px">
+                        <select class="select2_demo_1 form-control">
+                            <option value="1">Manhattan</option>
+                            <option value="2">Brooklyn</option>
+                            <option value="3">Queens</option>
+                            <option value="4">Bronx</option>
+                            <option value="5">Staten Island</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <label class="col-sm-3 control-label" style="margin-top: 15px">CB:</label>
+                    <div class="col-md-6" style="margin-top: 15px">
+                       
+                            <input class="form-control">
+                        </div>  
+                   
+                </div>  
+                <div class="col-md-12">
+                    <label class="col-sm-3 control-label" style="margin-top: 15px">Block:</label>
+                    <div class="col-md-6" style="margin-top: 15px">
+
+                        <input class="form-control">
+                    </div>
+
+                </div>  
+                <div class="col-md-12">
+                    <label class="col-sm-3 control-label" style="margin-top: 15px">Inspector:</label>
+                    <div class="col-md-6" style="margin-top: 15px">
+
+                        <input class="form-control">
+                    </div>
+
+                </div>  
+                <div class="form-group col-md-12" id="data_5">
+                    <label class="col-sm-3 control-label" style="margin-top: 15px">Date:</label>
+                    <div class="col-md-6" style="margin-top: 15px">
+
+                        <div class="input-daterange input-group" id="datepicker" style="width:210px">
+
+                            <input type="text" class="input-sm form-control" value="05/14/2014" />
+                        </div>
+                    </div>
+
+                </div>  
+                   
+                </div>
+            </div>
+
+    <div class="row" style="margin-top: 20px">
+        <div class="table-responsive">
+            <table class="table table-hover issue-tracker">
+                <thead>
+                    <tr>
+                        <th>Lot</th>
+                        <th>Premises Address</th>
+                        <th>Survey Type</th>
+                        <th>Notes</th>
+                       
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            Sample1
+                        </td>
+                        <td>
+
+
+                            Adrian Novak
+                      
+                          
+                        </td>
+                        <td>
+                           Total ARS Burrows
+                        </td>
+                        <td>
+                            Brooklyn
+                        </td>
+                       
+                     
+                       
+                       
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Sample2
+                        </td>
+                        <td>
+                            Monica Proven
+                          
+                         
+                        </td>
+                        <td>
+                          Total Burrows
+                        </td>
+                        <td>
+                            Staten Island
+                        </td>
+                       
+                      
+
+                    </tr>
+                    <tr>
+                        <td>
+                          Sample3
+                        </td>
+                        <td>
+                            Carol Jackson
+
+                        </td>
+                        <td>
+                         Locationswith Droppings  
+                        </td>
+                        <td>
+                            Queens
+                        </td>
+                       
+                       
+                    </tr>
+                    <tr>
+                        <td>
+                            Sample4
+                        </td>
+                        <td>
+                            Carol Jackson
+                      
+                        </td>
+                        <td>
+                           Total Dead Rats
+                        </td>
+                        <td>Queens</td>
+                      
+                      
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+        <button type="button" class="btn btn-sm btn-primary" style="margin-top: 15px"> Search </button>
+    </div><br />
+  
+</div>
+<style>
+    /* Local style for demo purpose */
+
+
+    .lightBoxGallery {
+        text-align: left;
+    }
+
+        .lightBoxGallery img {
+            margin: 5px;
+            width: 300px;
+            height: 200px;
+        }
+</style>
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/blueimp/css/")
+    @Styles.Render("~/plugins/dateRangeStyles")
+   @Styles.Render("~/plugins/dataPickerStyles")
+
+}
+@section Scripts {
+
+
+    @Scripts.Render("~/plugins/flot")
+    @Scripts.Render("~/plugins/vectorMap")
+    @Scripts.Render("~/plugins/sparkline")
+    @Scripts.Render("~/plugins/chartJs")
+    @Scripts.Render("~/plugins/dataPicker")
+
+    @Scripts.Render("~/plugins/imagecropper")
+@Scripts.Render("https://maps.googleapis.com/maps/api/js?key=AIzaSyDQTpXj82d8UpCi97wzo_nKXL7nYrd4G70")
+
+
+   <script type="text/javascript">
+       $(document).ready(function () {
+
+           $("span.pie").peity("pie", {
+               fill: ['#1ab394', '#d7d7d7', '#ffffff']
+           })
+
+       });
+       google.maps.event.addDomListener(window, 'load', init);
+
+       function init() {
+           // Options for Google map
+           // More info see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+           var mapOptions1 = {
+               zoom: 11,
+               center: new google.maps.LatLng(40.6700, -73.9400),
+               // Style for Google Maps
+               styles: [{ "featureType": "water", "stylers": [{ "saturation": 43 }, { "lightness": -11 }, { "hue": "#0088ff" }] }, { "featureType": "road", "elementType": "geometry.fill", "stylers": [{ "hue": "#ff0000" }, { "saturation": -100 }, { "lightness": 99 }] }, { "featureType": "road", "elementType": "geometry.stroke", "stylers": [{ "color": "#808080" }, { "lightness": 54 }] }, { "featureType": "landscape.man_made", "elementType": "geometry.fill", "stylers": [{ "color": "#ece2d9" }] }, { "featureType": "poi.park", "elementType": "geometry.fill", "stylers": [{ "color": "#ccdca1" }] }, { "featureType": "road", "elementType": "labels.text.fill", "stylers": [{ "color": "#767676" }] }, { "featureType": "road", "elementType": "labels.text.stroke", "stylers": [{ "color": "#ffffff" }] }, { "featureType": "poi", "stylers": [{ "visibility": "off" }] }, { "featureType": "landscape.natural", "elementType": "geometry.fill", "stylers": [{ "visibility": "on" }, { "color": "#b8cb93" }] }, { "featureType": "poi.park", "stylers": [{ "visibility": "on" }] }, { "featureType": "poi.sports_complex", "stylers": [{ "visibility": "on" }] }, { "featureType": "poi.medical", "stylers": [{ "visibility": "on" }] }, { "featureType": "poi.business", "stylers": [{ "visibility": "simplified" }] }]
+           };
+
+           var mapOptions2 = {
+               zoom: 11,
+               center: new google.maps.LatLng(40.6700, -73.9400),
+               // Style for Google Maps
+               styles: [{ "featureType": "all", "elementType": "all", "stylers": [{ "invert_lightness": true }, { "saturation": 10 }, { "lightness": 30 }, { "gamma": 0.5 }, { "hue": "#435158" }] }]
+           };
+
+           var mapOptions3 = {
+               center: new google.maps.LatLng(36.964645, -122.01523),
+               zoom: 18,
+               mapTypeId: google.maps.MapTypeId.SATELLITE,
+               // Style for Google Maps
+               styles: [{ "featureType": "road", "elementType": "geometry", "stylers": [{ "visibility": "off" }] }, { "featureType": "poi", "elementType": "geometry", "stylers": [{ "visibility": "off" }] }, { "featureType": "landscape", "elementType": "geometry", "stylers": [{ "color": "#fffffa" }] }, { "featureType": "water", "stylers": [{ "lightness": 50 }] }, { "featureType": "road", "elementType": "labels", "stylers": [{ "visibility": "off" }] }, { "featureType": "transit", "stylers": [{ "visibility": "off" }] }, { "featureType": "administrative", "elementType": "geometry", "stylers": [{ "lightness": 40 }] }]
+           };
+
+           var mapOptions4 = {
+               zoom: 11,
+               center: new google.maps.LatLng(40.6700, -73.9400),
+               // Style for Google Maps
+               styles: [{ "stylers": [{ "hue": "#18a689" }, { "visibility": "on" }, { "invert_lightness": true }, { "saturation": 40 }, { "lightness": 10 }] }]
+           };
+
+           var fenway = new google.maps.LatLng(42.345573, -71.098326);
+           var mapOptions5 = {
+               zoom: 14,
+               center: fenway,
+               // Style for Google Maps
+               styles: [{ featureType: "landscape", stylers: [{ saturation: -100 }, { lightness: 65 }, { visibility: "on" }] }, { featureType: "poi", stylers: [{ saturation: -100 }, { lightness: 51 }, { visibility: "simplified" }] }, { featureType: "road.highway", stylers: [{ saturation: -100 }, { visibility: "simplified" }] }, { featureType: "road.arterial", stylers: [{ saturation: -100 }, { lightness: 30 }, { visibility: "on" }] }, { featureType: "road.local", stylers: [{ saturation: -100 }, { lightness: 40 }, { visibility: "on" }] }, { featureType: "transit", stylers: [{ saturation: -100 }, { visibility: "simplified" }] }, { featureType: "administrative.province", stylers: [{ visibility: "off" }]/**/ }, { featureType: "administrative.locality", stylers: [{ visibility: "off" }] }, { featureType: "administrative.neighborhood", stylers: [{ visibility: "on" }]/**/ }, { featureType: "water", elementType: "labels", stylers: [{ visibility: "on" }, { lightness: -25 }, { saturation: -100 }] }, { featureType: "water", elementType: "geometry", stylers: [{ hue: "#ffff00" }, { lightness: -25 }, { saturation: -97 }] }]
+           };
+
+           var panoramaOptions = {
+               position: fenway,
+               pov: {
+                   heading: 10,
+                   pitch: 10
+               }
+           };
+           //var panorama = new google.maps.StreetViewPanorama(document.getElementById('pano'), panoramaOptions);
+
+           // Get all html elements for map
+           var mapElement1 = document.getElementById('map1');
+           var mapElement2 = document.getElementById('map2');
+           var mapElement3 = document.getElementById('map3');
+           var mapElement4 = document.getElementById('map4');
+
+           // Create the Google Map using elements
+           var map1 = new google.maps.Map(mapElement1, mapOptions1);
+           var map2 = new google.maps.Map(mapElement2, mapOptions2);
+           var map3 = new google.maps.Map(mapElement3, mapOptions3);
+           var map4 = new google.maps.Map(mapElement4, mapOptions4);
+       }
+        $(document).ready(function () {
+          $('#data_1 .input-group.date').datepicker({
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true
+            });
+
+            $('#data_2 .input-group.date').datepicker({
+                startView: 1,
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            });
+
+            $('#data_3 .input-group.date').datepicker({
+                startView: 2,
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            });
+
+            $('#data_4 .input-group.date').datepicker({
+                minViewMode: 1,
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true,
+                todayHighlight: true
+            });
+
+            $('#data_5 .input-daterange').datepicker({
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            });
+            $('input[name="daterange"]').daterangepicker();
+
+        });
+
+    </script>
+}
+
+

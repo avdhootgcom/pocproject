@@ -1,0 +1,637 @@
+﻿
+@{
+    ViewBag.Title = "TaskDetails";
+}
+
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <br>
+        <div class="col-lg-1">
+            <button class="btn btn-primary" onclick="showselection();">Select Fields</button>
+        </div>
+        <div class="col-lg-1" style="margin-left:25px">
+            <button class="btn btn-primary" onclick="clearselection();">Clear Selection</button><br>
+        </div>
+
+    </div>  
+    <div id="map"></div>
+    <div class="row">
+        <div class="ibox float-e-margins">
+            <div class="ibox-content">
+                <div class="m-b-lg">
+                    <div class="m-t-md">
+                        <strong>List of All Jobs</strong>
+                        <br /><br />
+
+                        <a>Note: Completed jobs will automatically be removed from Centralized Job Pool after 36 hours of submission.</a>
+                    </div>
+
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-hover issue-tracker">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" id="select_all" value="" /></th>
+
+                                <th>Job ID</th>
+                                <th>BBL</th>
+                                <th>Added On</th>
+                                <th>House #</th>
+                                <th>Street Name</th>
+                                <th>Apt #</th>
+                                <th>Borough</th>
+                                <th>Duplicate</th>
+                                <th>Route Id</th>
+                                <th>RMZ</th>
+                                <th>Shelter</th>
+                                <th>Job Type</th>
+                                <th>Job Category</th>
+                                <th>Status</th>
+                                <th>Priority</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox" id="checbox1" value="" /></td>
+
+                                <td class="issue-info">
+                                    <a href="@Url.Action("JobDetails", "Billing")">PO12345</a>
+                                </td>
+                                <td>
+                                    3015720006 
+                                </td>
+                                <td>
+                                    07/19/2017
+                                </td>
+                                <td>1372</td>
+                                <td>7 Avenue</td>
+                                <td>N/A</td>
+                                <td> Staten Island</td>
+                                <td>Yes</td>
+                                <td>1</td>
+                                <td>RMZ 1</td>
+                                <td>Shelter 1</td>
+                                <td>311</td>
+                                <td>Initial</td>
+                                <td>Open-Primary</td>
+                                <td><span class="label label-danger">High</span></td>
+
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" id="checbox2" value="" /></td>
+
+                                <td class="issue-info">
+                                    <a href="@Url.Action("JobDetails", "Billing")">PO12345</a>
+                                </td>
+                                <td>
+                                    3015720025 
+                                </td>
+                                <td>
+                                    07/19/2017
+                                </td>
+                                <td>1372</td>
+                                <td>7 Avenue</td>
+                                <td>N/A</td>
+                                <td> Staten Island</td>
+                                <td>No</td>
+                                <td>2</td>
+                                <td>RMZ 2</td>
+                                <td>Shelter 2</td>
+                                <td>311</td>
+                                <td>Initial</td>
+                                <td>Ready for Approval</td>
+
+                                <td><span class="label label-danger">High</span></td>
+
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" id="checbox3" value="" /></td>
+
+                                <td class="issue-info">
+                                    <a href="@Url.Action("JobDetails", "Billing")">PO12345</a>
+                                </td>
+                                <td>
+                                    3015720042 
+                                </td>
+                                <td>
+                                    07/19/2017
+                                </td>
+                                <td>1372</td>
+                                <td>7 Avenue</td>
+                                <td>N/A</td>
+                                <td> Staten Island</td>
+                                <td>Yes</td>
+                                <td>3</td>
+                                <td>RMZ 3</td>
+                                <td>Shelter 3</td>
+                                <td>311</td>
+                                <td>Initial</td>
+                                <td>Initial Insp Done</td>
+                                <td><span class="label label-warning">Medium</span></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" id="checbox4" value="" /></td>
+                                <td class="issue-info">
+                                    <a href="@Url.Action("JobDetails", "Billing")">PO12345</a>
+                                </td>
+                                <td>
+                                    3015720012 
+                                </td>
+                                <td>
+                                    07/19/2017
+                                </td>
+                                <td>1372</td>
+                                <td>7 Avenue</td>
+                                <td>N/A</td>
+                                <td> Staten Island</td>
+                                <td>No</td>
+                                <td>4</td>
+                                <td>RMZ 4</td>
+                                <td>Shelter 4</td>
+                                <td>311</td>
+                                <td>Initial</td>
+                                <td>Extermination Done</td>
+                                <td><span class="label label-success">Low</span></td>
+
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" id="checbox5" value="" /></td>
+
+                                <td class="issue-info">
+                                    <a href="@Url.Action("JobDetails", "Billing")">PO12345</a>
+                                </td>
+                                <td>
+                                    3015720024 
+                                </td>
+                                <td>
+                                    07/19/2017
+                                </td>
+                                <td>1372</td>
+                                <td>7 Avenue</td>
+                                <td>N/A</td>
+                                <td> Staten Island</td>
+                                <td>Yes</td>
+                                <td>5</td>
+                                <td>RMZ 5</td>
+                                <td>Shelter 5</td>
+                                <td>311</td>
+                                <td>Initial</td>
+                                <td>Comp Insp Done</td>
+                                <td><span class="label label-success">Low</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="form-group" style="margin-top: 20px">
+                        <label class="col-sm-2 control-label">Date Range:</label>
+                        <div class="col-md-4">
+                            <div id="reportrange" class="form-control">
+                                <i class="fa fa-calendar"></i>
+                                <span></span> <b class="caret"></b>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group" style="margin-top: 20px">
+                        <label class="col-lg-2 control-label">Route Type:</label>
+                        <div class="col-lg-4">
+                            <select class="select2_demo_1 form-control">
+                                <option value="">Select</option>
+                                <option value="1">Route Type 1</option>
+                                <option value="2">Route Type 2</option>
+                                <option value="3">Route Type 3</option>
+                            </select>
+                        </div>
+                        <label class="col-lg-2 control-label">Primary Inspector:</label>
+                        <div class="col-lg-4">
+                            <select class="select2_demo_1 form-control">
+                                <option value="">Select</option>
+                                <option value="1">Inspector 1</option>
+                                <option value="2">Inspector 2</option>
+                                <option value="3">Inspector 3</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 15px">
+                    <label class="col-lg-4 control-label"></label>
+                    <button type="button" class="btn btn-primary demo3" id="demo3">Add to Route</button> &nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-primary demo4" id="demo4">Reroute </button> &nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-primary demo5" id="demo5">Retract </button> &nbsp;&nbsp;&nbsp;
+                </div>
+                <div class="row" style="margin-top: 15px">
+                    <label class="col-lg-2"></label>
+                    <button type="button" class="btn btn-primary demo6" id="demo6">Approve </button> &nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-primary demo7" id="demo7">Reject </button> &nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-primary demo8" id="demo8">Return</button> &nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-primary demo10" id="demo8">Sup Check</button> &nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-primary demo9" id="demo9">QA Check</button> &nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-primary " onclick="$('#AddOwnerPopup').modal('show');">Dup/De-Dup</button> &nbsp;&nbsp;&nbsp;
+                </div>
+            </div>
+        </div>
+        <div id="AddOwnerPopup" class="modal fade">
+            <div class="modal-dialog" style="width: 920px">
+                <div class="modal-content ">
+                    <div class="modal-body">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">Job Details</h4>
+                        </div>
+                        <div class="modal-body form-horizontal">
+                            <div class="row">
+                                <label class="col-lg-3 control-label" style="margin-top: 15px">Dup/De-Dup:</label>
+                                <div class="col-lg-6" style="margin-top: 15px">
+
+                                    <select class="select2_demo_1 form-control">
+                                        <option value="">Select</option>
+                                        <option value="1">Not Duplicate-Make it as primary</option>
+                                        <option value="2">Duplicate-Close the Ticket</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-lg-3 control-label" style="margin-top: 15px">Duplicate Job Ticket:</label>
+                                <div class="col-lg-6" style="margin-top: 15px">
+                                    <input value="" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-lg-3 control-label">Comments:</label>
+                                <div class="col-lg-6">
+                                    <textarea class="form-control border-left m-t" style="height: 200px" placeholder="Enter Comments"></textarea>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: 15px">
+                                <label class="col-lg-3 control-label"></label>
+                                <div class="col-lg-6">
+                                    <button type="button" class="btn btn-primary " id="btnSendEmail">Save</button>
+                                    <button type="button" class="btn btn-primary " style="margin-left: 10px" id="btnCancelEmail">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Styles {
+    @Styles.Render("~/plugins/sweetAlertStyles")
+    @Styles.Render("~/plugins/dateRangeStyles")
+    <style>
+        #map {
+            position: relative;
+            margin: 5px;
+            width: 1000px;
+            height: 400px;
+            border: 1px solid #000;
+        }
+    </style>
+    <link rel="stylesheet" href="https://js.arcgis.com/3.23/dijit/themes/soria/soria.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/3.23/dojox/grid/resources/Grid.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/3.23/dojox/grid/resources/soriaGrid.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/3.23/esri/css/esri.css" />
+}
+
+@section Scripts {
+
+    @Scripts.Render("~/plugins/sweetAlert")
+    @Scripts.Render("~/plugins/dateRange")
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $('#select_all').click(function(event) {
+                if (this.checked) {
+                    // Iterate each checkbox
+                    $(':checkbox').each(function() {
+                        this.checked = true;
+                    });
+                } else {
+                    $(':checkbox').each(function() {
+                        this.checked = false;
+                    });
+                }
+            });
+
+            //Add Sweet Alert on Button
+
+            $('.demo3').click(function() {
+                swal({
+                    title: "Added to Route!",
+                    text: "Route Id 1",
+                    type: "success"
+                });
+            });
+            $('.demo4').click(function() {
+                swal({
+                    title: "Rerouted Successfully!",
+                    type: "success"
+                });
+            });
+            $('.demo5').click(function() {
+                swal({
+                    title: "Retracted Successfully!",
+                    type: "success"
+                });
+            });
+            $("#btnCancelEmail").click(function() {
+                $('#AddOwnerPopup').modal('hide');
+            });
+
+            $("#btnSendEmail").click(function() {
+                $('#AddOwnerPopup').modal('hide');
+            });
+            $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') +
+                ' - ' +
+                moment().format('MMMM D, YYYY'));
+
+            $('#reportrange').daterangepicker({
+                    format: 'MM/DD/YYYY',
+                    startDate: moment().subtract(29, 'days'),
+                    endDate: moment(),
+                    minDate: '01/01/1950',
+                    maxDate: '12/31/3000',
+                    dateLimit: { days: 60 },
+                    showDropdowns: true,
+                    showWeekNumbers: true,
+                    timePicker: false,
+                    timePickerIncrement: 1,
+                    timePicker12Hour: true,
+
+                    opens: 'right',
+                    drops: 'down',
+                    buttonClasses: ['btn', 'btn-sm'],
+                    applyClass: 'btn-primary',
+                    cancelClass: 'btn-default',
+                    separator: ' to ',
+                    locale: {
+                        applyLabel: 'Submit',
+                        cancelLabel: 'Cancel',
+                        fromLabel: 'From',
+                        toLabel: 'To',
+                        customRangeLabel: 'Custom',
+                        daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+                        monthNames: [
+                            'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
+                            'October', 'November', 'December'
+                        ],
+                        firstDay: 1
+                    }
+                },
+                function(start, end, label) {
+                    console.log(start.toISOString(), end.toISOString(), label);
+                    $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+                });
+            $('.demo6').click(function() {
+                swal({
+                    title: "Approved Successfully!",
+                    type: "success"
+                });
+            });
+            $('.demo7').click(function() {
+                swal({
+                    title: "Rejected Successfully!",
+                    type: "success"
+                });
+            });
+            $('.demo8').click(function() {
+                swal({
+                    title: "Returned Successfully!",
+                    type: "success"
+                });
+            });
+            $('.demo9').click(function() {
+                swal({
+                    title: "QA check Successfully!",
+                    type: "success"
+                });
+            });
+            $('.demo10').click(function() {
+                swal({
+                    title: "Sup check Successfully!",
+                    type: "success"
+                });
+            });
+
+
+        });
+    </script>
+
+    <script src="https://js.arcgis.com/3.23/"></script>
+    <script type="text/javascript">
+        var dojoConfig = { parseOnLoad: true };
+        dojo.require("dijit.dijit"); // optimize: load dijit layer
+        dojo.require("dijit.layout.BorderContainer");
+        dojo.require("dijit.layout.ContentPane");
+        dojo.require("esri.map");
+        dojo.require("esri.layers.FeatureLayer");
+        dojo.require("esri.symbols.SimpleFillSymbol");
+        dojo.require("esri.symbols.SimpleLineSymbol");
+        dojo.require("esri.toolbars.draw");
+        dojo.require("dojo.data.ItemFileWriteStore");
+        dojo.require("dojox.grid.DataGrid");
+        dojo.require("dijit.form.Button");
+        dojo.require("dojox.grid.cells.dijit");
+        dojo.require("dojo.number");
+        dojo.require("dijit.TooltipDialog");
+        dojo.require("esri.toolbars.draw");
+        dojo.require("dojo.dom");
+        dojo.require("dojo.on");
+        dojo.require("dojo.parser");
+        dojo.require("dojo._base.array");
+        dojo.require("esri.Color");
+        dojo.require("dojo.number");
+        dojo.require("esri.graphic");
+        dojo.require("esri.geometry.Point");
+
+        var featureLayer;
+        var map;
+        var selectionToolbar;
+        var query;
+
+
+        dojo.ready(loadinit);
+
+        function loadinit() {
+            query = new esri.tasks.Query();
+            query.where = "(BBL = 3015720026 or BBL = 3015700018 or BBL = 3015710009 or BBL = 3015720003 or BBL  = 3015710013)";
+            //query.where = "Block = 1572";
+                
+
+            var symbol = new esri.symbol.SimpleMarkerSymbol({
+                "color": [255, 255, 255, 255],
+                "size": 5,
+                "angle": 0,
+                "xoffset": 0,
+                "yoffset": 0,
+                "type": "esriSMS",
+                "style": "esriSMSCircle",
+                "transparency": 0,
+                "outline": {
+                    "color": [51, 159, 255, 255],
+                    "width": 2,
+                    "type": "esriSLS",
+                    "style": "esriSLSSolid"
+                }
+            });
+
+            var renderer = new esri.renderer.SimpleRenderer(symbol);
+
+            dojo.parser.parse();
+
+            map = new esri.Map("map",
+                {
+                    basemap: "satellite",
+                    center: [-73.90798403043057, 40.67716150820878],
+                    zoom: 18
+                });
+
+            map.on("load",
+                function(event) {
+
+
+                    var fieldsSelectionSymbol =
+                        new esri.symbol.SimpleFillSymbol(esri.symbol.SimpleFillSymbol.STYLE_SOLID,
+                            new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_DASHDOT,
+                                new esri.Color([255, 0, 0]),
+                                2),
+                            new esri.Color([192, 192, 192, 0.5]));
+
+
+                    featureLayer = new esri.layers.FeatureLayer(
+                        "https://services3.arcgis.com/A6Zjpzrub8ESZ3c7/ArcGIS/rest/services/PLUTO_Points/FeatureServer/0",
+                        {
+                            outFields: ["*"],
+                            mode: esri.layers.FeatureLayer.MODE_SELECTION
+                        });
+
+                    selectionToolbar = new esri.toolbars.Draw(event.map);
+                    featureLayer.setRenderer(renderer);
+                    var selectQuery = new esri.tasks.Query();
+
+                    selectionToolbar.on("DrawEnd",
+                        function(geometry) {
+                            selectionToolbar.deactivate();
+                            selectQuery.geometry = geometry;
+                            selectQuery.where = query.where = "(BBL = 3015720026 or BBL = 3015700018 or BBL = 3015710009 or BBL = 3015720003 or BBL  = 3015710013)";
+                            featureLayer.selectFeatures(selectQuery,
+                                esri.layers.FeatureLayer.SELECTION_ADD,
+                                function(results) {
+                                    var facilitiesSum = "";
+                                    dojo._base.array.forEach(results,
+                                        function(feature) {
+                                            facilitiesSum += " " + feature.attributes.OwnerName;
+                                           // alert(feature.attributes.BBL);
+                                            if (feature.attributes.BBL.toString() == "3015710013")
+                                            {  document.getElementById('checbox1').checked = true;}
+                                            if(feature.attributes.BBL.toString() == "3015720026")
+                                                document.getElementById('checbox2').checked = true;
+                                            if(feature.attributes.BBL.toString() == "3015700018")
+                                                document.getElementById('checbox3').checked = true;
+                                            if(feature.attributes.BBL.toString() == "3015710009")
+                                                document.getElementById('checbox4').checked = true;
+                                            if(feature.attributes.BBL.toString() == "3015720003")
+                                                document.getElementById('checbox5').checked = true;
+                                        });
+                                });
+
+                            map.graphics.add(new esri.Graphic(geometry, fieldsSelectionSymbol));
+
+                        });
+
+
+                    map.addLayer(featureLayer);
+                    featureLayer.on("mouse-over", showTooltip);
+                    featureLayer.on("mouse-out", closeDialog);
+
+
+                    featureLayer.on("load",
+                        function() {
+
+
+                            /*
+                            featureLayer.queryIds(query, function(objectIds) {
+        
+                                //alert(objectIds);
+                                 
+                              featureLayer.selectFeatures(query, esri.layers.FeatureLayer.SELECTION_NEW)
+                            });
+                            */
+
+                            featureLayer.queryFeatures(query,
+                                function(featureSet) {
+                                    //for (var i = 0; i < featureSet.features.length; i++) {  
+                                    var feature = featureSet.features[0];
+                                    //  alert(feature.attributes.OwnerName);
+                                    //}  
+
+                                    featureLayer.selectFeatures(query, esri.layers.FeatureLayer.SELECTION_NEW)
+                                });
+
+                        });
+
+
+                    featureLayer.on("click",
+                        function(evt) {
+
+
+                        });
+
+
+                });
+
+
+        }
+
+
+        function showTooltip(evt) {
+            closeDialog();
+            var dialog = new dijit.TooltipDialog({
+                id: "tooltipDialog",
+                content: evt.graphic.attributes.Block + "<br />" + evt.graphic.attributes.OwnerName,
+                style: "position: absolute; width: 200px; font: normal normal bold 6pt Tahoma;z-index:100"
+            });
+            dialog.startup();
+
+            dojo.style(dialog.domNode, "opacity", 0.85);
+            dijit.placeOnScreen(dialog.domNode, { x: evt.pageX, y: evt.pageY }, ["TL", "BL"], { x: 10, y: 10 });
+        }
+
+        function closeDialog() {
+            var widget = dijit.byId("tooltipDialog");
+            if (widget) {
+                widget.destroy();
+            }
+        }
+
+        function showselection() {
+            selectionToolbar.activate(esri.toolbars.Draw.EXTENT);
+        }
+
+        function clearselection() {
+            document.getElementById('checbox1').checked = false;
+            document.getElementById('checbox2').checked = false;
+            document.getElementById('checbox3').checked = false;
+            document.getElementById('checbox4').checked = false;
+            document.getElementById('checbox5').checked = false;
+            map.graphics.clear();
+            //dojo.dom.byId('messages').innerHTML = "<i>No Selected Fields</i>";
+
+            featureLayer.queryIds(query,
+                function(objectIds) {
+
+                    featureLayer.selectFeatures(query, esri.layers.FeatureLayer.SELECTION_NEW)
+                });
+        }
+
+
+    </script>
+}
+

@@ -1,0 +1,160 @@
+﻿@{
+    ViewBag.Title = "Profile";
+}
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Profile</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("ExecutiveDashboard", "Dashboards")">@ViewBag.FieldName</a>
+            </li>
+           
+            
+        </ol>
+    </div>
+    <div class="col-lg-2">
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="ibox-content">
+        <div class="row m-b-lg m-t-lg">
+            <div class="col-lg-6">
+                <div class="col-lg-5">
+                    <div class="fallback right">
+                        <form action="#" class="dropzone" id="dropzoneForm">
+                            <div class="fallback img-circle">
+                                <input name="file" type="file" multiple />
+                            </div>
+                        </form>
+                        @*<img src="~/Images/profile_small.jpg" class="img-circle circle-border m-b-md" alt="profile">*@
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="no-margins">
+                        <div>
+                            <h2>
+                                David Williams
+                            </h2>
+                            <h4>Inspector</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5"></div>
+            </div>
+        </div>
+        <h3>Profile Details</h3>
+        <div class="row" style="margin-top:15px">
+                <div class="col-lg-2">
+                    <label for="FirstName">First Name:</label>
+                </div>
+                <div class="col-lg-4">
+                    <text for="FirstName">David</text>
+                </div>
+            <div class="col-lg-2">
+                <label for="FirstName">Last Name:</label>
+            </div>
+            <div class="col-lg-4">
+                <text for="FirstName">Williams</text>
+            </div>
+        </div>
+        
+        <div class="row" style="margin-top:15px">
+            <div class="col-lg-2">
+                <label for="FirstName">User Network ID:</label>
+            </div>
+            <div class="col-lg-4">
+                <text for="FirstName">DWilliams</text>
+            </div>
+            <div class="col-lg-2">
+                <label for="FirstName">Status:</label>
+            </div>
+            <div class="col-lg-4">
+                <text for="FirstName">Registered</text>
+            </div>
+        </div>
+        <div class="row" style="margin-top:15px">
+            
+                <h3>Roles</h3>
+                <form id="form" action="#" class="wizard-big">
+                    <select class="form-control dual_select" multiple>
+                        <option value="United States">Supervisor</option>
+                        <option selected value="United Kingdom">Role 1</option>
+                        <option selected value="Australia">Role 2</option>
+                        <option selected value="Australia">Role 3</option>
+                        <option selected value="Austria">Role 4</option>
+                    </select>
+                </form>   
+        </div>
+        <div class="row" style="margin-top:15px">      
+                <h3>Modules</h3>
+                <form id="form" action="#" class="wizard-big">
+                    <select class="form-control dual_select" multiple>
+                        <option selected value="United States">PCS</option>
+                        <option selected value="United Kingdom">VPHS</option>
+                        <option selected value="Australia">Vector</option>
+                    </select>
+                </form>          
+        </div>
+        <div class="row" style="margin-top:15px">    
+                <h3>Field Office</h3>
+                <form id="form" action="#" class="wizard-big">
+                    <select class="form-control dual_select" multiple>
+                        <option selected value="United States">Field Office 1</option>
+                        <option selected value="United Kingdom">Field Office 2</option>
+                        <option selected value="Australia">Field Office 3</option>
+                    </select>
+                </form>         
+        </div>
+        <div class="row" style="margin-top:15px">
+            <button class="btn btn-primary">Save</button>
+            <button class="btn btn-primary">Cancel</button>
+        </div>
+    </div>
+</div>
+@section Styles {
+    @Styles.Render("~/Content/plugins/dropzone/dropZoneStyles")
+@Styles.Render("~/plugins/jasnyBootstrapStyles")
+@Styles.Render("~/plugins/codeEditorStyles")
+@Styles.Render("~/plugins/duallistStyles")
+
+}
+@section Scripts {
+    @Scripts.Render("~/plugins/sparkLine")
+@Scripts.Render("~/plugins/dropZone")
+@Scripts.Render("~/plugins/jasnyBootstrap")
+@Scripts.Render("~/plugins/codeEditor")
+@Scripts.Render("~/plugins/duallist")
+    <script type="text/javascript">
+        Dropzone.options.dropzoneForm = {
+            paramName: "file", // The name that will be used to transfer the file
+            maxFilesize: 2, // MB
+            dictDefaultMessage: "<strong>Photo Upload</strong></br> "
+        };
+        $(document).ready(function () {
+            $('.dual_select').bootstrapDualListbox({
+                selectorMinimalHeight: 160
+            });
+            $("#sparkline1").sparkline([34, 43, 43, 35, 44, 32, 44, 48], {
+                type: 'line',
+                width: '100%',
+                height: '50',
+                lineColor: '#1ab394',
+                fillColor: "transparent"
+            });
+         var editor_one = CodeMirror.fromTextArea(document.getElementById("code1"), {
+                lineNumbers: true,
+                matchBrackets: true
+            });
+            var editor_two = CodeMirror.fromTextArea(document.getElementById("code2"), {
+                lineNumbers: true,
+                matchBrackets: true
+            });
+            var editor_two = CodeMirror.fromTextArea(document.getElementById("code3"), {
+                lineNumbers: true,
+                matchBrackets: true
+            });
+        });
+    </script>
+}
+
+

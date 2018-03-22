@@ -1,0 +1,1106 @@
+﻿
+@{
+    ViewBag.Title = "Filter Job";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Filter Job</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("ExecutiveDashboard", "Dashboards")">Home</a>
+            </li>
+            <li>PCS</li>
+            <li class="active">
+                <strong>Filter Job</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="wrapper wrapper-content">
+    <div class="row" style="width: 205%;">
+        <div class="col-md-6">
+            <div class="ibox-content">
+                <div id="map"></div>
+                <span id="messages"></span> 
+            </div>
+        </div>
+    </div><br />
+
+    <div class="row">
+        <div class="col-lg-12">
+
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>Filter Options </h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <label class="col-sm-2 control-label">Job ID:</label>
+                        <div class="col-md-4">
+                            <input class="form-control" />
+                        </div>
+                        
+                        <label class="col-sm-2 control-label">Researcher:</label>
+                        <div class="col-md-4">
+                            <select class="select2_demo_1 form-control">
+                                <option value="1">Select</option>
+                                <option value="2">Researcher 1</option>
+                                <option value="3">Researcher 2</option>
+                                <option value="4">Researcher 3</option>
+                                <option value="5">Researcher 4</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 10px">
+                        <label class="col-sm-2 control-label">House Number:</label>
+                        <div class="col-md-4">
+                            <input  class="form-control" />
+                        </div>
+                        
+                        <label class="col-sm-2 control-label">Street Name:</label>
+                        <div class="col-md-4">
+                            <input  class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 10px">
+                        <label class="col-sm-2 control-label">Block:</label>
+                        <div class="col-md-4">
+                            <input id="getBlock" type="number" class="form-control" />
+                        </div>
+                        
+                        <label class="col-sm-2 control-label">Lot:</label>
+                        <div class="col-md-4">
+                            <input id="getLot" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 10px">
+                        <label class="col-sm-2 control-label">Zip Code:</label>
+                        <div class="col-md-4">
+                            <input id="getZipcode" class="form-control" />
+                        </div>
+                        
+                        <label class="col-sm-2 control-label">DSNY ID:</label>
+                        <div class="col-md-4">
+                            <input  class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 10px">
+                        <label class="col-sm-2 control-label">Program:</label>
+                        <div class="col-md-4">
+                            <input  class="form-control" disabled="disabled">
+                        </div>
+                       
+                        <label class="col-sm-2 control-label">Borough:</label>
+                        <div class="col-md-4">
+                            <select class="select2_demo_1 form-control">
+                                <option value="1">Manhattan</option>
+                                <option value="2">Brooklyn</option>
+                                <option value="3">Queens</option>
+                                <option value="4">Bronx</option>
+                                <option value="5">Staten Island</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 10px">
+                        <label class="col-sm-2 control-label">Field Office:</label>
+                        <div class="col-md-4">
+                            <select class="select2_demo_1 form-control">
+                                <option value="1">Office 1</option>
+                                <option value="2">Office 2</option>
+                                <option value="3">Office 3</option>
+                            </select>
+                        </div>
+                       
+                        <label class="col-sm-2 control-label">Inspector:</label>
+                        <div class="col-md-4">
+                            <select class="select2_demo_1 form-control">
+                                <option value="1">Inspector 1</option>
+                                <option value="2">Inspector 2</option>
+                                <option value="3">Inspector 3</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group" id="data_5" style="margin-top: 20px">
+                            <label class="col-sm-2 control-label">Range select:</label>
+                            <div class="col-md-4">
+                                <div id="reportrange" class="form-control">
+                                    <i class="fa fa-calendar"></i>
+                                    <span></span> <b class="caret"></b>
+                                </div>
+                            </div>
+                        </div>
+                        <label class="col-sm-2 control-label">Show Completed Jobs:</label>
+                        <div class="col-md-4">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" checked="" value="option1" id="optionsRadios1" name="optionsRadios"> Yes
+                                </label>
+                                <label>
+                                    <input type="radio" checked="" value="option1" id="optionsRadios1" name="optionsRadios"> No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group" id="data_5" style="margin-top: 20px">
+                            <label class="col-sm-2 control-label">Initiative Name:</label>
+                            <div class="col-md-4">
+                                <select class="select2_demo_1 form-control">
+                                    <option value="0">Select</option>
+                                    <option value="1">Initiative Name 1</option>
+                                    <option value="2">Initiative Name 2</option>
+                                    <option value="3">Inspector Name 3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <label class="col-sm-2 control-label">Zones:</label>
+                        <div class="col-md-4">
+                            <select class="select2_demo_1 form-control">
+                                <option value="0">Select</option>
+                                <option value="1">Zone 1</option>
+                                <option value="2">Zone 2</option>
+                                <option value="3">Zone 3</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group" id="data_5" style="margin-top: 20px">
+                            <label class="col-sm-2 control-label">Shelter:</label>
+                            <div class="col-md-4">
+                                <select class="select2_demo_1 form-control">
+                                    <option value="0">Select</option>
+                                    <option value="1">Shelter 1</option>
+                                    <option value="2">Shelter 2</option>
+                                    <option value="3">Shelter 3</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+            <div class="row" style="margin-top: 10px">
+            <label class="col-sm-2 control-label"></label>
+            <div class="col-sm-4 ">
+                <button class="btn btn-primary" onclick="clearselection();">Clear</button>
+                <button class="btn btn-primary" onclick="findblock(document.getElementById('getBlock').value, document.getElementById('getZipcode').value, document.getElementById('getLot').value);" style="margin-left:10px">Filter</button>
+            </div>
+        </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="ibox float-e-margins">
+
+
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <h5>Filter All Jobs</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="row">
+                            <div class="col-sm-4 checkbox i-checks">
+                                <label>
+                                    <input type="checkbox" value="">
+                                    <i></i> Clean-up Jobs
+                                </label>
+                            </div>
+                            @*<label class="col-sm-1 control-label"></label>*@
+                            <div class="col-sm-4 checkbox i-checks" style="margin-top: 10px">
+                                <label>
+                                    <input type="checkbox" value="">
+                                    <i></i> Compliance Jobs
+                                </label>
+                            </div>
+                            <div class="col-sm-4 checkbox i-checks" style="margin-top: 10px">
+                                <label>
+                                    <input type="checkbox" value="">
+                                    <i></i> Compliance Supervisor Check Jobs
+                                </label>
+                            </div>
+
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4 checkbox i-checks">
+                                <label>
+                                    <input type="checkbox" value="">
+                                    <i></i> Extermination Jobs
+                                </label>
+                            </div>
+                            @*<label class="col-sm-1 control-label"></label>*@
+                            <div class="col-sm-4 checkbox i-checks" style="margin-top: 10px">
+                                <label>
+                                    <input type="checkbox" value="">
+                                    <i></i> Extermination Supervisor Check Jobs
+                                </label>
+                            </div>
+                            <div class="col-sm-4 checkbox i-checks" style="margin-top: 10px">
+                                <label>
+                                    <input type="checkbox" value="">
+                                    <i></i> Initial Jobs
+                                </label>
+                            </div>
+
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4 checkbox i-checks">
+                                <label>
+                                    <input type="checkbox" value="">
+                                    <i></i> Initial Jobs
+                                </label>
+                            </div>
+                            @*<label class="col-sm-1 control-label"></label>*@
+                            <div class="col-sm-4 checkbox i-checks" style="margin-top: 10px">
+                                <label>
+                                    <input type="checkbox" value="">
+                                    <i></i> Routes
+                                </label>
+                            </div>
+                            <div class="col-sm-4 checkbox i-checks" style="margin-top: 10px">
+                                <label>
+                                    <input type="checkbox" value="">
+                                    <i></i> QA Jobs
+                                </label>
+                            </div>
+
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4 checkbox i-checks">
+                                <label>
+                                    <input type="checkbox" value="">
+                                    <i></i> Routes
+                                </label>
+                            </div>
+                            @*<label class="col-sm-1 control-label"></label>*@
+                            <div class="col-sm-4 checkbox i-checks" style="margin-top: 10px">
+                                <label>
+                                    <input type="checkbox" value="">
+                                    <i></i> QA Jobs
+                                </label>
+                            </div>
+                            <div class="col-sm-4 checkbox i-checks" style="margin-top: 10px">
+                                <label>
+                                    <input type="checkbox" value="">
+                                    <i></i> Stoppage Jobs
+                                </label>
+                            </div>
+
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4 checkbox i-checks">
+                                <label>
+                                    <input type="checkbox" value="">
+                                    <i></i> Supervisor Check Jobs
+                                </label>
+                            </div>
+                            @*<label class="col-sm-1 control-label"></label>*@
+                            <div class="col-sm-4 checkbox i-checks" style="margin-top: 10px">
+                                <label>
+                                    <input type="checkbox" value="">
+                                    <i></i> Work Orders
+                                </label>
+                            </div>
+                            <div class="col-sm-4 checkbox i-checks" style="margin-top: 10px">
+                                <label>
+                                    <input type="checkbox" value="">
+                                    <i></i> Shelters
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 10px">
+                            <div class="col-sm-4 ">
+                                <button class="btn btn-primary" type="submit">Clear</button>
+                                <button class="btn btn-primary" type="submit" style="margin-left:10px">Filter</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="ibox float-e-margins">
+
+            <div class="ibox-content">
+
+               . <div class="m-b-lg">
+    <div class="m-t-md">
+        <strong>List of All Jobs</strong>
+        <br /><br />
+
+        <a>Note: Completed jobs will automatically be removed from Centralized Job Pool after 36 hours of submission.</a>
+    </div>
+
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover issue-tracker">
+        <thead>
+            <tr>
+                <th><input type="checkbox" id="select_all" value="" /></th>
+                <th>Job ID</th>
+                <th>Added by</th>
+                <th>Added On</th>
+                <th>House #</th>
+                <th>Street Name</th>
+                <th>Apt #</th>
+                <th>Borough</th>
+                <th>Duplicate</th>
+                <th>Route Id</th>
+                <th>RMZ</th>
+                <th>Shelter</th>
+                <th>Job Type</th>
+                <th>Job Category</th>
+                <th>Status</th>
+                <th>Priority</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="checkbox" id="checbox-1" value="" /></td>
+                <td class="issue-info">
+                    <a href="@Url.Action("JobDetails", "Billing")">PO12345</a>
+                </td>
+                <td>
+                    System Admin
+                </td>
+                <td>
+                    07/19/2017
+                </td>
+                <td>1372</td>
+                <td>7 Avenue</td>
+                <td>N/A</td>
+                <td> Staten Island</td>
+                <td>Yes</td>
+                <td>1</td>
+                <td>RMZ 1</td>
+                <td>Shelter 1</td>
+                <td>311</td>
+                <td>Initial</td>
+                <td>Open-Primary</td>
+                <td><span class="label label-danger">High</span></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="checbox-1" value="" /></td>
+
+                <td class="issue-info">
+                    <a href="@Url.Action("JobDetails", "Billing")">PO12345</a>
+                </td>
+                <td>
+                    System Admin
+                </td>
+                <td>
+                    07/19/2017
+                </td>
+                <td>1372</td>
+                <td>7 Avenue</td>
+                <td>N/A</td>
+                <td> Staten Island</td>
+                <td>No</td>
+                <td>2</td>
+                <td>RMZ 2</td>
+                <td>Shelter 2</td>
+                <td>311</td>
+                <td>Initial</td>
+                <td>Ready for Approval</td>
+
+                <td><span class="label label-danger">High</span></td>
+
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="checbox-1" value="" /></td>
+                <td class="issue-info">
+                    <a href="@Url.Action("JobDetails", "Billing")">PO12345</a>
+                </td>
+                <td>
+                    System Admin
+                </td>
+                <td>
+                    07/19/2017
+                </td>
+                <td>1372</td>
+                <td>7 Avenue</td>
+                <td>N/A</td>
+                <td> Staten Island</td>
+                <td>Yes</td>
+                <td>3</td>
+                <td>RMZ 3</td>
+                <td>Shelter 3</td>
+                <td>311</td>
+                <td>Initial</td>
+                <td>Initial Insp Done</td>
+                <td><span class="label label-warning">Medium</span></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="checbox-1" value="" /></td>
+                <td class="issue-info">
+                    <a href="@Url.Action("JobDetails", "Billing")">PO12345</a>
+                </td>
+                <td>
+                    System Admin
+                </td>
+                <td>
+                    07/19/2017
+                </td>
+                <td>1372</td>
+                <td>7 Avenue</td>
+                <td>N/A</td>
+                <td> Staten Island</td>
+                <td>No</td>
+                <td>4</td>
+                <td>RMZ 4</td>
+                <td>Shelter 4</td>
+                <td>311</td>
+                <td>Initial</td>
+                <td>Extermination Done</td>
+                <td><span class="label label-success">Low</span></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="checbox-1" value="" /></td>
+                <td class="issue-info">
+                    <a href="@Url.Action("JobDetails", "Billing")">PO12345</a>
+                </td>
+                <td>
+                    System Admin
+                </td>
+                <td>
+                    07/19/2017
+                </td>
+                <td>1372</td>
+                <td>7 Avenue</td>
+                <td>N/A</td>
+                <td> Staten Island</td>
+                <td>Yes</td>
+                <td>5</td>
+                <td>RMZ 5</td>
+                <td>Shelter 5</td>
+                <td>311</td>
+                <td>Initial</td>
+                <td>Comp Insp Done</td>
+                <td><span class="label label-success">Low</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+                <div class="row" style="margin-top: 15px">
+                    <label class="col-lg-4 control-label"></label>
+                    <button type="button" class="btn btn-primary demo3" id="demo3">Add to Route</button> &nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-primary demo4" id="demo4">Reroute </button> &nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-primary demo5" id="demo5">Retract </button> &nbsp;&nbsp;&nbsp;
+                </div>
+                <div class="row" style="margin-top: 15px">
+                    <label class="col-lg-2"></label>
+                    <button type="button" class="btn btn-primary demo6" id="demo6">Approve </button> &nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-primary demo7" id="demo7">Reject </button> &nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-primary demo8" id="demo8">Return</button> &nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-primary demo10" id="demo8">Sup Check</button> &nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-primary demo9" id="demo9">QA Check</button> &nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-primary " onclick="$('#AddOwnerPopup').modal('show');">Dup/De-Dup</button> &nbsp;&nbsp;&nbsp;
+                </div>
+        </div>
+        </div> 
+        <div id="AddOwnerPopup" class="modal fade">
+            <div class="modal-dialog" style="width: 920px">
+                <div class="modal-content ">
+                    <div class="modal-body">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">Job Details</h4>
+                        </div>
+                        <div class="modal-body form-horizontal">
+                            <div class="row">
+                                <label class="col-lg-3 control-label" style="margin-top: 15px">Dup/De-Dup:</label>
+                                <div class="col-lg-6" style="margin-top: 15px">
+
+                                    <select class="select2_demo_1 form-control">
+                                        <option value="">Select</option>
+                                        <option value="1">Not Duplicate-Make it as primary</option>
+                                        <option value="2">Duplicate-Close the Ticket</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-lg-3 control-label" style="margin-top: 15px">Duplicate Job Ticket:</label>
+                                <div class="col-lg-6" style="margin-top: 15px">
+                                    <input value="" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-lg-3 control-label">Comments:</label>
+                                <div class="col-lg-6">
+                                    <textarea class="form-control border-left m-t" style="height: 200px" placeholder="Enter Comments"></textarea>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: 15px">
+                                <label class="col-lg-3 control-label"></label>
+                                <div class="col-lg-6">
+                                    <button type="button" class="btn btn-primary " id="btnSendEmail">Save</button>
+                                    <button type="button" class="btn btn-primary " style="margin-left: 10px" id="btnCancelEmail">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                    </div>
+                </div>
+            </div>
+        </div>     
+    </div>
+</div>
+@section Styles {
+@Styles.Render("~/plugins/sweetAlertStyles")
+    @Styles.Render("~/plugins/dateRangeStyles")
+    @Styles.Render("~/Content/plugins/iCheck/iCheckStyles")
+    @Styles.Render("~/plugins/dataPickerStyles")
+    <style>
+        #map {
+            position: relative ;
+            margin: 5px;
+            width: 1000px;
+            height: 400px;
+            border: 1px solid #000;
+        }
+    </style>
+    <link rel="stylesheet" href="https://js.arcgis.com/3.23/dijit/themes/soria/soria.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/3.23/dojox/grid/resources/Grid.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/3.23/dojox/grid/resources/soriaGrid.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/3.23/esri/css/esri.css" />
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/plugins/peity")
+    @Scripts.Render("~/plugins/dataPicker")
+    @Scripts.Render("~/plugins/imagecropper")
+    @Scripts.Render("~/plugins/iCheck")
+@Scripts.Render("~/plugins/dateRange")
+    @Scripts.Render("https://maps.googleapis.com/maps/api/js?key=AIzaSyDQTpXj82d8UpCi97wzo_nKXL7nYrd4G70")
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("span.pie").peity("pie", {
+                fill: ['#1ab394', '#d7d7d7', '#ffffff']
+            })
+
+        });
+        google.maps.event.addDomListener(window, 'load', init);
+
+        function init() {
+            // Options for Google map
+            // More info see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+            var mapOptions1 = {
+                zoom: 11,
+                center: new google.maps.LatLng(40.6700, -73.9400),
+                // Style for Google Maps
+                styles: [
+                    {
+                        "featureType": "water",
+                        "stylers": [{ "saturation": 43 }, { "lightness": -11 }, { "hue": "#0088ff" }]
+                    },
+                    {
+                        "featureType": "road",
+                        "elementType": "geometry.fill",
+                        "stylers": [{ "hue": "#ff0000" }, { "saturation": -100 }, { "lightness": 99 }]
+                    },
+                    {
+                        "featureType": "road",
+                        "elementType": "geometry.stroke",
+                        "stylers": [{ "color": "#808080" }, { "lightness": 54 }]
+                    },
+                    {
+                        "featureType": "landscape.man_made",
+                        "elementType": "geometry.fill",
+                        "stylers": [{ "color": "#ece2d9" }]
+                    },
+                    { "featureType": "poi.park", "elementType": "geometry.fill", "stylers": [{ "color": "#ccdca1" }] },
+                    { "featureType": "road", "elementType": "labels.text.fill", "stylers": [{ "color": "#767676" }] },
+                    { "featureType": "road", "elementType": "labels.text.stroke", "stylers": [{ "color": "#ffffff" }] },
+                    { "featureType": "poi", "stylers": [{ "visibility": "off" }] },
+                    {
+                        "featureType": "landscape.natural",
+                        "elementType": "geometry.fill",
+                        "stylers": [{ "visibility": "on" }, { "color": "#b8cb93" }]
+                    }, { "featureType": "poi.park", "stylers": [{ "visibility": "on" }] },
+                    { "featureType": "poi.sports_complex", "stylers": [{ "visibility": "on" }] },
+                    { "featureType": "poi.medical", "stylers": [{ "visibility": "on" }] },
+                    { "featureType": "poi.business", "stylers": [{ "visibility": "simplified" }] }
+                ]
+            };
+
+            var mapOptions2 = {
+                zoom: 11,
+                center: new google.maps.LatLng(40.6700, -73.9400),
+                // Style for Google Maps
+                styles: [
+                    {
+                        "featureType": "all",
+                        "elementType": "all",
+                        "stylers": [
+                            { "invert_lightness": true }, { "saturation": 10 }, { "lightness": 30 }, { "gamma": 0.5 },
+                            { "hue": "#435158" }
+                        ]
+                    }
+                ]
+            };
+
+            var mapOptions3 = {
+                center: new google.maps.LatLng(36.964645, -122.01523),
+                zoom: 18,
+                mapTypeId: google.maps.MapTypeId.SATELLITE,
+                // Style for Google Maps
+                styles: [
+                    { "featureType": "road", "elementType": "geometry", "stylers": [{ "visibility": "off" }] },
+                    { "featureType": "poi", "elementType": "geometry", "stylers": [{ "visibility": "off" }] },
+                    { "featureType": "landscape", "elementType": "geometry", "stylers": [{ "color": "#fffffa" }] },
+                    { "featureType": "water", "stylers": [{ "lightness": 50 }] },
+                    { "featureType": "road", "elementType": "labels", "stylers": [{ "visibility": "off" }] },
+                    { "featureType": "transit", "stylers": [{ "visibility": "off" }] },
+                    { "featureType": "administrative", "elementType": "geometry", "stylers": [{ "lightness": 40 }] }
+                ]
+            };
+
+            var mapOptions4 = {
+                zoom: 11,
+                center: new google.maps.LatLng(40.6700, -73.9400),
+                // Style for Google Maps
+                styles: [
+                    {
+                        "stylers": [
+                            { "hue": "#18a689" }, { "visibility": "on" }, { "invert_lightness": true },
+                            { "saturation": 40 }, { "lightness": 10 }
+                        ]
+                    }
+                ]
+            };
+
+            var fenway = new google.maps.LatLng(42.345573, -71.098326);
+            var mapOptions5 = {
+                zoom: 14,
+                center: fenway,
+                // Style for Google Maps
+                styles: [
+                    {
+                        featureType: "landscape",
+                        stylers: [{ saturation: -100 }, { lightness: 65 }, { visibility: "on" }]
+                    },
+                    {
+                        featureType: "poi",
+                        stylers: [{ saturation: -100 }, { lightness: 51 }, { visibility: "simplified" }]
+                    }, { featureType: "road.highway", stylers: [{ saturation: -100 }, { visibility: "simplified" }] },
+                    {
+                        featureType: "road.arterial",
+                        stylers: [{ saturation: -100 }, { lightness: 30 }, { visibility: "on" }]
+                    },
+                    {
+                        featureType: "road.local",
+                        stylers: [{ saturation: -100 }, { lightness: 40 }, { visibility: "on" }]
+                    }, { featureType: "transit", stylers: [{ saturation: -100 }, { visibility: "simplified" }] },
+                    { featureType: "administrative.province", stylers: [{ visibility: "off" }] /**/ },
+                    { featureType: "administrative.locality", stylers: [{ visibility: "off" }] },
+                    { featureType: "administrative.neighborhood", stylers: [{ visibility: "on" }] /**/ },
+                    {
+                        featureType: "water",
+                        elementType: "labels",
+                        stylers: [{ visibility: "on" }, { lightness: -25 }, { saturation: -100 }]
+                    },
+                    {
+                        featureType: "water",
+                        elementType: "geometry",
+                        stylers: [{ hue: "#ffff00" }, { lightness: -25 }, { saturation: -97 }]
+                    }
+                ]
+            };
+           
+            var panoramaOptions = {
+                position: fenway,
+                pov: {
+                    heading: 10,
+                    pitch: 10
+                }
+            };
+            //var panorama = new google.maps.StreetViewPanorama(document.getElementById('pano'), panoramaOptions);
+            $('#select_all').click(function(event) {
+                if (this.checked) {
+                    // Iterate each checkbox
+                    $(':checkbox').each(function() {
+                        this.checked = true;
+                    });
+                } else {
+                    $(':checkbox').each(function() {
+                        this.checked = false;
+                    });
+                }
+            });
+
+
+        }
+
+        $(document).ready(function() {
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+
+
+        });
+        $(document).ready(function() {
+
+
+            $('#data_1 .input-group.date').datepicker({
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true
+            });
+
+            $('#data_2 .input-group.date').datepicker({
+                startView: 1,
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            });
+
+            $('#data_3 .input-group.date').datepicker({
+                startView: 2,
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            });
+
+            $('#data_4 .input-group.date').datepicker({
+                minViewMode: 1,
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true,
+                todayHighlight: true
+            });
+
+            $('#data_5 .input-daterange').datepicker({
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            });
+
+            $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') +
+                ' - ' +
+                moment().format('MMMM D, YYYY'));
+            $('#reportrange').daterangepicker({
+                    format: 'MM/DD/YYYY',
+                    startDate: moment().subtract(29, 'days'),
+                    endDate: moment(),
+                    minDate: '01/01/1950',
+                    maxDate: '12/31/3000',
+                    dateLimit: { days: 60 },
+                    showDropdowns: true,
+                    showWeekNumbers: true,
+                    timePicker: false,
+                    timePickerIncrement: 1,
+                    timePicker12Hour: true,
+
+                    opens: 'right',
+                    drops: 'down',
+                    buttonClasses: ['btn', 'btn-sm'],
+                    applyClass: 'btn-primary',
+                    cancelClass: 'btn-default',
+                    separator: ' to ',
+                    locale: {
+                        applyLabel: 'Submit',
+                        cancelLabel: 'Cancel',
+                        fromLabel: 'From',
+                        toLabel: 'To',
+                        customRangeLabel: 'Custom',
+                        daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+                        monthNames: [
+                            'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
+                            'October', 'November', 'December'
+                        ],
+                        firstDay: 1
+                    }
+                },
+                function(start, end, label) {
+                    console.log(start.toISOString(), end.toISOString(), label);
+                    $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+                });
+
+
+            $('input[name="daterange"]').daterangepicker();
+
+
+        });
+    </script>
+
+    <script src="https://js.arcgis.com/3.23/"></script>
+    <script type="text/javascript">
+        var dojoConfig = { parseOnLoad: true };
+        dojo.require("dijit.dijit"); // optimize: load dijit layer
+        dojo.require("dijit.layout.BorderContainer");
+        dojo.require("dijit.layout.ContentPane");
+        dojo.require("esri.map");
+        dojo.require("esri.layers.FeatureLayer");
+        dojo.require("esri.symbols.SimpleFillSymbol");
+        dojo.require("esri.symbols.SimpleLineSymbol");
+        dojo.require("esri.toolbars.draw");
+        dojo.require("dojo.data.ItemFileWriteStore");
+        dojo.require("dojox.grid.DataGrid");
+        dojo.require("dijit.form.Button");
+        dojo.require("dojox.grid.cells.dijit");
+        dojo.require("dojo.number");
+        dojo.require("dijit.TooltipDialog");
+        dojo.require("esri.toolbars.draw");
+        dojo.require("dojo.dom");
+        dojo.require("dojo.on");
+        dojo.require("dojo.parser");
+        dojo.require("dojo._base.array");
+        dojo.require("esri.Color");
+        dojo.require("dojo.number");
+        dojo.require("esri.graphic");
+        dojo.require("esri.geometry.Point");
+
+        var featureLayer;
+        var map;
+        var selectionToolbar;
+        var query;
+        var newQuery;
+
+        dojo.ready(loadinit);
+
+        function loadinit() {
+            // query = new esri.tasks.Query();
+            // query.where = "Block = 1572";
+
+            dojo.parser.parse();
+
+            map = new esri.Map("map",
+                {
+                    basemap: "satellite",
+                    center: [-73.90798403043057, 40.67716150820878],
+                    zoom: 18
+                });
+
+
+            map.on("load",
+                function(event) {
+                    selectionToolbar = new esri.toolbars.Draw(event.map);
+
+                });
+
+
+        }
+
+
+        function showTooltip(evt) {
+            closeDialog();
+            var dialog = new dijit.TooltipDialog({
+                id: "tooltipDialog",
+                content: evt.graphic.attributes.Block + "<br />" + evt.graphic.attributes.OwnerName,
+                style: "position: absolute; width: 200px; font: normal normal bold 6pt Tahoma;z-index:100"
+            });
+            dialog.startup();
+
+            dojo.style(dialog.domNode, "opacity", 0.85);
+            dijit.placeOnScreen(dialog.domNode, { x: evt.pageX, y: evt.pageY }, ["TL", "BL"], { x: 10, y: 10 });
+        }
+
+        function closeDialog() {
+            var widget = dijit.byId("tooltipDialog");
+            if (widget) {
+                widget.destroy();
+            }
+        }
+
+        function findblock(valBlock, valZipcode, valLot) {
+            if (featureLayer) {
+                //alert(featureLayer);
+                featureLayer.clear();
+            }
+
+
+            var symbol = new esri.symbol.SimpleMarkerSymbol({
+                "color": [255, 255, 255, 255],
+                "size": 5,
+                "angle": 0,
+                "xoffset": 0,
+                "yoffset": 0,
+                "type": "esriSMS",
+                "style": "esriSMSCircle",
+                "transparency": 0,
+                "outline": {
+                    "color": [51, 159, 255, 255],
+                    "width": 2,
+                    "type": "esriSLS",
+                    "style": "esriSLSSolid"
+                }
+            });
+            
+            var renderer = new esri.renderer.SimpleRenderer(symbol);            
+            query = new esri.tasks.Query();
+            //query.where = "Block =" + valBlock + "or ZipCode =" + valZipcode;
+            if ((valBlock) && !(valZipcode)) {
+                newQuery = "Block =" + valBlock;        // test data for Block is 1572
+            }
+            else if ((valZipcode) && !(valBlock)) {
+                newQuery = "ZipCode =" + valZipcode;   // test data for ZipCode is 11233
+            }
+            else {
+                newQuery = "Block =" + valBlock + "And ZipCode =" + valZipcode;
+            }   
+            query.where = newQuery;
+            var fieldsSelectionSymbol =
+                new esri.symbol.SimpleFillSymbol(esri.symbol.SimpleFillSymbol.STYLE_SOLID,
+                    new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_DASHDOT,
+                        new esri.Color([255, 0, 0]),
+                        2),
+                    new esri.Color([192, 192, 192, 0.5]));
+
+
+            featureLayer = new esri.layers.FeatureLayer(
+                "https://services3.arcgis.com/A6Zjpzrub8ESZ3c7/ArcGIS/rest/services/PLUTO_Points/FeatureServer/0",
+                {
+                    outFields: ["*"],
+                    mode: esri.layers.FeatureLayer.MODE_SELECTION
+                });
+
+            featureLayer.setRenderer(renderer);
+            var selectQuery = new esri.tasks.Query();
+
+            selectionToolbar.on("DrawEnd",
+                function(geometry) {
+                    selectionToolbar.deactivate();
+                    selectQuery.geometry = geometry;
+                    featureLayer.selectFeatures(selectQuery,
+                        esri.layers.FeatureLayer.SELECTION_ADD,
+                        function(results) {
+                            var facilitiesSum = "";
+                            dojo._base.array.forEach(results,
+                                function(feature) {
+                                    facilitiesSum += " " + feature.attributes.OwnerName;
+                                    //dojo.dom.byId('messages').innerHTML = "<b>Selected Facilities owners: " +
+                                    //    facilitiesSum +
+                                    //    " </b>";
+                                });
+                        });
+
+                    map.graphics.add(new esri.Graphic(geometry, fieldsSelectionSymbol));
+
+                });
+
+
+            map.addLayer(featureLayer);
+            featureLayer.on("mouse-over", showTooltip);
+            featureLayer.on("mouse-out", closeDialog);
+
+
+            featureLayer.on("load",
+                function() {
+
+                    //dojo.dom.byId('messages').innerHTML = "<i>No Selected Fields</i>";
+
+
+                    featureLayer.queryFeatures(query,
+                        function(featureSet) {
+                            //for (var i = 0; i < featureSet.features.length; i++) {
+                            var feature = featureSet.features[0];
+                            // alert(feature.attributes.OwnerName);
+                            //}
+                            map.centerAt(
+                                new esri.geometry.Point(feature.attributes.POINT_X, feature.attributes.POINT_Y));
+
+                            featureLayer.selectFeatures(query, esri.layers.FeatureLayer.SELECTION_NEW)
+                        });
+
+                });
+
+
+            featureLayer.on("click",
+                function(evt) {
+
+                    //dojo.dom.byId('messages').innerHTML = "<b>Selected Facilities owners: " +
+                    //    evt.graphic.attributes['OwnerName'] +
+                    //    " </b>";
+                });
+
+
+        }
+
+        function showselection() {
+            selectionToolbar.activate(esri.toolbars.Draw.EXTENT);
+        }
+
+        function clearselection() {
+            map.graphics.clear();
+            //dojo.dom.byId('messages').innerHTML = "<i>No Selected Fields</i>";
+
+            featureLayer.queryIds(query,
+                function(objectIds) {
+
+                    featureLayer.selectFeatures(query, esri.layers.FeatureLayer.SELECTION_NEW)
+                });
+        }
+        $('.demo3').click(function () {
+            swal({
+                title: "Added to Route!",
+                text: "Route Id 1",
+                type: "success"
+            });
+        });
+        $('.demo4').click(function () {
+            swal({
+                title: "Rerouted Successfully!",
+                type: "success"
+            });
+        });
+        $('.demo5').click(function () {
+            swal({
+                title: "Retracted Successfully!",
+                type: "success"
+            });
+        });
+        $('.demo6').click(function () {
+            swal({
+                title: "Approved Successfully!",
+                type: "success"
+            });
+        });
+        $('.demo7').click(function () {
+            swal({
+                title: "Rejected Successfully!",
+                type: "success"
+            });
+        });
+        $('.demo8').click(function () {
+            swal({
+                title: "Returned Successfully!",
+                type: "success"
+            });
+        });
+        $('.demo9').click(function () {
+            swal({
+                title: "QA check Successfully!",
+                type: "success"
+            });
+        });
+        $('.demo10').click(function () {
+            swal({
+                title: "Sup check Successfully!",
+                type: "success"
+            });
+        });
+
+
+    </script>
+}
+        }
+

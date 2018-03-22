@@ -1,0 +1,205 @@
+﻿@{
+    ViewBag.Title = "BillingDashboard";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Search Billing Job</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("ExecutiveDashboard", "Dashboards")">Home</a>
+            </li>
+            <li>Billing</li>
+            <li class="active">
+                <strong>Search Billing Job</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+
+<div class="wrapper wrapper-content">
+
+    <div class="ibox-content">
+        <h3>Search Jobs</h3>
+        <div class="row" style="margin-top: 20px">
+            <label class="col-sm-1 control-label"> Job Id:</label>
+            <div class="col-md-3">
+                <input class="form-control">
+            </div>
+          
+
+        </div>
+        <div class="row" style="margin-top: 20px">
+            <label class="col-sm-1 control-label"> Type:</label>
+            <div class="col-md-3">
+                <input class="form-control" >
+            </div>
+            <label class="col-sm-1 control-label">House #:</label>
+            <div class="col-md-3">
+                <input class="form-control" >
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-1 control-label"> Borough: </label>
+                <div class="col-md-3">
+                    <input class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 20px">
+            <label class="col-sm-1 control-label"> Field Office:</label>
+            <div class="col-md-3">
+                <input class="form-control" >
+            </div>
+            <label class="col-sm-1 control-label">Street:</label>
+            <div class="col-md-3">
+                <input class="form-control" >
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-1 control-label"> Block: </label>
+                <div class="col-md-3">
+                    <input class="form-control" >
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 20px">
+            <label class="col-sm-1 control-label"> Status:</label>
+            <div class="col-md-3">
+                <input class="form-control" >
+            </div>
+            <label class="col-sm-1 control-label">Zip Code:</label>
+            <div class="col-md-3">
+                <input class="form-control" >
+            </div>
+
+            <div class="form-group" id="data_5">
+                <label class="col-sm-1 control-label"> Lot: </label>
+                <div class="col-md-3">
+                    <input class="form-control" >
+                </div>
+
+
+            </div>
+        </div>
+        <br/>
+        <button type="button" class="btn btn-primary " id="demo3">Search </button>
+        <button type="button" class="btn btn-primary " id="demo3">Clear </button>
+        
+    </div>
+    <br/>
+    <div class="ibox-content">
+        <h3>Search Results</h3>
+
+        <div class="ibox float-e-margins animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox ">
+
+                        <div class="ibox-content">
+                            <div class="jqGrid_wrapper">
+                                <table id="table_list_2"></table>
+                                <div id="pager_list_2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+
+    </div>
+
+</div>
+@section Styles {
+
+    @Styles.Render("~/Content/plugins/jqGrid/jqGridStyles")
+
+
+
+}
+
+
+@section Scripts {
+@Scripts.Render("~/plugins/jqGrid")
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var mydata = [
+                     { JobID: "PO1598300", Researcher: "Saundra Cesario-Lopez", AssignedOn: "07/01/2015", House: "176-24", StreetName: "126 Avenue", Apt: "Opposite Of", Borough: "Queens", Block: "12525", Lot: "0012", Priority: "Normal", JobType: "DSNY", urlID:"JobDetails" },
+                     { JobID: "PO1598881", Researcher: "Saundra Cesario-Lopez", AssignedOn: "07/01/2015", House: "35-34 & 35-28", StreetName: "101 Street", Apt: "Between", Borough: "Queens", Block: "01741", Lot: "0016", Priority: "Normal", JobType: "DSNY", urlID: "JobDetails" },
+                     { JobID: "PO1608199", Researcher: "Saundra Cesario-Lopez", AssignedOn: "07/01/2015", House: "152", StreetName: "BAY 53 Street", Apt: "Adjacent To", Borough: "Brooklyn", Block: "06949", Lot: "0083", Priority: "Normal", JobType: "DSNY", urlID: "JobDetails" },
+                     { JobID: "PO1608220", Researcher: "Saundra Cesario-Lopez", AssignedOn: "07/01/2015", House: "152", StreetName: "BAY 53 Street", Apt: "Adjacent To", Borough: "Brooklyn", Block: "06949", Lot: "0081", Priority: "Normal", JobType: "DSNY", urlID: "JobDetails" },
+                     { JobID: "PO1608221", Researcher: "Saundra Cesario-Lopez", AssignedOn: "07/01/2015", House: "152", StreetName: "BAY 53 Street", Apt: "Adjacent To", Borough: "Brooklyn", Block: "06949", Lot: "0079", Priority: "Normal", JobType: "DSNY", urlID: "JobDetails" },
+                     { JobID: "PO1608234", Researcher: "Saundra Cesario-Lopez", AssignedOn: "07/01/2015", House: "152", StreetName: "BAY 53 Street", Apt: "Adjacent To", Borough: "Brooklyn", Block: "06949", Lot: "0078", Priority: "Normal", JobType: "DSNY", urlID: "JobDetails" },
+                     { JobID: "PO1608235", Researcher: "Saundra Cesario-Lopez", AssignedOn: "07/01/2015", House: "152", StreetName: "BAY 53 Street", Apt: "Adjacent To", Borough: "Brooklyn", Block: "06949", Lot: "0077", Priority: "Normal", JobType: "DSNY", urlID: "JobDetails" },
+                     { JobID: "PO1608238", Researcher: "Saundra Cesario-Lopez", AssignedOn: "07/01/2015", House: "152", StreetName: "BAY 53 Street", Apt: "Adjacent To", Borough: "Brooklyn", Block: "06949", Lot: "0076", Priority: "Normal", JobType: "DSNY", urlID: "JobDetails" },
+                     { JobID: "PO1608249", Researcher: "Saundra Cesario-Lopez", AssignedOn: "07/01/2015", House: "177", StreetName: "Buffalo Ave", Apt: "Adjacent To", Borough: "Brooklyn", Block: "01363", Lot: "0006", Priority: "Normal", JobType: "DSNY", urlID: "JobDetails" },
+                     { JobID: "PO1608253", Researcher: "Saundra Cesario-Lopez", AssignedOn: "07/01/2015", House: "867", StreetName: "New Jersy Ave", Apt: "Adjacent To", Borough: "Brooklyn", Block: "04348", Lot: "0055", Priority: "Normal", JobType: "DSNY", urlID: "JobDetails" },
+                     { JobID: "PO1598881", Researcher: "Saundra Cesario-Lopez", AssignedOn: "07/01/2015", House: "542", StreetName: "Schenck Ave", Apt: "Adjacent To", Borough: "Brooklyn", Block: "04075", Lot: "0118", Priority: "Normal", JobType: "DSNY", urlID: "JobDetails" },
+                     { JobID: "PO1608199", Researcher: "Saundra Cesario-Lopez", AssignedOn: "07/01/2015", House: "675", StreetName: "Linwood ST", Apt: "Adjacent To", Borough: "Brooklyn", Block: "04067", Lot: "0008", Priority: "Normal", JobType: "DSNY", urlID: "JobDetails" },
+                     { JobID: "PO1608220", Researcher: "Saundra Cesario-Lopez", AssignedOn: "07/01/2015", House: "657", StreetName: "Hinsdale Street", Apt: "Adjacent To", Borough: "Brooklyn", Block: "03867", Lot: "0009", Priority: "Normal", JobType: "DSNY", urlID: "JobDetails" },
+                     { JobID: "PO1608221", Researcher: "Saundra Cesario-Lopez", AssignedOn: "07/01/2015", House: "657", StreetName: "Hinsdale Street", Apt: "Adjacent To", Borough: "Brooklyn", Block: "03867", Lot: "0008", Priority: "Normal", JobType: "DSNY", urlID: "JobDetails" },
+                     { JobID: "PO1608234", Researcher: "Saundra Cesario-Lopez", AssignedOn: "07/01/2015", House: "99 & 103", StreetName: "S 4th Street", Apt: "Between", Borough: "Brooklyn", Block: "02430", Lot: "0038", Priority: "Normal", JobType: "DSNY", urlID: "JobDetails" },
+
+
+        ];
+
+
+        // Configuration for jqGrid Example 2
+        $("#table_list_2").jqGrid({
+            data: mydata,
+            datatype: "local",
+            height: 220,
+            autowidth: true,
+            shrinkToFit: true,
+            rowNum: 20,
+            rowList: [10, 20, 30],
+            colNames: [ 'Job ID', 'Researcher', 'Assigned On', 'House #', 'Street Name', 'Apt #', 'Borough', 'Block','Lot', 'Priority', 'Job Type'],
+            colModel: [
+                { name: 'JobID', index: 'JobID', editable: true, width: 90, sorttype: "int", align: "center", formatter: function (cellvalue, options, rowObject) {
+                    return "<a href='" + window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/')) + "/" + rowObject.urlID + "'>" + cellvalue + '</a>';}},
+                { name: 'Researcher', index: 'JobType', editable: true, width: 150, sorttype: "int", align: "center" },
+                { name: 'AssignedOn', index: 'AssignedOn', editable: true, width: 80, align: "center", sorttype: "string", },
+                { name: 'House', index: 'House', editable: true, width: 80, align: "center", sorttype: "int" },
+                { name: 'StreetName', index: 'StreetName', editable: true, width: 80, align: "center", sorttype: "int" },
+                { name: 'Apt', index: 'Apt', editable: true, width: 80, align: "center", sorttype: "int" },
+                { name: 'Borough', index: 'Borough', editable: true, width: 100, align: "center", sorttype: "int" },
+                { name: 'Block', index: 'Block', editable: true, width: 80, align: "center", sorttype: "int" },
+                { name: 'Lot', index: 'Lot', editable: true, width: 80, align: "center", sorttype: "int" },
+                { name: 'Priority', index: 'Priority', editable: true, width: 80, align: "center", sorttype: "int" },
+                { name: 'JobType', index: 'JobType', editable: true, width: 80, align: "center", sorttype: "int" },
+
+            ],
+            pager: "#pager_list_2",
+            viewrecords: true,
+
+            add: true,
+            edit: true,
+            addtext: 'Add',
+            edittext: 'Edit',
+            hidegrid: false
+        });
+
+        // Add selection
+        $("#table_list_2").setSelection(4, true);
+
+
+        // Setup buttons
+        $("#table_list_2").jqGrid('navGrid', '#pager_list_2',
+                { edit: true, add: true, del: true, search: true },
+                { reloadAfterSubmit: true }
+        );
+
+        // Add responsive to jqGrid
+        $(window).bind('resize', function () {
+            var width = $('.jqGrid_wrapper').width();
+            $('#table_list_1').setGridWidth(width);
+            $('#table_list_2').setGridWidth(width);
+
+        });
+
+    });
+</script>
+}

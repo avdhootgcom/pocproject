@@ -28,4 +28,16 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://ev-tfs-dev:8080/tfs/vrvss%20collection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = VRVSS_PCS_BusinessService\\VRVSS_PCS_BusinessService.csproj
+		SccProjectName1 = VRVSS_PCS_BusinessService
+		SccLocalPath1 = VRVSS_PCS_BusinessService
+		SccProjectUniqueName2 = VRVSS_PCS_WebMVC\\VRVSS_PCS_WebMVC.csproj
+		SccProjectName2 = VRVSS_PCS_WebMVC
+		SccLocalPath2 = VRVSS_PCS_WebMVC
+	EndGlobalSection
 EndGlobal

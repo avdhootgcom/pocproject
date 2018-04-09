@@ -12,7 +12,7 @@ namespace VRVSS_PCS_BusinessService
     public interface IService1
     {
         [OperationContract]
-        string GetData(string value);
+        List<InspectionBO> GetInspectionData(InspectionBO inspectionBO);
 
       // TODO: Add your service operations here
     }

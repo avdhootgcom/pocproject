@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VRVSS_PCS_WebMVC.ServiceReference1;
 
 namespace VRVSS_PCS_WebMVC
 {
@@ -21,10 +22,12 @@ namespace VRVSS_PCS_WebMVC
         {
             ServiceReference1.Service1Client client = new
                 ServiceReference1.Service1Client();
-            string returnString;
+           // string returnString;
 
-            returnString = client.GetData(textBox1.Text);
-            label1.Text = returnString;
+            //returnString = client.GetData(textBox1.Text);
+            InspectionBO inspectionInput = new InspectionBO();
+            List<InspectionBO> inspectionList = client.GetInspectionData(inspectionInput);
+            label1.Text = inspectionList[1].lname;
         }
     }
 }

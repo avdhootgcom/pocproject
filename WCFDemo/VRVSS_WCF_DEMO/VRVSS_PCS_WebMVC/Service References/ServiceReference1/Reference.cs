@@ -15,18 +15,16 @@ namespace VRVSS_PCS_WebMVC.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/VRVSS_PCS_BusinessService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="InspectionBO", Namespace="http://schemas.datacontract.org/2004/07/VRVSS_PCS_BusinessService")]
     [System.SerializableAttribute()]
-    public partial class CompositeType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class InspectionBO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool BoolValueField;
+        private string fnameField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string StringValueField;
+        private string lnameField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -38,28 +36,28 @@ namespace VRVSS_PCS_WebMVC.ServiceReference1 {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool BoolValue {
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string fname {
             get {
-                return this.BoolValueField;
+                return this.fnameField;
             }
             set {
-                if ((this.BoolValueField.Equals(value) != true)) {
-                    this.BoolValueField = value;
-                    this.RaisePropertyChanged("BoolValue");
+                if ((object.ReferenceEquals(this.fnameField, value) != true)) {
+                    this.fnameField = value;
+                    this.RaisePropertyChanged("fname");
                 }
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string StringValue {
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string lname {
             get {
-                return this.StringValueField;
+                return this.lnameField;
             }
             set {
-                if ((object.ReferenceEquals(this.StringValueField, value) != true)) {
-                    this.StringValueField = value;
-                    this.RaisePropertyChanged("StringValue");
+                if ((object.ReferenceEquals(this.lnameField, value) != true)) {
+                    this.lnameField = value;
+                    this.RaisePropertyChanged("lname");
                 }
             }
         }
@@ -78,17 +76,11 @@ namespace VRVSS_PCS_WebMVC.ServiceReference1 {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetData", ReplyAction="http://tempuri.org/IService1/GetDataResponse")]
-        string GetData(string value);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetInspectionData", ReplyAction="http://tempuri.org/IService1/GetInspectionDataResponse")]
+        System.Collections.Generic.List<VRVSS_PCS_WebMVC.ServiceReference1.InspectionBO> GetInspectionData(VRVSS_PCS_WebMVC.ServiceReference1.InspectionBO inspectionBO);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetData", ReplyAction="http://tempuri.org/IService1/GetDataResponse")]
-        System.Threading.Tasks.Task<string> GetDataAsync(string value);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
-        VRVSS_PCS_WebMVC.ServiceReference1.CompositeType GetDataUsingDataContract(VRVSS_PCS_WebMVC.ServiceReference1.CompositeType composite);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
-        System.Threading.Tasks.Task<VRVSS_PCS_WebMVC.ServiceReference1.CompositeType> GetDataUsingDataContractAsync(VRVSS_PCS_WebMVC.ServiceReference1.CompositeType composite);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetInspectionData", ReplyAction="http://tempuri.org/IService1/GetInspectionDataResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<VRVSS_PCS_WebMVC.ServiceReference1.InspectionBO>> GetInspectionDataAsync(VRVSS_PCS_WebMVC.ServiceReference1.InspectionBO inspectionBO);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -118,20 +110,12 @@ namespace VRVSS_PCS_WebMVC.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public string GetData(string value) {
-            return base.Channel.GetData(value);
+        public System.Collections.Generic.List<VRVSS_PCS_WebMVC.ServiceReference1.InspectionBO> GetInspectionData(VRVSS_PCS_WebMVC.ServiceReference1.InspectionBO inspectionBO) {
+            return base.Channel.GetInspectionData(inspectionBO);
         }
         
-        public System.Threading.Tasks.Task<string> GetDataAsync(string value) {
-            return base.Channel.GetDataAsync(value);
-        }
-        
-        public VRVSS_PCS_WebMVC.ServiceReference1.CompositeType GetDataUsingDataContract(VRVSS_PCS_WebMVC.ServiceReference1.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContract(composite);
-        }
-        
-        public System.Threading.Tasks.Task<VRVSS_PCS_WebMVC.ServiceReference1.CompositeType> GetDataUsingDataContractAsync(VRVSS_PCS_WebMVC.ServiceReference1.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContractAsync(composite);
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<VRVSS_PCS_WebMVC.ServiceReference1.InspectionBO>> GetInspectionDataAsync(VRVSS_PCS_WebMVC.ServiceReference1.InspectionBO inspectionBO) {
+            return base.Channel.GetInspectionDataAsync(inspectionBO);
         }
     }
 }

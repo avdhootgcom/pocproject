@@ -95,7 +95,7 @@
     <None Include="Service References\ServiceReference1\VRVSS_PCS_BusinessService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference1\VRVSS_PCS_WebMVC.ServiceReference1.CompositeType.datasource">
+    <None Include="Service References\ServiceReference1\VRVSS_PCS_WebMVC.ServiceReference1.InspectionBO.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>
